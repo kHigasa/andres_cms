@@ -27,7 +27,7 @@ gem 'slim-rails'
 gem 'kaminari'
 # Upload files
 gem 'carrierwave'
-# gem 'rmagick'
+gem 'rmagick'
 # Authentication
 gem 'devise'
 # Authorization
