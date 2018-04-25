@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
 git_source(:github) do |repo_name|
-  repo_name = '#{repo_name}/#{repo_name}' unless repo_name.include?('/')
-  'https://github.com/#{repo_name}.git'
+  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?('/')
+  "https://github.com/#{repo_name}.git"
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -84,12 +84,12 @@ group :development, :test do
   gem 'database_cleaner'
   # Create fake data
   gem 'faker'
-  # N+1
+  # Detect N+1
   gem 'bullet'
   # Beautiful log
   gem 'beautiful-log'
   gem 'rails-flog', require: 'flog'
-  # For E2E test
+  # E2E test
   gem 'capybara', '~> 2.4.1'
   gem 'selenium-webdriver'
 end
