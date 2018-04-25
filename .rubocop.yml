@@ -1,0 +1,13 @@
+AllCops:
+  TargetRubyVersion: 2.4.1
+  Exclude:
+    - db/schema.rb
+    - tmp/**/*
+Rails:
+  Enabled: true
+# permit -> of lambda
+Lambda:
+  Enabled: false
+# permit Module::Class definition
+ClassAndModuleChildren:
+  Enabled: false
