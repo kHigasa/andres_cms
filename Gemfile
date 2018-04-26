@@ -57,6 +57,8 @@ group :development do
   # Lint
   gem 'rubocop', '~> 0.49.0', require: false
   gem 'rubocop-rspec', '~> 1.10.0', require: false
+  # Use git hooks
+  gem 'overcommit'
   # To jenkins
   gem 'rubocop-checkstyle_formatter'
   # Debug on browser
