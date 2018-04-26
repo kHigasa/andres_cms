@@ -44,6 +44,8 @@ gem 'ransack'
 gem 'breadcrumbs_on_rails'
 # json serializer
 gem 'active_model_serializers'
+# I18n
+gem 'enum_help'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -73,6 +75,7 @@ end
 group :test do
   # Use rspec for test
   gem 'rspec-rails', '~> 3.5.2'
+  gem 'shoulda-matchers'
   # Mesure coverage of test
   gem 'simplecov', '~> 0.13.0'
 end
