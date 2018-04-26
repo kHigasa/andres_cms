@@ -82,6 +82,8 @@ group :development, :test do
   gem 'pry-byebug'
   # Create factory for test
   gem 'factory_bot_rails'
+  # Integration test
+  gem 'cucumber-rails', :require => false
   # Database cleaning everytime
   gem 'database_cleaner'
   # Create fake data
