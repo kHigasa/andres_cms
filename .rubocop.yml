@@ -11,3 +11,7 @@ Lambda:
 # permit Module::Class definition
 ClassAndModuleChildren:
   Enabled: false
+LineLength:
+  Max: 100
+Style/FrozenStringLiteralComment:
+  Enabled: false

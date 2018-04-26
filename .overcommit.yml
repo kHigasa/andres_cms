@@ -1,4 +1,6 @@
 PreCommit:
+  AuthorName:
+    enabled: false
   RuboCop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']

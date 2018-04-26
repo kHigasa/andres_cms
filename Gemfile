@@ -85,7 +85,7 @@ group :development, :test do
   # Create factory for test
   gem 'factory_bot_rails'
   # Integration test
-  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails', require: false
   # Database cleaning everytime
   gem 'database_cleaner'
   # Create fake data
@@ -98,4 +98,6 @@ group :development, :test do
   # E2E test
   gem 'capybara', '~> 2.4.1'
   gem 'selenium-webdriver'
+  # ER image
+  gem 'rails-erd'
 end
