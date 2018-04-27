@@ -70,6 +70,8 @@ group :development do
   gem 'annotate'
   # Use Capistrano for deployment
   gem 'capistrano-rails', require: false
+  # Detect N+1
+  gem 'bullet'
 end
 
 group :test do
@@ -93,8 +95,6 @@ group :development, :test do
   gem 'database_cleaner'
   # Create fake data
   gem 'faker'
-  # Detect N+1
-  gem 'bullet'
   # Beautiful log
   gem 'beautiful-log'
   gem 'rails-flog', require: 'flog'
