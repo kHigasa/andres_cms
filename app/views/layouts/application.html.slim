@@ -5,6 +5,7 @@ html
     = csrf_meta_tags
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   body
+    = render 'navbar'
     p.notice= notice
     p.alert= alert
     = yield
