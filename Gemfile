@@ -32,6 +32,7 @@ gem 'carrierwave'
 gem 'rmagick'
 # Authentication
 gem 'devise'
+gem 'omniauth-twitter'
 # Authorization
 gem 'pundit'
 # i18n message
