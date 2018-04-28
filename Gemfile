@@ -47,6 +47,8 @@ gem 'breadcrumbs_on_rails'
 gem 'active_model_serializers'
 # I18n
 gem 'enum_help'
+# erb to slim
+gem 'html2slim'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
