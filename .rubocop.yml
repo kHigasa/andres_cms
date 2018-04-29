@@ -11,6 +11,8 @@ Lambda:
 # permit Module::Class definition
 ClassAndModuleChildren:
   Enabled: false
+Layout/CommentIndentation:
+  Enabled: false
 Metrics/AbcSize:
   Enabled: false
 Metrics/LineLength:
