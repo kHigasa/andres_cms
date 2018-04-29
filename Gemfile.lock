@@ -402,7 +402,7 @@ DEPENDENCIES
   bullet
   capistrano-rails
   capybara (~> 2.4.1)
-  carrierwave
+  carrierwave (~> 1.0)
   cucumber-rails
   database_cleaner
   devise

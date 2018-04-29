@@ -28,7 +28,7 @@ gem 'kaminari'
 # Dump
 gem 'oj'
 # Upload files
-gem 'carrierwave'
+gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 # Authentication
 gem 'devise'
