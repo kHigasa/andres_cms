@@ -1,0 +1,12 @@
+span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background: #fff;
+  color: #2fcaff;
+}
+
+.homeImage {
+  width: 100%;
+}
