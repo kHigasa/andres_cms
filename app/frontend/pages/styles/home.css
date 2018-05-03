@@ -23,6 +23,11 @@ span {
   order: 2;
 }
 
+.Page_title {
+  font-weight: 400;
+  font-size: 38px;
+}
+
 .smoothImage {
   flex: 0 0 auto;
   align-self: stretch;

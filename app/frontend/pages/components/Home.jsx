@@ -13,8 +13,8 @@ class Home extends React.Component {
         <img src={homeImage} className='homeImage' />
         <Parallax
           data={{
-            'data-bottom-top': 'transform: translateX(-400px) translateY(400px);',
-            'data-200-center-center': 'transform: translateX(0) translateY(0);'
+            'data-bottom-top': 'transform: translateX(-800px);',
+            'data-200-center-center': 'transform: translateX(0);'
           }}
         >
           <img src={smoothImage} className='smoothImage' />
@@ -22,13 +22,17 @@ class Home extends React.Component {
         <Parallax
           className='Page_text'
           data={{
-            'data-bottom-top': 'transform: translateX(-400px) translateY(400px);',
-            'data-200-center-center': 'transform: translateX(0) translateY(0);'
+            'data-bottom-top': 'transform: translateX(800px);',
+            'data-200-center-center': 'transform: translateX(0);'
           }}
         >
           <div className='Page_title'>Convenience Shouldn’t Compromise Quality</div>
           <div className='Page_content'>
-            Our team of professional chefs have applied their skill and experience to create a menu that is diverse, ethical, and appealing to just about every taste. We focus on healthy ingredients found seasonally and locally, warm comfort foods, and hearty flavours that travel directly to you – so you can focus on doing whatever it is you're doing.
+            Our team of professional chefs have applied their skill and experience to create a menu
+            <br />that is diverse, ethical, and appealing to just about every taste.
+            <br />We focus on healthy ingredients found seasonally and locally, warm comfort foods,
+            <br />and hearty flavours that travel directly to you – so you can focus on doing
+            <br />whatever it is you're doing.
           </div>
         </Parallax>
         <Parallax
