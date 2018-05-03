@@ -7,6 +7,24 @@ span {
   color: #2fcaff;
 }
 
+.Page_section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .homeImage {
   width: 100%;
+}
+
+.Page_text {
+  align-self: flex-start;
+  flex: 0 0 auto;
+  order: 2;
+}
+
+.smoothImage {
+  flex: 0 0 auto;
+  align-self: stretch;
+  order: 1;
 }

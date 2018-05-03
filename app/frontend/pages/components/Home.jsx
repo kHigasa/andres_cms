@@ -3,25 +3,33 @@ import ReactDOM from 'react-dom';
 import { ParallaxProvider, Parallax } from 'react-skrollr';
 
 import homeImage from '../images/home.png';
-// import smoothImage from '../images/smooth.jpg';
+import smoothImage from '../images/smooth.jpg';
 import '../styles/home.css';
 
 class Home extends React.Component {
   render() {
     return (
-      <ParallaxProvider>
+      <ParallaxProvider className='Page_section'>
         <img src={homeImage} className='homeImage' />
         <Parallax
           data={{
-            'data-top-top': 'transform: translateX(-100%);',
-            'data-center-center': 'opacity: 1;transform: translateX(0%);',
-            'data-bottom-top': 'opacity: 0;'
+            'data-bottom-top': 'transform: translateX(-400px) translateY(400px);',
+            'data-200-center-center': 'transform: translateX(0) translateY(0);'
           }}
         >
-          <span>
-            "Start scrolling!!"
-            "star"
-          </span>
+          <img src={smoothImage} className='smoothImage' />
+        </Parallax>
+        <Parallax
+          className='Page_text'
+          data={{
+            'data-bottom-top': 'transform: translateX(-400px) translateY(400px);',
+            'data-200-center-center': 'transform: translateX(0) translateY(0);'
+          }}
+        >
+          <div className='Page_title'>Convenience Shouldn’t Compromise Quality</div>
+          <div className='Page_content'>
+            Our team of professional chefs have applied their skill and experience to create a menu that is diverse, ethical, and appealing to just about every taste. We focus on healthy ingredients found seasonally and locally, warm comfort foods, and hearty flavours that travel directly to you – so you can focus on doing whatever it is you're doing.
+          </div>
         </Parallax>
         <Parallax
           data={{
