@@ -25,6 +25,9 @@
 #  provider               :string(255)
 #  uid                    :string(255)
 #  username               :string(255)
+#  image                  :string(255)
+#  introduction           :text(65535)
+#  description            :text(65535)
 #
 
 FactoryBot.define do
