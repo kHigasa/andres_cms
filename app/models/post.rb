@@ -12,4 +12,7 @@
 #
 
 class Post < ApplicationRecord
+  has_many :items, dependent: :destroy
+  has_many :tags, dependent: :destroy
+  belongs_to_active_hash :topic, optional: false
 end

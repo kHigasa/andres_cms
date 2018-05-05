@@ -1,6 +1,6 @@
 class Topic < ActiveHash::Base
-  field :name
-  add id: 1, name: 'NEWS'
-  add id: 2, name: 'EVENT'
-  add id: 3, name: 'COLUMN'
+  field :name, :code
+  add id: 1, code: :news, name: 'NEWS'
+  add id: 2, code: :event, name: 'EVENT'
+  add id: 3, code: :column, name: 'COLUMN'
 end
