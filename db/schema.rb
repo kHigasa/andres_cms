@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180505041610) do
+ActiveRecord::Schema.define(version: 20180505052639) do
 
   create_table "item_images", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string "image"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20180505041610) do
     t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "topic_id"
+    t.index ["topic_id"], name: "index_posts_on_topic_id"
   end
 
   create_table "social_accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
