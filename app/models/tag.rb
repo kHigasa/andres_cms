@@ -9,5 +9,5 @@
 #
 
 class Tag < ApplicationRecord
-  belongs_to :post
+  belongs_to :post, touch: true
 end

@@ -11,4 +11,6 @@
 
 class SocialAccount < ApplicationRecord
   belongs_to :user, touch: true
+
+  enum account_type: %i[facebook twitter]
 end

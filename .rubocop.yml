@@ -27,3 +27,5 @@ Style/Documentation:
   Enabled: false
 Style/EmptyMethod:
   Enabled: false
+Rails/InverseOf:
+  Enabled: false

@@ -10,4 +10,5 @@
 #
 
 class ItemImage < ApplicationRecord
+  has_one :item, as: :target, dependent: :destroy
 end
