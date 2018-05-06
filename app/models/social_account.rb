@@ -13,4 +13,8 @@ class SocialAccount < ApplicationRecord
   belongs_to :user, touch: true
 
   enum account_type: %i[facebook twitter]
+
+  validates :user, presence: true
+  validates :url, presence: true, uniqueness: true
+  validates :account_type, presence: true
 end
