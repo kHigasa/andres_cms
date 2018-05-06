@@ -10,4 +10,5 @@
 
 class Tag < ApplicationRecord
   belongs_to :post, touch: true
+  validates :name, presence: true
 end
