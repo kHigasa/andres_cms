@@ -4,3 +4,7 @@ PreCommit:
   RuboCop:
     enabled: true
     command: ['bundle', 'exec', 'rubocop']
+  EsLint:
+    enabled: true
+    command: ['./node_modules/.bin/eslint', 'client/.eslintrc.json']
+    include: '**/*.jsx'
