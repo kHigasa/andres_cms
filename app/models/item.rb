@@ -17,4 +17,15 @@ class Item < ApplicationRecord
     text: 'ItemText',
     image: 'ItemImage'
   }
+
+  after_destroy :destroy_target
+
+  validates :sort_rank, presence: true
+  validates :target_type, presence: true
+
+  private
+
+  def destroy_target
+    target.destroy
+  end
 end
