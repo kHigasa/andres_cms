@@ -6,7 +6,7 @@ git_source(:github) do |repo_name|
 end
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.1.2'
+gem 'rails', '5.2.0'
 # Use mysql as the database for Active Record
 gem 'mysql2', '>= 0.3.18', '< 0.5'
 # Use Puma as the app server
@@ -68,7 +68,7 @@ group :development do
   gem 'rubocop-checkstyle_formatter'
   # Debug on browser
   gem 'better_errors', '~> 2.1.1'
-  gem 'binding_of_caller', '~> 0.7.2'
+  gem 'binding_of_caller', '>= 0.8.0'
   # Visualize model
   gem 'annotate'
   # Use Capistrano for deployment

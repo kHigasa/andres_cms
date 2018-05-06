@@ -7,6 +7,8 @@
 #  target_type :string(255)
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
+#  post_id     :integer
+#  target_id   :integer
 #
 
 class Item < ApplicationRecord
