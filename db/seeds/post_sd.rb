@@ -9,7 +9,7 @@ Post.destroy_all
           else
             :column
           end
-  Post.create!(
+  Post.create(
     title: Faker::Lorem.word,
     lead_sentence: Faker::Lorem.sentence,
     accepted: Faker::Boolean.boolean,

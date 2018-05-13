@@ -6,5 +6,5 @@ PreCommit:
     command: ['bundle', 'exec', 'rubocop']
   EsLint:
     enabled: true
-    command: ['./node_modules/.bin/eslint', './app/frontend/*', '-c', '.eslintrc.json']
+    command: ['./node_modules/.bin/eslint', './app/frontend/*', '-c', '.eslintrc']
     include: '**/*.jsx'

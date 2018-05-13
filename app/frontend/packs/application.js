@@ -1,3 +1,3 @@
 import './application.css';
 import './pages';
-import './reset.css'
+import './reset.css';
