@@ -38,7 +38,7 @@ gem 'pundit'
 # i18n message
 gem 'rails-i18n'
 # codebase master data
-gem 'active_hash'
+# gem 'active_hash'
 # search form
 gem 'ransack'
 # breadcrumbs
