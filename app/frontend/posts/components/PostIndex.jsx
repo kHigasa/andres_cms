@@ -15,7 +15,7 @@ class PostIndex extends Component {
   }
 
   fetchPost (id) {
-    axios.get(`posts/${id}`)
+    axios.get(`api/v1/posts/${id}`)
          .then((response) => {
            this.setState({ post: response.data });
          })
@@ -42,7 +42,7 @@ PostIndex.propTypes = {
 };
 
 PostIndex.defaultProps = {
-  id: this.props.id
+  id: ''
 };
 
 export default PostIndex;
