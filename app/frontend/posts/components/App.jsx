@@ -1,9 +1,19 @@
 import React from 'react';
+import {
+  BrowserRouter as Router,
+  Route
+} from 'react-router-dom';
+import PostIndex from './PostIndex';
 
 const App = () => (
-  <div className='App'>
-    <h1 className='App-title'>Hola andres!!</h1>
-  </div>
+  <Router>
+    <div>
+      <Route
+        path='/posts'
+        component={PostIndex}
+      />
+    </div>
+  </Router>
 );
 
 export default App;
