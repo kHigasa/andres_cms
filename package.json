@@ -1,6 +1,14 @@
 {
   "name": "andres_cms",
   "private": true,
+  "scripts": {
+    "test": "jest"
+  },
+  "jest": {
+    "roots": [
+      "spec/javascript"
+    ]
+  },
   "dependencies": {
     "@rails/webpacker": "3.4",
     "axios": "^0.18.0",
