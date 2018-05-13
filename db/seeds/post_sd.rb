@@ -2,6 +2,7 @@ Rails.logger.info __FILE__
 
 Post.destroy_all
 10.times do |i|
+  i += 1
   topic = if (i % 3).zero?
             :event
           elsif (i % 5).zero?

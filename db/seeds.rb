@@ -1,5 +1,5 @@
 # User
-load Rails.root.join('db', 'seeds', 'user_sd.rb')
+# load Rails.root.join('db', 'seeds', 'user_sd.rb')
 # Post
 load Rails.root.join('db', 'seeds', 'post_sd.rb')
 
