@@ -16,7 +16,7 @@
     "material-ui": "^0.20.0",
     "postcss-nested": "^3.0.0",
     "prop-types": "^15.6.1",
-    "query-string": "^6.0.0",
+    "query-string": "^6.1.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-router": "^4.2.0",

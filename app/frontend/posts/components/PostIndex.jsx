@@ -1,21 +1,22 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 
 class PostIndex extends Component {
   constructor () {
     super();
     this.state = {
-      post: {}
+      post: {
+        id: 1
+      }
     };
   }
 
   componentDidMount () {
-    this.fetchPost (this.props.id);
+    this.fetchPost (this.state.post.id);
   }
 
   fetchPost (id) {
-    axios.get(`api/v1/posts/${id}`)
+    axios.get(`api/posts/${id}`)
          .then((response) => {
            this.setState({ post: response.data });
          })
@@ -26,23 +27,15 @@ class PostIndex extends Component {
   }
 
   render () {
-    const post = this.state.post;
     return (
       <div className='post'>
         <div className='postTitle'>
-          {post.title}
+          {this.state.post.title}
+          {this.state.post.lead_sentence}
         </div>
       </div>
     );
   }
 }
-
-PostIndex.propTypes = {
-  id: PropTypes.number
-};
-
-PostIndex.defaultProps = {
-  id: ''
-};
 
 export default PostIndex;
