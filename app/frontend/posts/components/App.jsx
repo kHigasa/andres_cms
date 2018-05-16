@@ -9,9 +9,6 @@ import PostIndex from './PostIndex';
 const App = () => (
   <Router>
     <div className='post'>
-      <ul>
-        <li><a href='/posts'>PostIndex</a></li>
-      </ul>
       <Switch>
         <Route exact path='/posts' component={PostIndex} />
       </Switch>

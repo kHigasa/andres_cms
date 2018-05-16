@@ -5,6 +5,7 @@ html
     = csrf_meta_tags
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
   body
+    #header= javascript_pack_tag 'layouts/components/header'
     = render 'layouts/header'
     p.notice= notice
     p.alert= alert

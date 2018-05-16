@@ -1,4 +1,5 @@
 import './application.css';
-import './pages';
-import './posts';
-import './reset.css';
+import './pages/pages';
+import './posts/posts';
+import './styles/reset.css';
+import './layouts/components/header';
