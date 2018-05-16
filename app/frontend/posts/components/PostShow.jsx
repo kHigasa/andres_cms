@@ -6,7 +6,10 @@ class PostShow extends PureComponent {
     return (
       <div>
         <li>
-          <h3>{this.props.post.id}{this.props.post.title}</h3>
+          <h3>
+            {this.props.post.id}
+            {this.props.post.title}
+          </h3>
           <p>{this.props.post.lead_sentence}</p>
         </li>
       </div>
