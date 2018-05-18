@@ -8,11 +8,13 @@ class App extends Component {
       open: false
     };
   }
+
   handleToggle() {
     this.setState({
       open: !this.state.open
     });
   }
+
   render() {
     return (
       <div>
