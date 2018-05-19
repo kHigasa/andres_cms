@@ -10,6 +10,9 @@ Rails.application.configure do
     Bullet.rails_logger = true
   end
 
+  # Beautiful log
+  config.logger.formatter = Beautiful::Log::Formatter.new
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on

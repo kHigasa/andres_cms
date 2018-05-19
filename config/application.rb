@@ -29,7 +29,6 @@ module AndresCms
     config.i18n.default_locale = :ja
     # Setting log
     config.logger = Logger.new(STDOUT)
-    # config.logger.formatter = Beautiful::Log::Formatter.new
 
     # Don't generate system test files.
     config.generators.system_tests = nil
