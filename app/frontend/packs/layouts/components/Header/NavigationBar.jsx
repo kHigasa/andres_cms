@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import {
-  AppBar, Toolbar, Typography, IconButton, Switch, FormControlLabel, FormGroup,
-  MenuItem, Menu,  Drawer, List, Divider
+  AppBar, Toolbar, Typography, IconButton, MenuItem, Menu,
+  Drawer, List, Divider
 } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -37,10 +37,6 @@ class NavigationBar extends Component {
     };
   }
 
-  handleChange = (e, checked) => {
-    this.setState({ auth: checked });
-  }
-
   handleMenu = (e) => {
     this.setState({ anchorEl: e.currentTarget });
   }
@@ -61,7 +57,7 @@ class NavigationBar extends Component {
     const open = Boolean(anchorEl);
     const sideList = (
       <div className={classes.list}>
-        <List>PostIndex</List>
+        <a href="/posts"><List>PostIndex</List></a>
         <Divider />
         <List>About</List>
       </div>
@@ -69,14 +65,6 @@ class NavigationBar extends Component {
 
     return (
       <div className={classes.root}>
-        <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
-            }
-            label={auth ? 'Logout' : 'Login'}
-          />
-        </FormGroup>
         <Drawer
           open={this.state.left}
           onClose={this.toggleDrawer('left', false)}
@@ -96,7 +84,7 @@ class NavigationBar extends Component {
               <MenuIcon  onClick={this.toggleDrawer('left', true)} />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              Title
+              <a href="/">Title</a>
             </Typography>
             {auth && (
               <div>
