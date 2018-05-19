@@ -10,7 +10,7 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: mysql
+  adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: root
@@ -39,7 +39,7 @@ test: &test
 #
 # On Heroku and other platform providers, you may have a full connection URL
 # available as an environment variable. For example:
-DATABASE_URL: "mysql://b134575d1355af:8293b19f@us-cdbr-iron-east-04.cleardb.net/heroku_5ecdfe3c4093b0c?reconnect=true"
+# DATABASE_URL="mysql2://b134575d1355af:8293b19f@us-cdbr-iron-east-04.cleardb.net/heroku_5ecdfe3c4093b0c?reconnect=true"
 
 production:
   <<: *default
