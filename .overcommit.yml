@@ -1,0 +1,10 @@
+PreCommit:
+  AuthorName:
+    enabled: false
+  # RuboCop:
+  #   enabled: true
+  #   command: ['bundle', 'exec', 'rubocop']
+  EsLint:
+    enabled: true
+    command: ['./node_modules/.bin/eslint', './app/frontend/*', '-c', '.eslintrc']
+    include: '**/*.jsx'
