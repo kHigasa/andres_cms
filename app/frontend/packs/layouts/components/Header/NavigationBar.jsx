@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import withStyles from '@material-ui/core/styles';
-import { AppBar, Toolbar, Typography, IconButton, Switch, FormControlLabel, FormGroup, MenuItem, Menu,  Drawer } from '@material-ui/core';
+import { withStyles } from '@material-ui/core/styles';
+import {
+  AppBar, Toolbar, Typography, IconButton, Switch, FormControlLabel, FormGroup,
+  MenuItem, Menu,  Drawer, List, Divider
+} from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
 
@@ -16,6 +19,12 @@ const styles = {
     marginLeft: -12,
     marginRight: 20
   },
+  list: {
+    width: 250
+  },
+  fullList: {
+    width: 'auto'
+  }
 };
 
 class NavigationBar extends Component {
@@ -23,7 +32,8 @@ class NavigationBar extends Component {
     super();
     this.state = {
       auth: true,
-      anchorEl :null
+      anchorEl :null,
+      left: false
     };
   }
 
@@ -39,13 +49,26 @@ class NavigationBar extends Component {
     this.setState({ anchorEl: null });
   }
 
+  toggleDrawer = (side, open) => () => {
+    this.setState({
+      [side]: open
+    });
+  }
+
   render() {
     const { classes } = this.props;
     const { auth, anchorEl } = this.state;
     const open = Boolean(anchorEl);
+    const sideList = (
+      <div className={classes.list}>
+        <List>PostIndex</List>
+        <Divider />
+        <List>About</List>
+      </div>
+    );
 
     return (
-      <div className>
+      <div className={classes.root}>
         <FormGroup>
           <FormControlLabel
             control={
@@ -55,19 +78,22 @@ class NavigationBar extends Component {
           />
         </FormGroup>
         <Drawer
-          docked={false}
-          width={200}
-          open={this.props.open}
-          onRequestChange={() => this.props.onToggle()}
+          open={this.state.left}
+          onClose={this.toggleDrawer('left', false)}
         >
-          <a href='/posts'><MenuItem>PostIndex</MenuItem></a>
+          <div
+            tabIndex={0}
+            role='button'
+            onClick={this.toggleDrawer('left', false)}
+            onKeyDown={this.toggleDrawer('left', false)}
+          >
+            {sideList}
+          </div>
         </Drawer>
-        <AppBar
-          onClick={() => this.props.onToggle()}
-        >
+        <AppBar>
           <Toolbar>
             <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-              <MenuIcon />
+              <MenuIcon  onClick={this.toggleDrawer('left', true)} />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
               Title
@@ -109,8 +135,6 @@ class NavigationBar extends Component {
 }
 
 NavigationBar.propTypes = {
-  open: PropTypes.bool.isRequired,
-  onToggle: PropTypes.func.isRequired,
   classes: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 

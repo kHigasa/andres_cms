@@ -18,10 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavigationBar
-          onToggle={() => this.handleToggle()}
-          open={this.state.open}
-        />
+        <NavigationBar />
       </div>
     );
   }
