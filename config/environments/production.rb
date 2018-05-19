@@ -71,7 +71,7 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Mailer Configuration
-  config.action_mailer.default_url_options = { host: 'http://prd-andres.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://prd-andres.herokuapp.com' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
