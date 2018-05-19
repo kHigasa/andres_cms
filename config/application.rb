@@ -31,6 +31,9 @@ module AndresCms
     config.logger = Logger.new(STDOUT)
     # config.logger.formatter = Beautiful::Log::Formatter.new
 
+    # Setup mailer in production
+    config.assets.initialize_on_precompile = false
+
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.generators do |g|
