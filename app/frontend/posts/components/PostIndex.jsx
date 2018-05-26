@@ -11,7 +11,7 @@ class PostIndex extends Component {
   }
 
   componentDidMount () {
-    axios.get('api/posts')
+    axios.get('/posts')
          .then((posts) => {
            this.setState({ posts: posts.data });
          })

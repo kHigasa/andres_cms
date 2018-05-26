@@ -13,14 +13,10 @@ gem 'mysql2', '>= 0.3.18', '< 0.5'
 gem 'puma', '~> 3.7'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
 gem 'webpacker'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-# gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 gem 'redis', '~> 3.0'
 # Use asynchronous processing
 gem 'sidekiq'
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
 # Use slim to write HTML
 gem 'slim-rails'
 # Pagenation
@@ -32,6 +28,8 @@ gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
 # Authentication
 gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # Authorization
 gem 'pundit'

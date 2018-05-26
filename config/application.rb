@@ -45,6 +45,7 @@ module AndresCms
       g.fixture_replacement :factory_bot, dir: 'spec/factories'
       g.stylesheets    false
       g.javascripts    false
+      g.helper         false
       g.channel        assets: false
     end
   end
