@@ -2,7 +2,7 @@ PreCommit:
   AuthorName:
     enabled: false
   RuboCop:
-    enabled: false
+    enabled: true
     command: ['bundle', 'exec', 'rubocop']
   EsLint:
     enabled: true
