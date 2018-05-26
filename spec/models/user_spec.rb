@@ -24,10 +24,11 @@
 #  updated_at             :datetime         not null
 #  provider               :string(255)
 #  uid                    :string(255)
-#  username               :string(255)
+#  admin                  :boolean          default(FALSE), not null
 #  image                  :string(255)
 #  introduction           :text(65535)
 #  description            :text(65535)
+#  username               :string(255)
 #
 
 require 'rails_helper'

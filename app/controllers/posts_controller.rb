@@ -4,12 +4,10 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @posts = Post.all
-    render json: @posts
   end
 
   # GET /posts/:id
   def show
-    render json: @post
   end
 
   # GET /posts/new
@@ -26,7 +24,6 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     if @post.save
       redirect_to posts_path
-      render json: @post
     else
       render :new
     end
@@ -36,7 +33,6 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       redirect_to posts_path
-      render json: @post
     else
       render :edit
     end
@@ -45,9 +41,9 @@ class PostsController < ApplicationController
   # DELETE /posts/:id
   def destroy
     if @post.destroy
-      render json: {}, status: :ok
+      render status: :ok
     else
-      render json: @post.errors, status: :unprocessable_entity
+      render status: :unprocessable_entity
     end
   end
 

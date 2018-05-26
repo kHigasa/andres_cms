@@ -32,7 +32,7 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 # Authorization
-gem 'pundit'
+gem 'cancancan', '~> 2.0'
 # i18n message
 gem 'rails-i18n'
 # search form

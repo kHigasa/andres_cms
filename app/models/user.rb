@@ -24,10 +24,11 @@
 #  updated_at             :datetime         not null
 #  provider               :string(255)
 #  uid                    :string(255)
-#  username               :string(255)
+#  admin                  :boolean          default(FALSE), not null
 #  image                  :string(255)
 #  introduction           :text(65535)
 #  description            :text(65535)
+#  username               :string(255)
 #
 
 class User < ApplicationRecord
@@ -35,7 +36,18 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable, :omniauthable,
-         omniauth_providers: [:twitter]
+         omniauth_providers: [:twitter], authentication_keys: [:login]
+  attr_accessor :login
+
+  # Override condition of authentication
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions.dup
+    if login = conditions.delete(:login)
+      where(conditions).find_by(['username = :value OR lower(email) = lower(:value)', { value: login }])
+    else
+      find_by(conditions)
+    end
+  end
 
   def self.from_omniauth(auth)
     find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |user|
