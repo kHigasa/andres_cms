@@ -56,6 +56,10 @@ GEM
     arel (9.0.0)
     ast (2.4.0)
     awesome_print (1.7.0)
+    babel-source (5.8.35)
+    babel-transpiler (0.7.0)
+      babel-source (>= 4.0, < 6)
+      execjs (~> 2.0)
     backports (3.11.3)
     bcrypt (3.1.11)
     beautiful-log (0.2.1)
@@ -141,6 +145,7 @@ GEM
       activesupport (>= 3.0.0)
     erubi (1.7.1)
     erubis (2.7.0)
+    execjs (2.7.0)
     factory_bot (4.8.2)
       activesupport (>= 3.0.0)
     factory_bot_rails (4.8.2)
@@ -290,6 +295,12 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
+    react-rails (2.4.4)
+      babel-transpiler (>= 0.7.0)
+      connection_pool
+      execjs
+      railties (>= 3.2)
+      tilt
     redis (3.3.5)
     responders (2.4.0)
       actionpack (>= 4.2.0, < 5.3)
@@ -426,6 +437,7 @@ DEPENDENCIES
   rails-flog
   rails-i18n
   ransack
+  react-rails
   redis (~> 3.0)
   rmagick
   rspec-rails (~> 3.5.2)
@@ -443,4 +455,4 @@ DEPENDENCIES
   webpacker
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
