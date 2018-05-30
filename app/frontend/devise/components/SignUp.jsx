@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
 import NameField from '../../components/TextFields/components/NameField';
 import EmailField from '../../components/TextFields/components/EmailField';
 import PassField from '../../components/TextFields/components/PassField';
 import PassConfField from '../../components/TextFields/components/PassConfField';
+
+const getCsrfToken = () => {
+  if (!(axios.defaults.headers.common['X-CSRF-Token'])) {
+    return (
+      document.getElementsByName('csrf-token')[0].getAttribute('content')
+    );
+  } else {
+    return (
+      axios.defaults.headers.common['X-CSRF-Token']
+    );
+  }
+};
+
+const setAxiosDefaults = () => {
+  axios.defaults.headers.common['X-CSRF-Token'] = getCsrfToken();
+  axios.defaults.headers.common['Accept'] = 'application/json';
+};
+
+setAxiosDefaults();
+
+const updateCsrfToken = (csrf_token) => {
+  axios.defaults.headers.common['X-CSRF-Token'] = csrf_token;
+};
 
 class SignUp extends Component {
   constructor() {
@@ -23,7 +45,8 @@ class SignUp extends Component {
       }
     })
     .then((response) => {
-      this.props.updateCurrentUser(response.data.email);
+      updateCsrfToken(response.data.csrf_token);
+      return(response);
     })
     .catch((e) => {
       /*eslint no-console: ['error', { allow: ['warn', 'error'] }] */
@@ -44,9 +67,5 @@ class SignUp extends Component {
     );
   }
 }
-
-SignUp.propTypes = {
-  updateCurrentUser: PropTypes.func.isRequired
-};
 
 export default SignUp;

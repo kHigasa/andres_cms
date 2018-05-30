@@ -1,7 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
 import axios from 'axios';
-import LoginField from '../../components/TextFields/components/LoginField';
-import PassField from '../../components/TextFields/components/PassField';
 
 const getCsrfToken = () => {
   if (!(axios.defaults.headers.common['X-CSRF-Token'])) {
@@ -26,20 +24,15 @@ const updateCsrfToken = (csrf_token) => {
   axios.defaults.headers.common['X-CSRF-Token'] = csrf_token;
 };
 
-class LogIn extends Component {
+class LogOut extends React.Component {
   constructor() {
     super();
-    this.handleLogIn = this.handleLogIn.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
   }
 
-  handleLogIn(e) {
+  handleLogOut(e) {
     e.preventDefault();
-    axios.post('/users/sign_in', {
-      user: {
-        login: document.getElementById('login').value,
-        password: document.getElementById('password').value
-      }
-    })
+    axios.delete('/users/sign_out', {})
     .then((response) => {
       updateCsrfToken(response.data.csrf_token);
       return (response);
@@ -53,13 +46,10 @@ class LogIn extends Component {
   render() {
     return (
       <div>
-        <h2>LogIn From React</h2>
-        <LoginField />
-        <PassField />
-        <button onClick={this.handleLogIn}>LogIn From React</button>
+        <button onClick={this.handleLogOut}>LogOut</button>
       </div>
     );
   }
 }
 
-export default LogIn;
+export default LogOut;
