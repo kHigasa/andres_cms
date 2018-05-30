@@ -5,10 +5,9 @@ h2
     = f.label :login
     br
     = f.text_field :login, autofocus: true, placeholder: 'username or email'
-  .field#textfields=javascript_pack_tag 'components/textfields'
-    / = f.label :password
-    / br
-    / = f.password_field :password, autocomplete: "off"
+    .field= f.label :password
+    br
+    = f.password_field :password, autocomplete: "off"
   - if devise_mapping.rememberable?
     .field
       = f.check_box :remember_me
@@ -16,3 +15,4 @@ h2
   .actions
     = f.submit "Log in"
 = render "devise/shared/links"
+#users= javascript_pack_tag 'devise/devise'

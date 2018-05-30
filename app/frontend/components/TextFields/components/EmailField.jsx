@@ -15,17 +15,16 @@ const styles = theme => ({
   }
 });
 
-class TextFields extends React.PureComponent {
+class EmailField extends React.PureComponent {
   render() {
     const { classes } = this.props;
     return (
       <form className={classes.container} noValidate autoComplete="off">
         <TextField
-          id="password-input"
-          label="Password"
+          id="email"
+          label="email"
+          placeholder="hogehoge@example.com"
           className={classes.textField}
-          type="password"
-          autoComplete="current-password"
           margin="normal"
         />
       </form>
@@ -33,8 +32,8 @@ class TextFields extends React.PureComponent {
   }
 }
 
-TextFields.propTypes = {
+EmailField.propTypes = {
   classes: PropTypes.object.isRequired // eslint-disable-line react/forbid-prop-types
 };
 
-export default withStyles(styles)(TextFields);
+export default withStyles(styles)(EmailField);
