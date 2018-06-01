@@ -1,3 +1,4 @@
+.column.is-4.is-offset-4
 h2
   | Log in
 = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
@@ -5,7 +6,8 @@ h2
     = f.label :login
     br
     = f.text_field :login, autofocus: true, placeholder: 'username or email'
-    .field= f.label :password
+  .field
+    = f.label :password
     br
     = f.password_field :password, autocomplete: "off"
   - if devise_mapping.rememberable?

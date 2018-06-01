@@ -1,8 +1,8 @@
-span {
+p {
   display: flex;
   justify-content: center;
-  align-items: center;
   height: 100px;
+  align-items: center;
   background: #fff;
   color: #2fcaff;
 }
