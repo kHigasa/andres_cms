@@ -1,6 +1,6 @@
 header
   - if user_signed_in?
-    #navbar= javascript_pack_tag 'components/navigationbar'
+    #navbar= javascript_pack_tag 'components/navigationbar', 'data-turbolinks-track': 'reload'
   - else
     nav.navbar.is-fixed-top
       .navbar-brand
