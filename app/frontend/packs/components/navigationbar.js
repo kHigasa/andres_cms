@@ -1,1 +1,1 @@
-import '../../components/nabigationbar';
+import '../../components/navigationbar';
