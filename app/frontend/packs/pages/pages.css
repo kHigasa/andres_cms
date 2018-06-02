@@ -1,3 +1,39 @@
 body {
   text-align: center;
 }
+
+p {
+  align-items: center;
+  background: #fff;
+  color: #2fcaff;
+  display: flex;
+  height: 100px;
+  justify-content: center;
+}
+
+.homeImage {
+  width: 100%;
+}
+
+.Page_text {
+  align-self: flex-start;
+  flex: 0 0 auto;
+  order: 2;
+}
+
+.Page_title {
+  font-size: 38px;
+  font-weight: 400;
+}
+
+.Page_section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.smoothImage {
+  align-self: stretch;
+  flex: 0 0 auto;
+  order: 1;
+}

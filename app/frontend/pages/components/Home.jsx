@@ -1,7 +1,6 @@
 import React from 'react';
 import { ParallaxProvider, Parallax } from 'react-skrollr';
 import smoothImage from '../images/smooth.jpg';
-import '../styles/home.css';
 
 const Home = () => (
   <ParallaxProvider className='Page_section'>

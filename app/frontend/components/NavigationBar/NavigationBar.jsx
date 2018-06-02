@@ -7,6 +7,7 @@ import {
 } from '@material-ui/core';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import MenuIcon from '@material-ui/icons/Menu';
+import titleImage from './images/title.png';
 
 const styles = {
   root: {
@@ -57,9 +58,15 @@ class NavigationBar extends Component {
     const open = Boolean(anchorEl);
     const sideList = (
       <div className={classes.list}>
-        <a href="/posts"><List>PostIndex</List></a>
+        <a href="/"><List>About</List></a>
         <Divider />
-        <List>About</List>
+        <a href="/posts"><List>Posts</List></a>
+        <Divider />
+        <a href="/"><List>History</List></a>
+        <Divider />
+        <a href="/"><List>Supporters</List></a>
+        <Divider />
+        <a href="/"><List>Contact</List></a>
       </div>
     );
 
@@ -84,7 +91,9 @@ class NavigationBar extends Component {
               <MenuIcon  onClick={this.toggleDrawer('left', true)} />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex}>
-              <a href="/">Title</a>
+              <a href="/">
+                <img src={titleImage} alt='titleImage' className='titleImage' width="28" height="28" />GEIL
+              </a>
             </Typography>
             {auth && (
               <div>
