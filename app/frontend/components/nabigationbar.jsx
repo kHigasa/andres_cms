@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './Header/App';
+import App from './NavigationBar/App';
 
 ReactDOM.render(
   <App />,
-  document.getElementById('header')
+  document.getElementById('navbar')
 );
