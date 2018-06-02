@@ -1,16 +1,10 @@
 p {
-  display: flex;
-  justify-content: center;
-  height: 100px;
   align-items: center;
   background: #fff;
   color: #2fcaff;
-}
-
-.Page_section {
   display: flex;
+  height: 100px;
   justify-content: center;
-  align-items: center;
 }
 
 .homeImage {
@@ -24,12 +18,18 @@ p {
 }
 
 .Page_title {
-  font-weight: 400;
   font-size: 38px;
+  font-weight: 400;
+}
+
+.Page_section {
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 
 .smoothImage {
-  flex: 0 0 auto;
   align-self: stretch;
+  flex: 0 0 auto;
   order: 1;
 }

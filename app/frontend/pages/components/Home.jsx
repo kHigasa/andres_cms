@@ -1,12 +1,10 @@
 import React from 'react';
 import { ParallaxProvider, Parallax } from 'react-skrollr';
-import homeImage from '../images/home.png';
 import smoothImage from '../images/smooth.jpg';
 import '../styles/home.css';
 
 const Home = () => (
   <ParallaxProvider className='Page_section'>
-    <img src={homeImage} alt='homeImage' className='homeImage' />
     <Parallax
       data={{
         'data-bottom-top': 'transform: translateX(-800px);',
