@@ -29,6 +29,13 @@ module AndresCms
     config.i18n.default_locale = :ja
     # Setting log
     config.logger = Logger.new(STDOUT)
+    # Rack cors
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins 'localhost:5000'
+        resource '*', headers: :any, methods: %i[get post put patch delete options]
+      end
+    end
 
     # Don't generate system test files.
     config.generators.system_tests = nil

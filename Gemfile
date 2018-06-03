@@ -45,6 +45,8 @@ gem 'active_model_serializers'
 gem 'enum_help'
 # erb to slim
 gem 'html2slim'
+# Get CSRF
+gem 'rack-cors', require: 'rack/cors'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
