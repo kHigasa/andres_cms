@@ -1,7 +1,3 @@
-body {
-  text-align: center;
-}
-
 p {
   align-items: center;
   background: #fff;
@@ -9,6 +5,11 @@ p {
   display: flex;
   height: 100px;
   justify-content: center;
+}
+
+.groupImage {
+  height: 30px;
+  width: 30px;
 }
 
 .homeImage {
