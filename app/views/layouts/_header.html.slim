@@ -1,5 +1,5 @@
 header
-  nav.navbar.is-info.is-spaced.is-fixed-top
+nav.navbar.is-info.is-spaced.is-fixed-top
     .navbar-brand
       a.navbar-item href="/"
         = image_pack_tag 'packs/images/group.png', alt: 'Group Logo', class: 'groupImage'
@@ -12,38 +12,32 @@ header
       .navbar-start
         a.navbar-item href="/"
           | Home
-        .navbar-item.has-dropdown.is-hoverable
-          a.navbar-link href="/documentation/overview/start/"
-            | Docs
-          .navbar-dropdown.is-boxed
-            a.navbar-item href="/documentation/overview/start/"
-              | Overview
-            a.navbar-item href="https://bulma.io/documentation/modifiers/syntax/"
-              | Modifiers
-            a.navbar-item href="https://bulma.io/documentation/columns/basics/"
-              | Columns
-            a.navbar-item href="https://bulma.io/documentation/layout/container/"
-              | Layout
-            a.navbar-item href="https://bulma.io/documentation/form/general/"
-              | Form
-            hr.navbar-divider
-            a.navbar-item href="https://bulma.io/documentation/elements/box/"
-              | Elements
-            a.navbar-item.is-active href="https://bulma.io/documentation/components/breadcrumb/"
-              | Components
-
+        a.navbar-item href="/abouts"
+          | About
+        a.navbar-item href="/posts"
+          | Posts
+        a.navbar-item href="/pasts"
+          | History
+        a.navbar-item href="/supports"
+          | Supports
+    - if current_user.admin?
       .navbar-end
-        .navbar-item
-          .field.is-grouped
-            .control
-              a.bd-tw-button.button data-social-network="Twitter" data-social-action="tweet" data-social-target="http://localhost:4000" target="_blank" href="https://twitter.com/intent/tweet?text=Bulma: a modern CSS framework based on Flexbox&amp;hashtags=bulmaio&amp;url=http://localhost:4000&amp;via=jgthms"
-                span.icon
-                  i.fa.fa-twitter
-                span
-                  | Tweet
-            .control
-              a.button.is-primary href="https://github.com/jgthms/bulma/releases/download/0.7.1/bulma-0.7.1.zip"
-                span.icon
-                  i.fa.fa-download
-                span
-                  | Download
+        .navbar-item.has-dropdown.is-hoverable
+          a.navbar-link
+            span.icon.is-small
+              i.fa.fa-user
+          .navbar-dropdown.is-boxed.is-right
+            .navbar-item= link_to 'プロフィール変更', edit_user_registration_path
+            .navbar-item= link_to 'Users', users_path
+            hr.navbar-divider
+            .navbar-item= link_to 'ログアウト', destroy_user_session_path, method: :delete
+    - else
+      .navbar-end
+        .navbar-item.has-dropdown.is-hoverable
+          a.navbar-link
+            | Other
+          .navbar-dropdown.is-boxed
+            a.navbar-item href="/contacts"
+              | Contact
+            a.navbar-item href="/inquiries"
+              | FAQ
