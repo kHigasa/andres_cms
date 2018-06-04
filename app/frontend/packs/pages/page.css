@@ -36,5 +36,7 @@ p {
 .smoothImage {
   align-self: stretch;
   flex: 0 0 auto;
+  height: 35%;
   order: 1;
+  width: 35%;
 }
