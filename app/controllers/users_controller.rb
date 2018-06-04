@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
   before_action :set_user, only: %i[show edit update destroy]
   # GET /users
   def index

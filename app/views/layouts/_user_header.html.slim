@@ -29,7 +29,7 @@ header
             span.icon.is-small
               i.fa.fa-user
           .navbar-dropdown.is-boxed.is-right
-            .navbar-item= link_to 'プロフィール変更', edit_user_registration_path
+            .navbar-item= link_to 'プロフィール変更', edit_user_path(current_user)
             .navbar-item= link_to 'Users', users_path
             hr.navbar-divider
             .navbar-item= link_to 'ログアウト', destroy_user_session_path, method: :delete
