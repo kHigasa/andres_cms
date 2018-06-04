@@ -33,11 +33,15 @@
 
 class User < ApplicationRecord
   has_many :social_accounts, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, :omniauthable,
+         # :confirmable,
+         :lockable, :timeoutable, :omniauthable,
          omniauth_providers: [:twitter], authentication_keys: [:login]
   attr_accessor :login
+
+  mount_uploader :image, ImageUploader
 
   # Override condition of authentication
   def self.find_first_by_auth_conditions(warden_conditions)
