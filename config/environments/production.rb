@@ -71,12 +71,12 @@ Rails.application.configure do
   config.log_formatter = ::Logger::Formatter.new
 
   # Mailer Configuration
-  config.action_mailer.default_url_options = { host: 'https://stg-andres.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'https://prd-andres.herokuapp.com' }
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    user_name: 'app97036274@heroku.com',
-    password: 'atgqqudo1681',
+    user_name: 'app97032779@heroku.com',
+    password: 'rmfjrmcc6510',
     domain: 'heroku.com',
     address: 'smtp.sendgrid.net',
     port: 587,
