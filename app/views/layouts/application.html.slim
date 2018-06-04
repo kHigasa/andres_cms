@@ -8,9 +8,9 @@ html
   body
     .hero-head
       - if user_signed_in?
-        = render 'layouts/header'
-      - else
         = render 'layouts/user_header'
+      - else
+        = render 'layouts/header'
     .has-text-centered
       = yield
     .hero-foot
