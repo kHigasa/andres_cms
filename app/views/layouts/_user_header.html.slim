@@ -30,7 +30,7 @@ header
               i.fa.fa-user
           .navbar-dropdown.is-boxed.is-right
             .navbar-item= link_to 'プロフィール変更', edit_user_path(current_user)
-            .navbar-item= link_to 'Users', users_path
+            .navbar-item= link_to "#{User.model_name.human}#{t('misc.index')}", users_path
             hr.navbar-divider
             .navbar-item= link_to 'ログアウト', destroy_user_session_path, method: :delete
     - else

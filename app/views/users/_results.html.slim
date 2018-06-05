@@ -16,11 +16,15 @@
         tr
           td= user.id
           td= user.email
-          td= user.image
+          td
+            - if user.image?
+              = image_tag user.image_url(:thumb)
+            - else
+              = ''
           td= user.username
           td= user.last_sign_in_at.try(:to_s, :time_default)
           td
-            .dropdown.is-right
+            .dropdown.is-right.is-hoverable
               .dropdown-trigger
                 button.button[aria-haspopup='true' aria-controls='dropdown-menu']
                   span= t('misc.operation')
@@ -30,3 +34,4 @@
                 .dropdown-content
                   = link_to t('misc.show'), user_path(user), class: 'dropdown-item'
                   = link_to t('misc.edit'), edit_user_path(user), class: 'dropdown-item'
+                  = link_to t('misc.destroy'), user_path(user), class: 'dropdown-item', method: :delete
