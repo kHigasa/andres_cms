@@ -1,0 +1,15 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        id: ユーザーID
+        email: Eメール
+        username: ユーザーネーム
+        image: ユーザーイメージ
+        introduction: 自己紹介
+        description: 説明
+        admin: 管理者
+        last_sign_in_at: "最終ログイン日時"
+        last_sign_in_ip: "最終ログインIP"

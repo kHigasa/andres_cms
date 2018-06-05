@@ -1,12 +1,3 @@
-p {
-  align-items: center;
-  background: #fff;
-  color: #2fcaff;
-  display: flex;
-  height: 100px;
-  justify-content: center;
-}
-
 .groupImage {
   height: 30px;
   width: 30px;

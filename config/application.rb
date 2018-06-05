@@ -27,6 +27,10 @@ module AndresCms
 
     # Initialize language
     config.i18n.default_locale = :ja
+    # Load every locales
+    config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**', '*.{rb,yml}').to_s]
+    # Set JST(view-only)
+    config.time_zone = 'Tokyo'
     # Setting log
     config.logger = Logger.new(STDOUT)
     # Rack cors

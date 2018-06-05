@@ -1,0 +1,25 @@
+.field
+  table.table.is-fullwidth.is-striped
+    tbody
+      tr
+        th=User.human_attribute_name :id
+        td= @user.id
+      tr
+        th=User.human_attribute_name :email
+        td= @user.email
+      tr
+        th=User.human_attribute_name :image
+        td= image_tag @user.image_url(:thumb)
+      tr
+        th=User.human_attribute_name :username
+        td= @user.username
+      tr
+        th=User.human_attribute_name :introduction
+        td= @user.introduction
+      tr
+        th=User.human_attribute_name :description
+        td= @user.description
+      tr
+        th=User.human_attribute_name :admin
+        td= @user.admin
+  =link_to "#{t('misc.index')}#{t('misc.back_to')}", :back, class: 'button is-pulled-left'

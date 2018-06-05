@@ -203,3 +203,17 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  misc:
+    index: 一覧
+    show: 詳細
+    new: 新規作成
+    edit: 編集
+    create: 登録
+    update: 更新
+    destroy: 削除
+    search: 検索
+    download: ダウンロード
+    operation: 操作
+    must: 必須
+    next_to: へ進む
+    back_to: へ戻る
