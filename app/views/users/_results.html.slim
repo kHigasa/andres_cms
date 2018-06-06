@@ -19,8 +19,6 @@
           td
             - if user.image?
               = image_tag user.image_url(:thumb)
-            - else
-              = ''
           td= user.username
           td= user.last_sign_in_at.try(:to_s, :time_default)
           td

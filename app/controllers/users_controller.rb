@@ -31,7 +31,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id
   def update
-    if @user.update(post_params)
+    if @user.update(user_params)
       redirect_to users_path
     else
       render :edit
