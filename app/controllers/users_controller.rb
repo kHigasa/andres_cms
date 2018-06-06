@@ -25,27 +25,27 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      redirect_to users_path
+      redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.create.success')
     else
-      render :new
+      render :new, alert: I18n.t('activerecord.flash.user.actions.create.failure')
     end
   end
 
   # PATCH/PUT /users/:id
   def update
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.update.success')
     else
-      render :edit
+      render :edit, alert: I18n.t('activerecord.flash.user.actions.update.failure')
     end
   end
 
   # DELETE /users/:id
   def destroy
     if @user.destroy
-      render status: :ok
+      render status: :ok, notice: I18n.t('activerecord.flash.user.actions.destroy.success')
     else
-      render status: :unprocessable_entity
+      render status: :unprocessable_entity, alert: I18n.t('activerecord.flash.user.actions.destroy.failure')
     end
   end
 
