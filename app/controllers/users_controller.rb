@@ -4,7 +4,8 @@ class UsersController < ApplicationController
   add_breadcrumb "#{User.model_name.human}#{I18n.t('misc.index')}", :users_path
   # GET /users
   def index
-    @users = User.all
+    @q = User.all.ransack(params[:q])
+    @users = @q.result.page(params[:page])
   end
 
   # GET /users/:id
