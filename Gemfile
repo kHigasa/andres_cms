@@ -69,8 +69,8 @@ group :development do
   gem 'binding_of_caller', '>= 0.8.0'
   # Visualize model
   gem 'annotate'
-  # Use Capistrano for deployment
-  gem 'capistrano-rails', require: false
+  # Check security
+  gem 'brakeman', require: false
   # Detect N+1
   gem 'bullet'
 end
