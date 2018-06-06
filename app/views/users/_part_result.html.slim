@@ -10,7 +10,7 @@
       tr
         th=User.human_attribute_name :image
         td
-          - if @user.image?
+          - if @user.image.present?
             = image_tag @user.image_url(:thumb)
       tr
         th=User.human_attribute_name :username

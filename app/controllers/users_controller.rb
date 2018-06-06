@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
   before_action :set_user, only: %i[show edit update destroy]
+  add_breadcrumb "#{User.model_name.human}#{I18n.t('misc.index')}", :users_path
   # GET /users
   def index
     @users = User.all

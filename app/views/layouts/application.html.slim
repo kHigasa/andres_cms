@@ -11,6 +11,9 @@ html
         = render 'layouts/user_header'
       - else
         = render 'layouts/header'
+    - unless controller.controller_name == 'pages'
+      .column
+        = render_breadcrumbs separator: t('breadcrumbs.separator')
     .has-text-centered style='padding-bottom: 500px;'
       = yield
     .hero-foot

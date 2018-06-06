@@ -203,6 +203,8 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  breadcrumbs:
+    separator: ' > '
   misc:
     index: 一覧
     show: 詳細
@@ -211,6 +213,7 @@ ja:
     create: 登録
     update: 更新
     destroy: 削除
+    home: ホーム
     search: 検索
     download: ダウンロード
     operation: 操作

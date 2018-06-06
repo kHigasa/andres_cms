@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
+  add_breadcrumb I18n.t('misc.home'), :root_path
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   protected
