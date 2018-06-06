@@ -3,7 +3,11 @@ footer.is-fixed-bottom
     .content.has-text-centered
       - if user_signed_in?
         strong
+          | あなたの
+          = User.human_attribute_name :username
+          | は
           = link_to current_user.username, user_path(current_user)
+          | です。
       - else
         p
           strong GEIL

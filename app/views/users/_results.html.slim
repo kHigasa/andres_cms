@@ -12,6 +12,7 @@ table.table.is-fullwidth.is-striped
       th= User.human_attribute_name :email
       th= User.human_attribute_name :image
       th= User.human_attribute_name :username
+      th= User.human_attribute_name :admin
       th= User.human_attribute_name :last_sign_in_at
       th
 
@@ -24,6 +25,9 @@ table.table.is-fullwidth.is-striped
           - if user.image?
             = image_tag user.image_url(:thumb)
         td= user.username
+        td
+          - if user.admin == true
+            | 管理者である
         td= user.last_sign_in_at.try(:to_s, :time_default)
         td
           .dropdown.is-right.is-hoverable

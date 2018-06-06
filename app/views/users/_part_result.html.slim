@@ -23,5 +23,7 @@
         td= @user.description
       tr
         th=User.human_attribute_name :admin
-        td= @user.admin
+        td
+          - if @user.admin == true
+            | 管理者である
   =link_to "#{t('misc.index')}#{t('misc.back_to')}", :back, class: 'button is-pulled-left'
