@@ -1,14 +1,24 @@
 - if alert.present?
   - if alert.is_a?(Array)
     - alert.each do |message|
-      .is-danger= message
+      .notification.is-danger
+        button.delete
+          = message
   - else
-    .is-danger= alert
+    .notification.is-danger
+      button.delete
+        = alert
 - if @errors.present?
   - if @errors.is_a?(Array)
     - @errors.each do |message|
-      .is-danger= message
+      .notification.is-danger
+        button.delete
+          = message
   - else
-    .is-danger= @errors
+    .notification.is-danger
+      button.delete
+        = @errors
 - if notice.present?
-  .is-info= notice
+  .notification.is-info
+    button.delete
+      = notice
