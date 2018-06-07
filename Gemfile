@@ -52,6 +52,8 @@ gem 'sass-rails'
 gem 'uglifier'
 # Integrate react with Rails
 gem 'react-rails'
+# Kill prpcess for memory leak
+gem 'puma_worker_killer'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
