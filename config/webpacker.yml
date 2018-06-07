@@ -64,10 +64,6 @@ test:
 production:
   <<: *default
 
-  dev_server:
-    https: false
-    host: https://stg-andres.herokuapp.com/
-
   # Production depends on precompilation of packs prior to booting for performance.
   compile: false
 
