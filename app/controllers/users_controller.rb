@@ -43,9 +43,9 @@ class UsersController < ApplicationController
   # DELETE /users/:id
   def destroy
     if @user.destroy
-      render json: { notice: I18n.t('activerecord.flash.user.actions.destroy.success') }, status: :ok
+      redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.destroy.success')
     else
-      render json: { alert: I18n.t('activerecord.flash.user.actions.destroy.failure') }, status: :unprocessable_entity
+      redirect_to users_path, alert: I18n.t('activerecord.flash.user.actions.destroy.failure')
     end
   end
 
