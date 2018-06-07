@@ -3,6 +3,7 @@ html
   head
     title AndresCms
     = csrf_meta_tags
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   body
@@ -11,7 +12,13 @@ html
         = render 'layouts/user_header'
       - else
         = render 'layouts/header'
-    .has-text-centered
+    - unless controller.controller_name == 'pages'
+      .column
+        = render_breadcrumbs separator: t('breadcrumbs.separator')
+      .has-text-centered
+        .column.is-4.is-offset-4
+          = render 'layouts/notifications'
+    .has-text-centered style='padding-bottom: 500px;'
       = yield
     .hero-foot
       = render 'layouts/footer'

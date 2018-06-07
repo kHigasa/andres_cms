@@ -1,0 +1,33 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+    attributes:
+      user:
+        id: ユーザーID
+        email: Eメール
+        username: ユーザーネーム
+        image: ユーザーイメージ
+        introduction: 自己紹介
+        description: 説明
+        admin: 管理者
+        last_sign_in_at: 最終ログイン日時
+        last_sign_in_ip: 最終ログインIP
+    flash:
+      user:
+        actions:
+          create:
+            success: ユーザーの登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: ユーザーの更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: ユーザーの削除を完了しました。
+            failure: ユーザーを削除できませんでした。
+          activate:
+            success: ユーザーを有効にしました。
+            failure: ユーザーを有効にできませんでした。
+          suspend:
+            success: ユーザーを無効にしました。
+            failure: ユーザーを無効にできませんでした。

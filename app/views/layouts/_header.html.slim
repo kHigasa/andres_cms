@@ -1,24 +1,24 @@
 header
 nav.navbar.is-info.is-spaced.is-fixed-top
     .navbar-brand
-      a.navbar-item href="/"
+      a.navbar-item href='/'
         = image_pack_tag 'packs/images/group.png', alt: 'Group Logo', class: 'groupImage'
-      .navbar-burger.burger data-target="navbarContent"
+      .navbar-burger.burger[data-target='navbarContent']
         span
         span
         span
 
     #navbarContent.navbar-menu
       .navbar-start
-        a.navbar-item href="/"
+        a.navbar-item href='/'
           | Home
-        a.navbar-item href="/abouts"
+        a.navbar-item href='/abouts'
           | About
-        a.navbar-item href="/posts"
+        a.navbar-item href='/posts'
           | Posts
-        a.navbar-item href="/pasts"
+        a.navbar-item href='/pasts'
           | History
-        a.navbar-item href="/supports"
+        a.navbar-item href='/supports'
           | Supports
 
     .navbar-end
@@ -26,7 +26,7 @@ nav.navbar.is-info.is-spaced.is-fixed-top
         a.navbar-link
           | Other
         .navbar-dropdown.is-boxed
-          a.navbar-item href="/contacts"
+          a.navbar-item href='/contacts'
             | Contact
-          a.navbar-item href="/inquiries"
+          a.navbar-item href='/inquiries'
             | FAQ

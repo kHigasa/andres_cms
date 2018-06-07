@@ -9,6 +9,11 @@ Rails.application.routes.draw do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
   root 'pages#home'
-  resources :users
+  resources :users do
+    member do
+      get 'activate'
+      get 'suspend'
+    end
+  end
   resources :posts
 end
