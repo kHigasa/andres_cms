@@ -12,7 +12,7 @@
   "dependencies": {
     "@material-ui/core": "^1.0.0",
     "@material-ui/icons": "^1.0.0",
-    "@rails/webpacker": "3.4.3",
+    "@rails/webpacker": "3.5.3",
     "axios": "^0.18.0",
     "babel-preset-react": "^6.24.1",
     "bulma": "^0.7.1",
