@@ -47,6 +47,11 @@ gem 'enum_help'
 gem 'html2slim'
 # Get CSRF
 gem 'rack-cors', require: 'rack/cors'
+# To introduce asset pipeline
+gem 'sass-rails'
+gem 'uglifier'
+# Integrate react with Rails
+gem 'react-rails'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

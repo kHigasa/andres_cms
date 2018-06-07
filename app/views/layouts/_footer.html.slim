@@ -8,6 +8,7 @@ footer.is-fixed-bottom
           | は
           = link_to current_user.username, user_path(current_user)
           | です。
+          = react_component("HelloWorld", { greeting: "Hello" })
       - else
         p
           strong GEIL
