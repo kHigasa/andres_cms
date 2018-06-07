@@ -28,8 +28,12 @@ table.table.is-fullwidth.is-striped
         td= user.username
         - if current_user.admin?
           td
-            - if user.admin == true
-              | 管理者である
+            - if user.admin == false
+              button.button.is-primary
+                = link_to t('misc.activate'), activate_user_path(user)
+            - else
+              button.button
+                = link_to t('misc.suspend'), suspend_user_path(user)
         td= user.last_sign_in_at.try(:to_s, :time_default)
         td
           .dropdown.is-right.is-hoverable

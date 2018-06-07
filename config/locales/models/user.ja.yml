@@ -24,8 +24,10 @@ ja:
             failure: 入力を修正してください。
           destroy:
             success: ユーザーの削除を完了しました。
-            failure: ユーザーを削除できません。
-          # suspend:
-          #   success: ユーザーを無効にしました。
-          # activate:
-          #   success: ユーザーを有効にしました。
+            failure: ユーザーを削除できませんでした。
+          activate:
+            success: ユーザーを有効にしました。
+            failure: ユーザーを有効にできませんでした。
+          suspend:
+            success: ユーザーを無効にしました。
+            failure: ユーザーを無効にできませんでした。

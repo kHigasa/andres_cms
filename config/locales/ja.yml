@@ -228,6 +228,8 @@ ja:
     create: 登録
     update: 更新
     destroy: 削除
+    activate: 有効にする
+    suspend: 無効にする
     home: ホーム
     search: 検索
     download: ダウンロード

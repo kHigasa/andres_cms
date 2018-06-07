@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_user, only: %i[show edit update destroy]
+  before_action :set_user, only: %i[show edit update destroy activate suspend]
   add_breadcrumb "#{User.model_name.human}#{I18n.t('misc.index')}", :users_path
   # GET /users
   def index
@@ -49,10 +49,28 @@ class UsersController < ApplicationController
     end
   end
 
+  def activate
+    @user.update(admin: true) unless @user.admin?
+    if @user.admin?
+      redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.activate.success')
+    else
+      redirect_to users_path, alert: I18n.t('activerecord.flash.user.actions.activate.failure')
+    end
+  end
+
+  def suspend
+    @user.update(admin: false) if @user.admin?
+    if !@user.admin?
+      redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.suspend.success')
+    else
+      redirect_to users_path, alert: I18n.t('activerecord.flash.user.actions.suspend.failure')
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :image, :introduction, :description, :admin)
+    params.require(:user).permit(:email, :username, :image, :introduction, :description)
   end
 
   def set_user
