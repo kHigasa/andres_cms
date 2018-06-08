@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   resources :users do
     member do
-      get 'activate'
-      get 'suspend'
+      patch 'activate'
+      patch 'suspend'
     end
   end
   resources :posts

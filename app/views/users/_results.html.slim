@@ -30,10 +30,10 @@ table.table.is-fullwidth.is-striped
           td
             - if user.admin == false
               button.button.is-primary
-                = link_to t('misc.activate'), activate_user_path(user)
+                = link_to t('misc.activate'), activate_user_path(user), method: :patch
             - else
               button.button
-                = link_to t('misc.suspend'), suspend_user_path(user)
+                = link_to t('misc.suspend'), suspend_user_path(user), method: :patch
         td= user.last_sign_in_at.try(:to_s, :time_default)
         td
           .dropdown.is-right.is-hoverable
