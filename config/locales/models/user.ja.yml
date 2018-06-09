@@ -6,13 +6,31 @@ ja:
       user:
         id: ユーザーID
         email: Eメール
-        username: ユーザーネーム
+        encrypted_password:
+        reset_password_token: パスワードリセット用のトークン
+        reset_password_sent_at:
+        remember_created_at:
+        sign_in_count:
+        current_sign_in_at:
+        last_sign_in_at: 最終ログイン日時
+        current_sign_in_ip:
+        last_sign_in_ip: 最終ログインIP
+        confirmation_token:
+        confirmed_at:
+        confirmation_sent_at:
+        unconfirmed_email:
+        failed_attempts:
+        unlock_token: ロック解除用のトークン
+        locked_at:
+        created_at:
+        updated_at:
+        provider:
+        uid:
+        admin: 管理者
         image: ユーザーイメージ
         introduction: 自己紹介
         description: 説明
-        admin: 管理者
-        last_sign_in_at: 最終ログイン日時
-        last_sign_in_ip: 最終ログインIP
+        username: ユーザーネーム
     flash:
       user:
         actions:
