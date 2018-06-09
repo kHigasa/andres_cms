@@ -11,7 +11,7 @@
       .label
         = f.label :password
       .control.has-icons-left
-        = f.password_field :password, class: 'input', autocomplete: "off", placeholder: 'Password'
+        = f.password_field :password, class: 'input', autocomplete: 'off', placeholder: 'Password'
         span.icon.is-small.is-left
           i.fa.fa-lock
       - if devise_mapping.rememberable?
@@ -22,5 +22,5 @@
             = f.label :remember_me
     .field.is-grouped
       .control
-        = f.submit "Log in", class: 'button is-success'
-= render "devise/shared/links"
+        = f.submit 'Log in', class: 'button is-success'
+= render 'devise/shared/links'

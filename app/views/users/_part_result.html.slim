@@ -26,4 +26,5 @@
         td
           - if @user.admin == true
             | 管理者である
-  =link_to "#{t('misc.index')}#{t('misc.back_to')}", :back, class: 'button is-pulled-left'
+  =link_to "#{t('misc.index')}#{t('misc.back_to')}", users_path, class: 'button is-pulled-left'
+  =link_to t('misc.edit'), edit_user_path(@user), class: 'button is-primary is-pulled-right'

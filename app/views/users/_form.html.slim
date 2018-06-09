@@ -1,17 +1,5 @@
 = form_with(model: @user, local: true, class: 'control') do |f|
   .field.is-horizontal
-    .field-label= f.label :email, class: 'label', require: true
-    .field-body
-      .field
-        p.control= f.text_field :email, class: 'input'
-
-  .field.is-horizontal
-    .field-label= f.label :username, class: 'label', require: true
-    .field-body
-      .field
-        p.control= f.text_field :username, class: 'input'
-
-  .field.is-horizontal
     .field-label= f.label :image, class: 'label', require: true
     .field-body
       .field
