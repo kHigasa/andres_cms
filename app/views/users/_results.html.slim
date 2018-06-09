@@ -1,0 +1,56 @@
+.section
+  .field.is-pulled-right
+    = page_entries_info @users
+.section
+  .field.is-pulled-right
+    = paginate @users
+
+table.table.is-fullwidth.is-striped
+  thead
+    tr
+      th= User.human_attribute_name :id
+      th= User.human_attribute_name :email
+      th= User.human_attribute_name :image
+      th= User.human_attribute_name :username
+      - if current_user.admin?
+        th= User.human_attribute_name :admin
+      th= User.human_attribute_name :last_sign_in_at
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td= user.id
+        td= user.email
+        td
+          - if user.image?
+            = image_tag user.image_url(:thumb)
+        td= user.username
+        - if current_user.admin?
+          td
+            - if user.admin == false
+              button.button.is-primary
+                = link_to t('misc.activate'), activate_user_path(user), method: :patch
+            - else
+              button.button
+                = link_to t('misc.suspend'), suspend_user_path(user), method: :patch
+        td= user.last_sign_in_at.try(:to_s, :time_default)
+        td
+          .dropdown.is-right.is-hoverable
+            .dropdown-trigger
+              button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+                span= t('misc.operation')
+                span.icon.is-small
+                  i.fa.fa-angle-down[aria-hidden='true']
+            #dropdown-menu.dropdown-menu[role='menu']
+              .dropdown-content
+                = link_to t('misc.show'), user_path(user), class: 'dropdown-item'
+                = link_to t('misc.edit'), edit_user_path(user), class: 'dropdown-item'
+                = link_to t('misc.destroy'), user_path(user), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
+
+.section
+  .field.is-pulled-right
+    = page_entries_info @users
+.section
+  .field.is-pulled-right
+    = paginate @users

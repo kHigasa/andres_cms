@@ -1,28 +1,40 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  .field
-    = f.label :username
-    br
-    = f.email_field :username, autofocus: true
-  .field
-    = f.label :email
-    br
-    = f.email_field :email
-  .field
-    = f.label :password
-    - if @minimum_password_length
-      em
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  .field
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  .actions
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.column.is-4.is-offset-4
+  = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+    = devise_error_messages!
+    .field
+      .label
+        = f.label :username
+      .control.has-icons-left
+        = f.text_field :username, class: 'input', autofocus: true, placeholder: 'Username'
+        span.icon.is-small.is-left
+          i.fa.fa-user
+    .field
+      .label
+        = f.label :email
+      .control.has-icons-left
+        = f.email_field :email, class: 'input', placeholder: 'Email'
+        span.icon.is-small.is-left
+          i.fa.fa-envelope
+    .field
+      .label
+        = f.label :password
+        - if @minimum_password_length
+          em
+            | (
+            = @minimum_password_length
+            |  characters minimum)
+      .control.has-icons-left
+        = f.password_field :password, class: 'input', autocomplete: 'off', placeholder: 'Password'
+        span.icon.is-small.is-left
+          i.fa.fa-lock
+    .field
+      .label
+        = f.label :password_confirmation
+      .control.has-icons-left
+        = f.password_field :password_confirmation, class: 'input', autocomplete: 'off', placeholder: 'Password Confirmation'
+        span.icon.is-small.is-left
+          i.fa.fa-lock
+    .field.is-grouped
+      .control
+        = f.submit 'Sign up', class: 'button is-success'
+= render 'devise/shared/links'

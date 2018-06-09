@@ -22,10 +22,10 @@ User.create!(
           else
             ''
           end
-  User.create(
+  User.create!(
     username: Faker::Name.name,
     email: Faker::Internet.email,
-    password: Faker::DragonBall.character.downcase!,
+    password: Faker::Number.number(10),
     image: image,
     introduction: Faker::HarryPotter.character,
     description: Faker::ChuckNorris.fact,
