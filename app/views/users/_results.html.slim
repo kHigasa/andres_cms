@@ -47,7 +47,8 @@ table.table.is-fullwidth.is-striped
                 = link_to t('misc.show'), user_path(user), class: 'dropdown-item'
                 - if current_user == user
                   = link_to t('misc.edit'), edit_user_path(user), class: 'dropdown-item'
-                = link_to t('misc.destroy'), user_path(user), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
+                - if can? :destroy, @user
+                  = link_to t('misc.destroy'), user_path(user), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
 
 .section
   .field.is-pulled-right
