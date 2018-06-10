@@ -19,6 +19,11 @@ class UsersController < ApplicationController
 
   # GET /users/:id/edit
   def edit
+    if @user == current_user
+      render :edit
+    else
+      redirect_to users_path, alert: I18n.t('activerecord.flash.user.actions.edit.failure')
+    end
   end
 
   # POST /users
