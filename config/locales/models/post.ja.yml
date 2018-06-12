@@ -1,12 +1,12 @@
 ja:
   activerecord:
     models:
-      user: 投稿
+      post: 投稿
     attributes:
-      user:
+      post:
         id: 投稿ID
     flash:
-      user:
+      post:
         actions:
           create:
             success: 投稿の登録を完了しました。

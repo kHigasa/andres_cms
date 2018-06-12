@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2018_05_26_124253) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "sort_rank"
+    t.string "target_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"

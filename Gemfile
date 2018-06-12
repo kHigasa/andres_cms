@@ -43,8 +43,8 @@ gem 'ransack'
 gem 'breadcrumbs_on_rails'
 # json serializer
 gem 'active_model_serializers'
-# I18n
-gem 'enum_help'
+# I18n for enum
+gem 'enumerize'
 # erb to slim
 gem 'html2slim'
 # Get CSRF
