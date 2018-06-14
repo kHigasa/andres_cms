@@ -16,6 +16,11 @@ class Post < ApplicationRecord
   has_many :items, dependent: :destroy
   has_many :tags, dependent: :destroy
   validates :title, presence: true
+  validates :topic, presence: true
 
-  enum topic: %i[event news column]
+  enum topic: {
+    news: 0,
+    event: 1,
+    column: 2
+  }
 end

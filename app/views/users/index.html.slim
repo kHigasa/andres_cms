@@ -1,5 +1,5 @@
 h2.title #{User.model_name.human}#{t('misc.index')}
-- if current_user.admin?
+- if can? :create, @user
   = render 'search_form'
   .control-box.field.is-pulled-left
     = link_to "#{User.model_name.human}#{t('misc.new')}", new_user_path, class: 'button is-primary'

@@ -34,6 +34,9 @@ ja:
     flash:
       user:
         actions:
+          edit:
+            success:
+            failure: ユーザーの編集権限がありません。
           create:
             success: ユーザーの登録を完了しました。
             failure: 入力を修正してください。

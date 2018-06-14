@@ -13,17 +13,14 @@
 
 class Item < ApplicationRecord
   belongs_to :post, touch: true
-  belongs_to :target, polymorphic: true
+
+  validates :sort_rank, presence: true
+  validates :target_type, presence: true
 
   enum target_type: {
     text: 'ItemText',
     image: 'ItemImage'
   }
-
-  after_destroy :destroy_target
-
-  validates :sort_rank, presence: true
-  validates :target_type, presence: true
 
   private
 

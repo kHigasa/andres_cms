@@ -43,8 +43,8 @@ gem 'ransack'
 gem 'breadcrumbs_on_rails'
 # json serializer
 gem 'active_model_serializers'
-# I18n
-gem 'enum_help'
+# I18n for enum
+gem 'enumerize'
 # erb to slim
 gem 'html2slim'
 # Get CSRF
@@ -99,8 +99,6 @@ group :development, :test do
   gem 'pry-byebug'
   # Create factory for test
   gem 'factory_bot_rails'
-  # Integration test
-  gem 'cucumber-rails', require: false
   # Database cleaning everytime
   gem 'database_cleaner'
   # Create fake data
@@ -110,7 +108,6 @@ group :development, :test do
   gem 'rails-flog', require: 'flog'
   # E2E test
   gem 'capybara', '~> 2.4.1'
-  gem 'selenium-webdriver'
   # ER image
   gem 'rails-erd'
 end

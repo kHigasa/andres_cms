@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_user, only: %i[show edit update destroy activate suspend]
+  before_action :set_user, only: %i[show update destroy activate suspend]
+  load_and_authorize_resource
   add_breadcrumb "#{User.model_name.human}#{I18n.t('misc.index')}", :users_path
   # GET /users
   def index
@@ -19,6 +20,7 @@ class UsersController < ApplicationController
 
   # GET /users/:id/edit
   def edit
+    redirect_to users_path, alert: I18n.t('activerecord.flash.user.actions.edit.failure') if @user != current_user
   end
 
   # POST /users

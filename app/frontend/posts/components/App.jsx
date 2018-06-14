@@ -4,13 +4,12 @@ import {
   Route,
   Switch
 } from 'react-router-dom';
-import PostIndex from './PostIndex';
 
 const App = () => (
   <Router>
     <div className='post'>
       <Switch>
-        <Route exact path='/posts' component={PostIndex} />
+        <Route exact path='/posts' />
       </Switch>
     </div>
   </Router>
