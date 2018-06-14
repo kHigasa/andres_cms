@@ -1,26 +1,28 @@
 - @about_items.each do |about_item|
+  .dropdown.is-right.is-hoverable
+    .dropdown-trigger
+    button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+      span= t('misc.operation')
+      span.icon.is-small
+        i.fa.fa-angle-down[aria-hidden='true']
+    #dropdown-menu.dropdown-menu[role='menu']
+    .dropdown-content
+      - if can? :show, @about_item
+        = link_to t('misc.show'), about_item_path(about_item), class: 'dropdown-item'
+      - if can? :edit, @about_item
+        = link_to t('misc.edit'), edit_about_item_path(about_item), class: 'dropdown-item'
+      - if can? :destroy, @about_item
+        = link_to t('misc.destroy'), about_item_path(about_item), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
   .columns
     .column.is-fullwidth-mobile.is-half-desktop
       =AboutItem.human_attribute_name :image
       br
       - if about_item.image.present?
         = image_tag about_item.image_url(:thumb)
+      br
     .column.is-fullwidth-mobile.is-half-desktop
       =AboutItem.human_attribute_name :description
       br
       - if about_item.description.present?
         = about_item.description
-  .dropdown.is-up.is-hoverable
-    .dropdown-trigger
-      button.button[aria-haspopup='true' aria-controls='dropdown-menu']
-        span= t('misc.operation')
-        span.icon.is-small
-          i.fa.fa-angle-up[aria-hidden='true']
-    #dropdown-menu.dropdown-menu[role='menu']
-      .dropdown-content
-        - if can? :show, @about_item
-          = link_to t('misc.show'), about_item_path(about_item), class: 'dropdown-item'
-        - if can? :edit, @about_item
-          = link_to t('misc.edit'), edit_about_item_path(about_item), class: 'dropdown-item'
-        - if can? :destroy, @about_item
-          = link_to t('misc.destroy'), about_item_path(about_item), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
+      br

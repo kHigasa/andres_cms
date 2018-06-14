@@ -13,7 +13,7 @@
 FactoryBot.define do
   factory :about_item do
     sord_id 1
-    image "MyString"
-    description "MyText"
+    image 'MyString'
+    description 'MyText'
   end
 end

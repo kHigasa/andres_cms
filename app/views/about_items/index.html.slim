@@ -1,5 +1,5 @@
 h2.title =t('misc.about')
-- if can? :create, @about_item
+- if can? :new, @about_item
   .control-box.field.is-pulled-left
     = link_to "#{AboutItem.model_name.human}#{t('misc.new')}", new_about_item_path, class: 'button is-primary'
 
