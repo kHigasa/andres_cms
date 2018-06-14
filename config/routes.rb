@@ -16,4 +16,6 @@ Rails.application.routes.draw do
     end
   end
   resources :posts
+  resources :about_items
+  get '/about', to: 'about_items#index'
 end

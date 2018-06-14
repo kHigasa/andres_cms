@@ -1,0 +1,22 @@
+ja:
+  activerecord:
+    models:
+      about_item: GEILについての項目
+    attributes:
+      about_item:
+        id:
+        sort_id: 並び順
+        image: 画像
+        description: 文章
+    flash:
+      about_item:
+        actions:
+          create:
+            success: GEILについての項目の登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: GEILについての項目の更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: GEILについての項目の削除を完了しました。
+            failure: GEILについての項目を削除できませんでした。

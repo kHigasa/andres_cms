@@ -1,0 +1,22 @@
+.field
+  table.table.is-2.is-striped
+    tbody
+      tr
+        th=AboutItem.human_attribute_name :sort_id
+        td= @about_item.sort_id
+
+.columns
+  .column.is-fullwidth-mobile.is-half-desktop
+    =AboutItem.human_attribute_name :image
+    br
+    - if @about_item.image.present?
+      = image_tag @about_item.image_url(:thumb)
+  .column.is-fullwidth-mobile.is-half-desktop
+    =AboutItem.human_attribute_name :description
+    br
+    - if @about_item.description.present?
+      = @about_item.description
+
+=link_to "#{t('misc.about')}#{t('misc.back_to')}", about_path, class: 'button is-pulled-left'
+- if can? :update, @about_item
+  =link_to t('misc.edit'), edit_about_item_path(@about_item), class: 'button is-primary is-pulled-right'

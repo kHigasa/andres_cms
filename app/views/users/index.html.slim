@@ -3,6 +3,7 @@ h2.title #{User.model_name.human}#{t('misc.index')}
   = render 'search_form'
   .control-box.field.is-pulled-left
     = link_to "#{User.model_name.human}#{t('misc.new')}", new_user_path, class: 'button is-primary'
+
 - if @users.size.zero?
   .title.is-5= t('message.info.none_results')
 - else
