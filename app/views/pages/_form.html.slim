@@ -1,0 +1,26 @@
+= form_with(model: @user, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :image, class: 'label', require: true
+    .field-body
+      .field
+        - if @user.image.present?
+          b.control= '現在選択されている画像：' + File.basename(@user.image.to_s)
+        p.control= f.file_field :image, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :introduction, class: 'label', require: true
+    .field-body
+      .field
+        p.control= f.text_field :introduction, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :description, class: 'label', require: true
+    .field-body
+      .field
+        p.control= f.text_field :description, class: 'input'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'

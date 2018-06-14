@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      page: GEILについて
+    attributes:
+      page:
+        id:
+    flash:
+      page:
+        actions:
+          create:
+            success: ユーザーの登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: ユーザーの更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: ユーザーの削除を完了しました。
+            failure: ユーザーを削除できませんでした。
+          activate:
+            success: ユーザーを有効にしました。
+            failure: ユーザーを有効にできませんでした。
+          suspend:
+            success: ユーザーを無効にしました。
+            failure: ユーザーを無効にできませんでした。
