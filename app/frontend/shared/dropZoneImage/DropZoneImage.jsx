@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Dropzone from 'react-dropzone';
 
 const propTypes = {
-  value: PropTypes.string,
-  handleUpdate: PropTypes.func.isRequired,
+  value: PropTypes.string
 };
 
 const defaultProps = {
@@ -53,7 +53,9 @@ class DropzoneImage extends Component {
 
   renderErrorMessage() {
     if (this.state.errorMessage) {
-      return <span>{this.state.errorMessage}</span>;
+      return (
+        <span>{this.state.errorMessage}</span>
+      );
     }
   }
 
@@ -81,6 +83,7 @@ class DropzoneImage extends Component {
 }
 
 DropzoneImage.propTypes = propTypes;
+
 DropzoneImage.defaultProps = defaultProps;
 
 export default DropzoneImage;
