@@ -12,7 +12,7 @@ table.table.is-fullwidth.is-striped
       th= User.human_attribute_name :email
       th= User.human_attribute_name :image
       th= User.human_attribute_name :username
-      - if current_user.admin?
+      - if current_user.present? && current_user.admin?
         th= User.human_attribute_name :admin
       th= User.human_attribute_name :last_sign_in_at
       th
@@ -26,7 +26,7 @@ table.table.is-fullwidth.is-striped
           - if user.image?
             = image_tag user.image_url(:thumb)
         td= user.username
-        - if current_user.admin?
+        - if current_user.present? && current_user.admin?
           td
             - if user.admin == false
               button.button.is-primary

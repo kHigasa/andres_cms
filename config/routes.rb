@@ -16,6 +16,13 @@ Rails.application.routes.draw do
     end
   end
   resources :posts
-  resources :about_items
+  resources :about_items do
+    member do
+      patch 'move_first'
+      patch 'move_previous'
+      patch 'move_next'
+      patch 'move_last'
+    end
+  end
   get '/about', to: 'about_items#index'
 end

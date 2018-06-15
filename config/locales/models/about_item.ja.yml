@@ -20,3 +20,15 @@ ja:
           destroy:
             success: GEILについての項目の削除を完了しました。
             failure: GEILについての項目を削除できませんでした。
+          move_first:
+            success: GEILについての項目を最初へ移動しました。
+            failure:
+          move_previous:
+            success: GEILについての項目を前へ移動しました。
+            failure:
+          move_next:
+            success: GEILについての項目を次へ移動しました。
+            failure:
+          move_last:
+            success: GEILについての項目を最後へ移動しました。
+            failure:

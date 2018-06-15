@@ -238,6 +238,10 @@ ja:
     must: 必須
     next_to: へ進む
     back_to: へ戻る
+    move_first: 最初へ移動
+    move_previous: 前へ移動
+    move_next: 次へ移動
+    move_last: 最後へ移動
   flash:
     successful: '%{name}の%{action}に成功しました。'
     error: '%{name}の%{action} に失敗しました。'

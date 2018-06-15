@@ -1,3 +1,10 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @user.errors.any?
+      - @user.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
 = form_with(model: @user, local: true, class: 'control') do |f|
   .field.is-horizontal
     .field-label= f.label :image, class: 'label', require: true
