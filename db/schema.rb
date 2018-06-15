@@ -26,6 +26,7 @@ ActiveRecord::Schema.define(version: 2018_06_15_161824) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "history_id"
+    t.index ["history_id"], name: "index_activities_on_history_id"
   end
 
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

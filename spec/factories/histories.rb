@@ -15,10 +15,10 @@
 
 FactoryBot.define do
   factory :history do
-    generation_name "MyString"
-    image "MyString"
-    description "MyText"
-    file "MyString"
-    file_type "MyString"
+    generation_name 'MyString'
+    image 'MyString'
+    description 'MyText'
+    file 'MyString'
+    file_type 'MyString'
   end
 end
