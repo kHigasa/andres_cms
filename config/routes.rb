@@ -5,17 +5,20 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     omniauth_callbacks: 'users/omniauth_callbacks'
   }
+
   devise_scope :user do
     get '/users/sign_out' => 'devise/sessions#destroy'
   end
+
   root 'pages#home'
+
   resources :users do
     member do
       patch 'activate'
       patch 'suspend'
     end
   end
-  resources :posts
+
   resources :about_items do
     member do
       patch 'move_first'
@@ -25,4 +28,8 @@ Rails.application.routes.draw do
     end
   end
   get '/about', to: 'about_items#index'
+
+  resources :posts
+
+  resources :histories, param: :generation_code
 end

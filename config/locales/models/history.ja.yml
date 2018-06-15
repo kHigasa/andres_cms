@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      history: 沿革
+    attributes:
+      history:
+        id:
+        generation_code: 世代コード
+        generation_name: 世代名
+        image: ロゴ
+        description: 概要
+        file: ファイル
+        file_type: ファイルタイプ
+    flash:
+      history:
+        actions:
+          create:
+            success: GEILについての項目の登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: GEILについての項目の更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: GEILについての項目の削除を完了しました。
+            failure: GEILについての項目を削除できませんでした。

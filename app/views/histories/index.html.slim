@@ -1,0 +1,10 @@
+h2.title #{History.model_name.human}#{t('misc.index')}
+- if can? :new, @history
+  = render 'search_form'
+  .control-box.field.is-pulled-left
+    = link_to "#{History.model_name.human}#{t('misc.new')}", new_history_path, class: 'button is-primary'
+
+- if @histories.size.zero?
+  .title.is-5= t('message.info.none_results')
+- else
+  = render 'results'

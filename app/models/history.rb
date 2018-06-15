@@ -15,4 +15,5 @@
 
 class History < ApplicationRecord
   has_many :activities, dependent: :destroy
+  validates :generation_code, presence: true, uniqueness: true
 end
