@@ -49,77 +49,67 @@ class AboutItemsController < ApplicationController
   end
 
   def move_first
-    default_about_item_sort_id = @about_item.sort_id
-    @about_item.sort_id.delete(validate: false)
-    first_about_item = AboutItem.where(sort_id: 1)
-    second_about_item = AboutItem.where(sort_id: 2)
-    if first_about_item.present?
-      first_about_item.sort_id = 2
-      if second_about_item.present?
-        remaining_about_items = AboutItem.where(['(sort_id >= ?) AND (sort_id < ?)', 2, default_about_item_sort_id])
-        remaining_about_items.order(sort_id: :asc).each do |remaining_about_item|
-          remaining_about_item += 1
-          remaining_about_item.save!
-        end
+    first_about_item = AboutItem.find_by(sort_id: 1)
+    second_about_item = AboutItem.find_by(sort_id: 2)
+    if first_about_item.present? && second_about_item.present?
+      remaining_about_items = AboutItem.where(['(sort_id >= ?) AND (sort_id < ?)', 2, @about_item.sort_id])
+      remaining_about_items.order(sort_id: :asc).each do |remaining_about_item|
+        remaining_about_item.sort_id += 1
+        remaining_about_item.save!(validate: false)
       end
-      first_about_item.save!
+      first_about_item.sort_id = 2
+      first_about_item.save!(validate: false)
     end
     @about_item.sort_id = 1
-    @about_item.save!
+    @about_item.save!(validate: false)
     redirect_to about_path, notice: I18n.t('activerecord.flash.about_item.actions.move_first.success')
   end
 
   def move_previous
     previous_about_item = AboutItem.where('sort_id < ?', @about_item.sort_id).order(sort_id: :desc).first
     if previous_about_item.present?
-      @about_item.sort_id = previous_about_item.sort_id
-      previous_about_item.sort_id = @about_item.sort_id
-      previous_about_item.sort_id.save!
+      @about_item.sort_id, previous_about_item.sort_id = previous_about_item.sort_id, @about_item.sort_id
+      previous_about_item.save!(validate: false)
     else
       @about_item.sort_id -= 1
     end
-    @about_item.sort_id.save!
+    @about_item.save!(validate: false)
     redirect_to about_path, notice: I18n.t('activerecord.flash.about_item.actions.move_previous.success')
   end
 
   def move_next
     next_about_item = AboutItem.where('sort_id > ?', @about_item.sort_id).order(sort_id: :asc).first
     if next_about_item.present?
-      @about_item.sort_id = next_about_item.sort_id
-      next_about_item.sort_id = @about_item.sort_id
-      next_about_item.sort_id.save!
+      @about_item.sort_id, next_about_item.sort_id = next_about_item.sort_id, @about_item.sort_id
+      next_about_item.save!(validate: false)
     else
       @about_item.sort_id += 1
     end
-    @about_item.sort_id.save!
+    @about_item.save!(validate: false)
     redirect_to about_path, notice: I18n.t('activerecord.flash.about_item.actions.move_next.success')
   end
 
   def move_last
-    default_about_item_sort_id = @about_item.sort_id
-    @about_item.sort_id.delete(validate: false)
     last_about_item = AboutItem.order(sort_id: :asc).last
-    last_but_one_about_item = AboutItem.where('sort_id = ?', last_about_item.sort_id - 1)
-    if last_about_item.present?
-      last_about_item.sort_id -= 1
-      if last_but_one_about_item.present?
-        remaining_about_items = AboutItem.where(['(sort_id > ?) AND (sort_id <= ?)', default_about_item_sort_id, last_about_item.sort_id])
-        remaining_about_items.order(sort_id: :asc).each do |remaining_about_item|
-          remaining_about_item -= 1
-          remaining_about_item.save!
-        end
+    last_but_one_about_item = AboutItem.find_by(sort_id: last_about_item.sort_id - 1)
+    if last_about_item.present? && last_but_one_about_item.present?
+      remaining_about_items = AboutItem.where(['(sort_id > ?) AND (sort_id <= ?)', @about_item.sort_id, last_about_item.sort_id])
+      remaining_about_items.order(sort_id: :asc).each do |remaining_about_item|
+        remaining_about_item.sort_id -= 1
+        remaining_about_item.save!(validate: false)
       end
-      last_about_item.save!
+      last_about_item.sort_id -= 1
+      last_about_item.save!(validate: false)
     end
     @about_item.sort_id = last_about_item.sort_id + 1
-    @about_item.save!
+    @about_item.save!(validate: false)
     redirect_to about_path, notice: I18n.t('activerecord.flash.about_item.actions.move_last.success')
   end
 
   private
 
   def about_item_params
-    params.require(:about_item).permit(:sort_id, :image, :description)
+    params.require(:about_item).permit(:sort_id, :image, :description, :image_cache, :remove_image)
   end
 
   def set_about_item

@@ -12,7 +12,11 @@
       .field
         - if @user.image.present?
           b.control= '現在選択されている画像：' + File.basename(@user.image.to_s)
+          p.control= image_tag @user.image_url(:thumb)
+          b.control= f.label '↓画像を削除する', class: 'label'
+          p.control= f.check_box :remove_image, class: 'checkbox'
         p.control= f.file_field :image, class: 'input'
+        p.control= f.hidden_field :image_cache
 
   .field.is-horizontal
     .field-label= f.label :introduction, class: 'label', require: true

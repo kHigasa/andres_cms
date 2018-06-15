@@ -11,8 +11,8 @@
 #
 
 class AboutItem < ApplicationRecord
-  validates :sort_id, presence: true, numericality: { only_integer: true, greater_than: 0 }
-  validates :sort_id, uniqueness: true
+  validates :sort_id, presence: true, uniqueness: true,
+                      numericality: { only_integer: true, greater_than: 0 }
 
   mount_uploader :image, ImageUploader
 end

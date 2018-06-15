@@ -18,13 +18,17 @@
       .field
         - if @about_item.image.present?
           b.control= '現在選択されている画像：' + File.basename(@about_item.image.to_s)
+          p.control= image_tag @about_item.image_url(:thumb)
+          b.control= f.label '↓画像を削除する', class: 'label'
+          p.control= f.check_box :remove_image, class: 'checkbox'
         p.control= f.file_field :image, class: 'input'
+        p.control= f.hidden_field :image_cache
 
   .field.is-horizontal
     .field-label= f.label :description, class: 'label'
     .field-body
       .field
-        p.control= f.text_field :description, class: 'input'
+        p.control= f.text_area :description, class: 'textarea'
 
   .field.is-horizontal
     .field-label
