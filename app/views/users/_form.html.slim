@@ -7,7 +7,7 @@
 
 = form_with(model: @user, local: true, class: 'control') do |f|
   .field.is-horizontal
-    .field-label= f.label :image, class: 'label', require: true
+    .field-label= f.label :image, class: 'label'
     .field-body
       .field
         - if @user.image.present?
@@ -19,16 +19,16 @@
         p.control= f.hidden_field :image_cache
 
   .field.is-horizontal
-    .field-label= f.label :introduction, class: 'label', require: true
+    .field-label= f.label :introduction, class: 'label'
     .field-body
       .field
         p.control= f.text_field :introduction, class: 'input'
 
   .field.is-horizontal
-    .field-label= f.label :description, class: 'label', require: true
+    .field-label= f.label :description, class: 'label'
     .field-body
       .field
-        p.control= f.text_field :description, class: 'input'
+        p.control= f.text_area :description, class: 'textarea'
 
   .field.is-horizontal
     .field-label

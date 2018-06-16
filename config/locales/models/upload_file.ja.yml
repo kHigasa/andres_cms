@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      upload_file: ファイル
+    attributes:
+      upload_file:
+        id:
+        name: ファイル名
+        file: ファイル
+    flash:
+      upload_file:
+        actions:
+          create:
+            success: ファイルの登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: ファイルの項目の更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: ファイルの削除を完了しました。
+            failure: ファイルを削除できませんでした。

@@ -1,14 +1,10 @@
 class AboutItemsController < ApplicationController
-  before_action :authenticate_user!, only: %i[show new edit create update destroy]
-  before_action :set_about_item, only: %i[show edit update destroy move_first move_previous move_next move_last]
+  before_action :authenticate_user!, only: %i[new edit create update destroy]
+  before_action :set_about_item, only: %i[edit update destroy move_first move_previous move_next move_last]
   load_and_authorize_resource
   # GET /about
   def index
     @about_items = AboutItem.all.order(sort_id: :asc)
-  end
-
-  # GET /about_items/:id
-  def show
   end
 
   # GET /about_items/new
@@ -41,7 +37,7 @@ class AboutItemsController < ApplicationController
 
   # DELETE /about_items/:id
   def destroy
-    if @about_item.errors.empty? && @about_item.destroy
+    if @about_item.destroy
       redirect_to about_path, notice: I18n.t('activerecord.flash.about_item.actions.destroy.success')
     else
       redirect_to about_path, alert: I18n.t('activerecord.flash.about_item.actions.destroy.failure')

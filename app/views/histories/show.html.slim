@@ -1,2 +1,3 @@
 h2.title #{History.model_name.human}#{t('misc.show')}
-= render 'part_result'
+= render template: 'activities/index'
+= link_to t('misc.download'), download_history_upload_file_path

@@ -33,5 +33,10 @@ Rails.application.routes.draw do
 
   resources :histories, param: :generation_code do
     resources :activities
+    resources :upload_files do
+      member do
+        post 'download'
+      end
+    end
   end
 end

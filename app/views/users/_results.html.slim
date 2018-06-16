@@ -23,7 +23,7 @@ table.table.is-fullwidth.is-striped
         td= user.id
         td= user.email
         td
-          - if user.image?
+          - if user.image.present?
             = image_tag user.image_url(:thumb)
         td= user.username
         - if current_user.present? && current_user.admin?
@@ -48,7 +48,8 @@ table.table.is-fullwidth.is-striped
                 - if current_user == user
                   = link_to t('misc.edit'), edit_user_path(user), class: 'dropdown-item'
                 - if can? :destroy, @user
-                  = link_to t('misc.destroy'), user_path(user), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
+                  = link_to t('misc.destroy'), user_path(user), class: 'dropdown-item',
+                            method: :delete, data: { confirm: '本当に削除しますか？' }
 
 .section
   .field.is-pulled-right

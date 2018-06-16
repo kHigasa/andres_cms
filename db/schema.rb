@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_15_161824) do
+ActiveRecord::Schema.define(version: 2018_06_16_062123) do
 
   create_table "about_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "sort_id"
@@ -33,11 +33,10 @@ ActiveRecord::Schema.define(version: 2018_06_15_161824) do
     t.string "generation_name"
     t.string "image"
     t.text "description"
-    t.string "file"
-    t.string "file_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "generation_code"
+    t.index ["generation_code"], name: "index_histories_on_generation_code"
   end
 
   create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -89,6 +88,15 @@ ActiveRecord::Schema.define(version: 2018_06_15_161824) do
     t.datetime "updated_at", null: false
     t.integer "post_id"
     t.index ["post_id"], name: "index_tags_on_post_id"
+  end
+
+  create_table "upload_files", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name"
+    t.string "file"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "history_id"
+    t.index ["history_id"], name: "index_upload_files_on_history_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

@@ -1,12 +1,12 @@
 nav.panel
   .panel-heading= t('misc.search')
   .panel-block
-    = search_form_for(@q, url: histories_path, class: 'control') do |f|
+    = search_form_for(@q, url: history_upload_files_path, class: 'control') do |f|
       .field.is-horizontal
-        .field-label= f.label :generation_name, History.human_attribute_name(:generation_name), class: 'label'
+        .field-label= f.label :name, UploadFile.human_attribute_name(:name), class: 'label'
         .field-body
           .field
-            p.control= f.text_field :generation_name_cont, class: 'input'
+            p.control= f.text_field :name_cont, class: 'input'
 
       .field.is-horizontal
         .field-label

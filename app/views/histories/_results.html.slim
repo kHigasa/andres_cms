@@ -1,0 +1,47 @@
+.section
+  .field.is-pulled-right
+    = page_entries_info @histories
+.section
+  .field.is-pulled-right
+    = paginate @histories
+
+table.table.is-fullwidth.is-striped
+  thead
+    tr
+      th= History.human_attribute_name :generation_code
+      th= History.human_attribute_name :image
+      th= History.human_attribute_name :generation_name
+      th= History.human_attribute_name :description
+      th
+
+  tbody
+    - @histories.each do |history|
+      tr
+        td= history.generation_code
+        td
+          - if history.image.present?
+            = image_tag history.image_url(:thumb)
+        td= history.generation_name
+        td= history.description
+        td
+          .dropdown.is-right.is-hoverable
+            .dropdown-trigger
+              button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+                span= t('misc.operation')
+                span.icon.is-small
+                  i.fa.fa-angle-down[aria-hidden='true']
+            #dropdown-menu.dropdown-menu[role='menu']
+              .dropdown-content
+                = link_to t('misc.show'), history_path(history), class: 'dropdown-item'
+                - if can? :edit, @history
+                  = link_to t('misc.edit'), edit_history_path(history), class: 'dropdown-item'
+                - if can? :destroy, @history
+                  = link_to t('misc.destroy'), history_path(history), class: 'dropdown-item',
+                            method: :delete, data: { confirm: '本当に削除しますか？' }
+
+.section
+  .field.is-pulled-right
+    = page_entries_info @histories
+.section
+  .field.is-pulled-right
+    = paginate @histories

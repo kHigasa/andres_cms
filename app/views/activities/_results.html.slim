@@ -1,0 +1,19 @@
+- @activities.each do |activity|
+  - if current_user.present? && current_user.admin?
+    .dropdown.is-right.is-hoverable.is-pulled-right
+      .dropdown-trigger
+      button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+        span= t('misc.operation')
+        span.icon.is-small
+          i.fa.fa-angle-down[aria-hidden='true']
+      #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-content
+          - if can? :manage, @activity
+            = link_to t('misc.edit'), edit_history_activity_path(activity), class: 'dropdown-item'
+            = link_to t('misc.destroy'), history_activity_path(activity), class: 'dropdown-item',
+                      method: :delete, data: { confirm: '本当に削除しますか？' }
+  .columns.has-text-centered
+    .column.is-full-width
+      .title= activity.title
+    .column.is-full-width
+      p= activity.content

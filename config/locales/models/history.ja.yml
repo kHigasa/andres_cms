@@ -9,8 +9,6 @@ ja:
         generation_name: 世代名
         image: ロゴ
         description: 概要
-        file: ファイル
-        file_type: ファイルタイプ
     flash:
       history:
         actions:

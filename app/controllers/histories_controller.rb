@@ -15,6 +15,7 @@ class HistoriesController < ApplicationController
 
   # GET /histories/new
   def new
+    @history = History.new
   end
 
   # GET /histories/:generation_code/edit
@@ -23,14 +24,30 @@ class HistoriesController < ApplicationController
 
   # POST /histories
   def create
+    @history = History.new(history_params)
+    if @history.errors.empty? && @history.save
+      redirect_to history_path, notice: I18n.t('activerecord.flash.history.actions.create.success')
+    else
+      render :new, alert: I18n.t('activerecord.flash.history.actions.create.failure')
+    end
   end
 
   # PATCH/PUT /histories/:generation_code
   def update
+    if @history.errors.empty? && @history.update(history_params)
+      redirect_to history_path, notice: I18n.t('activerecord.flash.history.actions.update.success')
+    else
+      render :edit, alert: I18n.t('activerecord.flash.history.actions.update.failure')
+    end
   end
 
   # DELETE /histories/:generation_code
   def destroy
+    if @history.destroy
+      redirect_to history_path, notice: I18n.t('activerecord.flash.history.actions.destroy.success')
+    else
+      redirect_to history_path, alert: I18n.t('activerecord.flash.history.actions.destroy.failure')
+    end
   end
 
   private

@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   # POST /users
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.errors.empty? && @user.save
       redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.user.actions.create.failure')
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id
   def update
-    if @user.update(user_params)
+    if @user.errors.empty? && @user.update(user_params)
       redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.user.actions.update.failure')

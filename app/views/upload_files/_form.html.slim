@@ -1,0 +1,27 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @upload_file.errors.any?
+      - @upload_file.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @upload_file, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :name, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :name, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :file, class: 'label'
+    .field-body
+      .field
+        - if @upload_file.file.present?
+          b.control= '現在選択されているファイル：' + File.basename(@upload_file.file.to_s)
+          p.control= f.file_field :file, class: 'input'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'

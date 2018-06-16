@@ -9,9 +9,9 @@
       #dropdown-menu.dropdown-menu[role='menu']
         .dropdown-content
           - if can? :manage, @about_item
-            = link_to t('misc.show'), about_item_path(about_item), class: 'dropdown-item'
             = link_to t('misc.edit'), edit_about_item_path(about_item), class: 'dropdown-item'
-            = link_to t('misc.destroy'), about_item_path(about_item), class: 'dropdown-item', method: :delete, data: { confirm: '本当に削除しますか？' }
+            = link_to t('misc.destroy'), about_item_path(about_item), class: 'dropdown-item',
+                      method: :delete, data: { confirm: '本当に削除しますか？' }
             - unless about_item.sort_id == 1
               = link_to t('misc.move_first'), move_first_about_item_path(about_item), method: :patch, class: 'dropdown-item'
               = link_to t('misc.move_previous'), move_previous_about_item_path(about_item), method: :patch, class: 'dropdown-item'
