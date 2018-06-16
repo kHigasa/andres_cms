@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :about_items do
+  resources :about_items, only: %i[index new edit create update destroy] do
     member do
       patch 'move_first'
       patch 'move_previous'
