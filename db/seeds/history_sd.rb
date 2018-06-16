@@ -4,7 +4,7 @@ History.destroy_all
 50.times do
   History.create(
     generation_code: Faker::Name.initials,
-    generation_name: Faker::Name.middle_name,
+    generation_name: Faker::Pokemon.name,
     image: Faker::Avatar.image,
     description: Faker::Lorem.sentence
   )

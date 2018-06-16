@@ -2,8 +2,4 @@ h2.title =t('misc.about')
 - if can? :new, @about_item
   .control-box.field.is-pulled-left
     = link_to "#{AboutItem.model_name.human}#{t('misc.new')}", new_about_item_path, class: 'button is-primary'
-
-- if @about_items.size.zero?
-  .title.is-5= t('message.info.none_results')
-- else
-  = render 'results'
+= render 'results'

@@ -1,6 +1,6 @@
 class HistoriesController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_history, only: %i[show edit update destroy]
+  before_action :set_history, only: %i[show edit destroy]
   load_and_authorize_resource
   add_breadcrumb "#{History.model_name.human}#{I18n.t('misc.index')}", :histories_path
   # GET /histories
@@ -26,7 +26,7 @@ class HistoriesController < ApplicationController
   def create
     @history = History.new(history_params)
     if @history.errors.empty? && @history.save
-      redirect_to history_path, notice: I18n.t('activerecord.flash.history.actions.create.success')
+      redirect_to histories_path, notice: I18n.t('activerecord.flash.history.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.history.actions.create.failure')
     end
@@ -34,8 +34,9 @@ class HistoriesController < ApplicationController
 
   # PATCH/PUT /histories/:generation_code
   def update
+    @history = History.find_by(id: params[:generation_code])
     if @history.errors.empty? && @history.update(history_params)
-      redirect_to history_path, notice: I18n.t('activerecord.flash.history.actions.update.success')
+      redirect_to histories_path, notice: I18n.t('activerecord.flash.history.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.history.actions.update.failure')
     end
@@ -44,19 +45,19 @@ class HistoriesController < ApplicationController
   # DELETE /histories/:generation_code
   def destroy
     if @history.destroy
-      redirect_to history_path, notice: I18n.t('activerecord.flash.history.actions.destroy.success')
+      redirect_to histories_path, notice: I18n.t('activerecord.flash.history.actions.destroy.success')
     else
-      redirect_to history_path, alert: I18n.t('activerecord.flash.history.actions.destroy.failure')
+      redirect_to histories_path, alert: I18n.t('activerecord.flash.history.actions.destroy.failure')
     end
   end
 
   private
 
-  def history_params
-    params.require(:history).permit(:generation_code, :generation_name, :image, :description, :file, :file_type)
+  def set_history
+    @history = History.find_by(generation_code: params[:generation_code])
   end
 
-  def set_history
-    @history = History.find(params[:generation_code])
+  def history_params
+    params.require(:history).permit(:generation_code, :generation_name, :image, :remove_image, :image_cache, :description, :file, :file_type)
   end
 end

@@ -5,7 +5,12 @@
         .notification.is-danger
           = message
 
-= form_with(model: @activity, local: true, class: 'control') do |f|
+= form_with(model: [ :history, @activity ], local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-body
+      .field
+        p.control= f.hidden_field :history_id, class: 'input', value: @history.id
+
   .field.is-horizontal
     .field-label= f.label :title, class: 'label'
     .field-body

@@ -10,7 +10,8 @@ class Ability
     else
       can :index, User
       can :index, AboutItem
-      can :index, :show, History
+      can :index, History
+      can :show, History
       can :index, Activity
       can :index, :download, UploadFile
     end

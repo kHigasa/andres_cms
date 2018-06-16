@@ -2,12 +2,12 @@
 #
 # Table name: upload_files
 #
-#  id         :bigint(8)        not null, primary key
-#  name       :string(255)
-#  file       :string(255)
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  history_id :integer
+#  id                      :bigint(8)        not null, primary key
+#  name                    :string(255)
+#  file                    :string(255)
+#  created_at              :datetime         not null
+#  updated_at              :datetime         not null
+#  history_generation_code :string(255)
 #
 
 FactoryBot.define do

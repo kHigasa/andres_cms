@@ -1,14 +1,14 @@
 ja:
   activerecord:
     models:
-      history: 活動
+      activity: 活動
     attributes:
-      history:
+      activity:
         id:
         title: 活動名
         content: 活動内容
     flash:
-      history:
+      activity:
         actions:
           create:
             success: 活動の登録を完了しました。
