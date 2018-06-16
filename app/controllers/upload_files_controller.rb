@@ -47,7 +47,9 @@ class UploadFilesController < ApplicationController
   end
 
   def download
-    send_file(@upload_file.file.path)
+    file_path = @upload_file.file.path
+    file_name = @upload_file.name
+    send_file(file_path, file_name: file_name)
   end
 
   private

@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   resources :posts
 
   resources :histories, param: :generation_code do
-    resources :activities
-    resources :upload_files do
+    resources :activities, only: %i[index new edit create update destroy]
+    resources :upload_files, only: %i[index new edit create update destroy] do
       member do
         post 'download'
       end
