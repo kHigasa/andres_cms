@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      history: 活動
+    attributes:
+      history:
+        id:
+        title: 活動名
+        content: 活動内容
+    flash:
+      history:
+        actions:
+          create:
+            success: 活動の登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: 活動の更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: 活動の削除を完了しました。
+            failure: 活動を削除できませんでした。

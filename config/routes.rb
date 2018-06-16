@@ -31,5 +31,7 @@ Rails.application.routes.draw do
 
   resources :posts
 
-  resources :histories, param: :generation_code
+  resources :histories, param: :generation_code do
+    resources :activities
+  end
 end
