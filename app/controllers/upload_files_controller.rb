@@ -1,11 +1,12 @@
 class UploadFilesController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
+  before_action :set_history, only: %i[index new]
   before_action :set_upload_file, only: %i[edit update destroy download]
   load_and_authorize_resource
   add_breadcrumb "#{UploadFile.model_name.human}#{I18n.t('misc.index')}", :history_upload_files_path
   # GET /histories/:history_generation_code/upload_files
   def index
-    @q = UploadFile.all.ransack(params[:q])
+    @q = @history.upload_files.ransack(params[:q])
     @upload_files = @q.result.page(params[:page])
   end
 
@@ -16,13 +17,14 @@ class UploadFilesController < ApplicationController
 
   # GET /histories/:history_generation_code/upload_files/:id/edit
   def edit
+    @upload_file = UploadFile.find_by(id: params[:history_generation_code])
   end
 
   # POST /histories/:history_generation_code/upload_files
   def create
     @upload_file = UploadFile.new(upload_file_params)
     if @upload_file.errors.empty? && @upload_file.save
-      redirect_to history_upload_files_path, notice: I18n.t('activerecord.flash.upload_file.actions.create.success')
+      redirect_to histories_path, notice: I18n.t('activerecord.flash.upload_file.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.upload_file.actions.create.failure')
     end
@@ -30,8 +32,9 @@ class UploadFilesController < ApplicationController
 
   # PATCH/PUT /histories/:history_generation_code/upload_files/:id
   def update
+    @history = History.find_by(id: params[:generation_code])
     if @upload_file.errors.empty? && @upload_file.update(upload_file_params)
-      redirect_to history_upload_files_path, notice: I18n.t('activerecord.flash.upload_file.actions.update.success')
+      redirect_to histories_path, notice: I18n.t('activerecord.flash.upload_file.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.upload_file.actions.update.failure')
     end
@@ -40,9 +43,9 @@ class UploadFilesController < ApplicationController
   # DELETE /histories/:history_generation_code/upload_files/:id
   def destroy
     if @upload_file.destroy
-      redirect_to history_upload_files_path, notice: I18n.t('activerecord.flash.upload_file.actions.destroy.success')
+      redirect_to histories_path, notice: I18n.t('activerecord.flash.upload_file.actions.destroy.success')
     else
-      redirect_to history_upload_files_path, alert: I18n.t('activerecord.flash.upload_file.actions.destroy.failure')
+      redirect_to histories_path, alert: I18n.t('activerecord.flash.upload_file.actions.destroy.failure')
     end
   end
 
@@ -56,6 +59,10 @@ class UploadFilesController < ApplicationController
 
   def upload_file_params
     params.require(:upload_file).permit(:history_id, :name, :file)
+  end
+
+  def set_history
+    @history = History.find_by(generation_code: params[:history_generation_code])
   end
 
   def set_upload_file

@@ -3,6 +3,7 @@ class ActivitiesController < ApplicationController
   before_action :set_history, only: %i[index new]
   before_action :set_activity, only: %i[edit update destroy]
   load_and_authorize_resource
+  add_breadcrumb "#{History.model_name.human}#{I18n.t('misc.index')}", :histories_path
   # GET /histories/:history_generation_code/activities
   def index
     @activities = Activity.where(history_id: @history.id).order(id: :asc)
