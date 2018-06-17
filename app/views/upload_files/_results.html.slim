@@ -18,7 +18,7 @@ table.table.is-fullwidth.is-striped
         td= upload_file.name
         td
           - if upload_file.file.present?
-            = upload_file.file
+            = File.basename(upload_file.file.to_s)
         td
           .dropdown.is-right.is-hoverable
             .dropdown-trigger
@@ -29,10 +29,11 @@ table.table.is-fullwidth.is-striped
             #dropdown-menu.dropdown-menu[role='menu']
               .dropdown-content
                 - if can? :edit, @upload_file
-                  = link_to t('misc.edit'), edit_history_upload_file_path(upload_file), class: 'dropdown-item'
+                  = link_to t('misc.edit'), edit_history_upload_file_path(@history, upload_file), class: 'dropdown-item'
                 - if can? :destroy, @upload_file
-                  = link_to t('misc.destroy'), history_upload_file_path(upload_file), class: 'dropdown-item',
+                  = link_to t('misc.destroy'), history_upload_file_path(@history, upload_file), class: 'dropdown-item',
                             method: :delete, data: { confirm: '本当に削除しますか？' }
+                = link_to t('misc.download'),  download_history_upload_file_path(@history, upload_file), class: 'dropdown-item', method: :post
 
 .section
   .field.is-pulled-right

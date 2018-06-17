@@ -1,6 +1,6 @@
 class UploadFilesController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_history, only: %i[index new]
+  before_action :set_history, only: %i[index new create]
   before_action :set_upload_file, only: %i[edit update destroy download]
   load_and_authorize_resource
   add_breadcrumb "#{UploadFile.model_name.human}#{I18n.t('misc.index')}", :history_upload_files_path
@@ -17,7 +17,7 @@ class UploadFilesController < ApplicationController
 
   # GET /histories/:history_generation_code/upload_files/:id/edit
   def edit
-    @upload_file = UploadFile.find_by(id: params[:history_generation_code])
+    @history = History.find_by(id: params[:history_generation_code])
   end
 
   # POST /histories/:history_generation_code/upload_files
@@ -62,7 +62,9 @@ class UploadFilesController < ApplicationController
   end
 
   def set_history
-    @history = History.find_by(generation_code: params[:history_generation_code])
+    histories = History.all
+    @history = histories.find_by(id: params[:history_generation_code])
+    raise ActiveRecord::RecordNotFound unless @history
   end
 
   def set_upload_file

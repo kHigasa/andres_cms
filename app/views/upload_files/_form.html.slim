@@ -5,7 +5,12 @@
         .notification.is-danger
           = message
 
-= form_with(model: @upload_file, local: true, class: 'control') do |f|
+= form_with(model: [ :history, @upload_file ], local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-body
+      .field
+        p.control= f.hidden_field :history_id, class: 'input', value: @history.id
+
   .field.is-horizontal
     .field-label= f.label :name, class: 'label'
     .field-body
@@ -18,7 +23,7 @@
       .field
         - if @upload_file.file.present?
           b.control= '現在選択されているファイル：' + File.basename(@upload_file.file.to_s)
-          p.control= f.file_field :file, class: 'input'
+        p.control= f.file_field :file, class: 'input'
 
   .field.is-horizontal
     .field-label
