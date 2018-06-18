@@ -10,5 +10,11 @@ load Rails.root.join('db', 'seeds', 'history_sd.rb')
 load Rails.root.join('db', 'seeds', 'activity_sd.rb')
 # UploadFile
 load Rails.root.join('db', 'seeds', 'upload_file_sd.rb')
+# Supporter
+load Rails.root.join('db', 'seeds', 'supporter_sd.rb')
+# FaqCategory
+load Rails.root.join('db', 'seeds', 'faq_category_sd.rb')
+# Question
+load Rails.root.join('db', 'seeds', 'question_sd.rb')
 
 Rails.logger.info 'Creating seeds data has completed!!'

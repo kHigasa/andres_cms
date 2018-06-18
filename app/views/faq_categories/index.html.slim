@@ -1,0 +1,10 @@
+h2.title #{FaqCategory.model_name.human}#{t('misc.index')}
+- if can? :new, @faq_category
+  = render 'search_form'
+  .control-box.field.is-pulled-left
+    = link_to "#{FaqCategory.model_name.human}#{t('misc.new')}", new_faq_category_path, class: 'button is-primary'
+
+- if @faq_categories.size.zero?
+  .title.is-5= t('message.info.none_results')
+- else
+  = render 'results'

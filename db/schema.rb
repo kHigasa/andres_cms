@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_062123) do
+ActiveRecord::Schema.define(version: 2018_06_18_121444) do
 
   create_table "about_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "sort_id"
@@ -27,6 +27,12 @@ ActiveRecord::Schema.define(version: 2018_06_16_062123) do
     t.datetime "updated_at", null: false
     t.integer "history_id"
     t.index ["history_id"], name: "index_activities_on_history_id"
+  end
+
+  create_table "faq_categories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "category"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "histories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -73,6 +79,15 @@ ActiveRecord::Schema.define(version: 2018_06_16_062123) do
     t.integer "topic"
   end
 
+  create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "faq_category_id"
+    t.text "question"
+    t.text "answer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["faq_category_id"], name: "index_questions_on_faq_category_id"
+  end
+
   create_table "social_accounts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "account_type"
     t.string "url"
@@ -80,6 +95,13 @@ ActiveRecord::Schema.define(version: 2018_06_16_062123) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_social_accounts_on_user_id"
+  end
+
+  create_table "supporters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "type"
+    t.string "image"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

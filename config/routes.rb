@@ -39,4 +39,11 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  resources :supporters, only: %i[index new edit create update destroy]
+
+  resources :questions, only: %i[index new edit create update destroy]
+  get '/faq', to: 'questions#index'
+
+  resources :faq_categories, only: %i[index new edit create update destroy]
 end

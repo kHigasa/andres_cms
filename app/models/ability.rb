@@ -13,7 +13,10 @@ class Ability
       can :index, History
       can :show, History
       can :index, Activity
-      can :index, :download, UploadFile
+      can :index, UploadFile
+      can :download, UploadFile
+      can :index, Supporter
+      can :index, Question
     end
     #
     # The first argument to `can` is the action you are giving the user

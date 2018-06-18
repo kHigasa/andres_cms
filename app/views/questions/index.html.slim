@@ -1,0 +1,9 @@
+h2.title #{Question.model_name.human}#{t('misc.index')}
+- if can? :new, @question
+  .control-box.field.is-pulled-left
+    = link_to "#{Question.model_name.human}#{t('misc.new')}", new_question_path, class: 'button is-primary'
+
+- if @questions.size.zero?
+  .title.is-5= t('message.info.none_results')
+- else
+  = render 'results'

@@ -15,5 +15,6 @@ class History < ApplicationRecord
   has_many :activities, dependent: :destroy
   has_many :upload_files, dependent: :destroy
   validates :generation_code, presence: true, uniqueness: true
+  validates :generation_name, presence: true
   mount_uploader :image, ImageUploader
 end
