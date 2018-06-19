@@ -5,10 +5,7 @@ class QuestionsController < ApplicationController
   add_breadcrumb "#{Question.model_name.human}#{I18n.t('misc.index')}", :questions_path
   # GET /questions
   def index
-    @faq_categories = FaqCategory.all
-    @faq_categories.each do |faq_category|
-      @questions = Question.where(faq_category_id: faq_category.id)
-    end
+    @questions = Question.all
   end
 
   # GET /questions/new

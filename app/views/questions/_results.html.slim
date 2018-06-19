@@ -1,5 +1,4 @@
 - @questions.each do |question|
-  .column.title=FaqCategory.find_by(id: @questions.first.faq_category_id).category
   - if current_user.present? && current_user.admin?
     .dropdown.is-right.is-hoverable.is-pulled-right
       .dropdown-trigger
