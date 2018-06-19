@@ -5,9 +5,9 @@ ja:
     attributes:
       question:
         id:
-        faq_category_id:
-        question: 世代コード
-        answer: 世代名
+        faq_category_id: よくある質問のカテゴリー
+        question: 質問
+        answer: 答え
     flash:
       question:
         actions:

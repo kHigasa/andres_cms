@@ -10,7 +10,7 @@
     .field-label= f.label FaqCategory.model_name.human, class: 'label'
     .field-body
       .field
-      p.control.select= f.collection_select(:faq_category_id, FaqCategory.all, :id, :category), class: 'input'
+        p.control.select= f.collection_select :faq_category_id, FaqCategory.all, :id, :category, prompt: true, class: 'input'
 
   .field.is-horizontal
     .field-label= f.label :question, class: 'label'

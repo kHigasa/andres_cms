@@ -7,7 +7,7 @@ histories.each do |history|
     UploadFile.create(
       history_id: history.id,
       name: Faker::Kpop.girl_groups,
-      file: Faker::File.mime_type
+      file: File.open('./resources/files/charytanowicz.pdf')
     )
   end
 end

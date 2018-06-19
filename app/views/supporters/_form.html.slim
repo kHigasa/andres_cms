@@ -10,19 +10,19 @@
     .field-label= f.label :type, class: 'label'
     .field-body
       .field
-      p.control.select= f.select :type, [['協賛', 0], ['後援', 1]], prompt: true, class: 'input'
+       p.control.select= f.select :type, Supporter.type.options, prompt: true, class: 'input'
 
   .field.is-horizontal
     .field-label= f.label :image, class: 'label'
     .field-body
       .field
-      - if @supporter.image.present?
-        b.control= '現在選択されている画像：' + File.basename(@supporter.image.to_s)
-        p.control= image_tag @history.image_url(:thumb)
-        b.control= f.label '↓画像を削除する', class: 'label'
-        p.control= f.check_box :remove_image, class: 'checkbox'
-      p.control= f.file_field :image, class: 'input'
-      p.control= f.hidden_field :image_cache
+        - if @supporter.image.present?
+          b.control= '現在選択されている画像：' + File.basename(@supporter.image.to_s)
+          p.control= image_tag @supporter.image_url(:thumb)
+          b.control= f.label '↓画像を削除する', class: 'label'
+          p.control= f.check_box :remove_image, class: 'checkbox'
+        p.control= f.file_field :image, class: 'input'
+        p.control= f.hidden_field :image_cache
 
   .field.is-horizontal
     .field-label

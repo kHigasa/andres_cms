@@ -10,12 +10,20 @@
 #
 
 class Supporter < ApplicationRecord
+  extend Enumerize
   validates :type, presence: true
   validates :image, presence: true
   mount_uploader :image, ImageUploader
+  enumerize :type, in: { kyousann: 0, kouenn: 1 }
+  self.inheritance_column = :_type_disabled
 
-  enum type: {
-    kyousann: 0,
-    kouenn: 1
-  }
+  class << self
+    def kyousann
+      where(type: :kyousann)
+    end
+
+    def kouenn
+      where(type: :kouenn)
+    end
+  end
 end

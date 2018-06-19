@@ -5,7 +5,10 @@ class QuestionsController < ApplicationController
   add_breadcrumb "#{Question.model_name.human}#{I18n.t('misc.index')}", :questions_path
   # GET /questions
   def index
-    @questions = Question.all
+    @faq_categories = FaqCategory.all
+    @faq_categories.each do |faq_category|
+      @questions = Question.where(faq_category_id: faq_category.id)
+    end
   end
 
   # GET /questions/new
@@ -48,7 +51,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:question_id, :question, :answer)
+    params.require(:question).permit(:faq_category_id, :question, :answer)
   end
 
   def set_question
