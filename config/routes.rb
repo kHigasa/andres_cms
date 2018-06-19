@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+    get 'users/sign_out' => 'devise/sessions#destroy'
   end
 
   root 'pages#home'
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
       patch 'move_last'
     end
   end
-  get '/about', to: 'about_items#index'
+  get 'about', to: 'about_items#index'
 
   resources :posts
 
@@ -43,7 +43,10 @@ Rails.application.routes.draw do
   resources :supporters, only: %i[index new edit create update destroy]
 
   resources :questions, only: %i[index new edit create update destroy]
-  get '/faq', to: 'questions#index'
+  get 'faq', to: 'questions#index'
 
   resources :faq_categories, only: %i[index new edit create update destroy]
+
+  resources :contacts, only: %i[new create]
+  get 'contact', to: 'contacts#new'
 end
