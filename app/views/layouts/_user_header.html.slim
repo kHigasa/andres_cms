@@ -12,14 +12,16 @@ header
       .navbar-start
         a.navbar-item href='/'
           | Home
-        a.navbar-item href='/abouts'
+        a.navbar-item href='/about'
           | About
         a.navbar-item href='/posts'
           | Posts
-        a.navbar-item href='/pasts'
-          | History
-        a.navbar-item href='/supports'
-          | Supports
+        a.navbar-item href='/histories'
+          | Histories
+        a.navbar-item href='/supporters'
+          | Supporters
+        a.navbar-item href='/faq'
+          | FAQ
 
 
     - if current_user.admin?
@@ -29,9 +31,9 @@ header
             span.icon.is-small
               i.fa.fa-user
           .navbar-dropdown.is-boxed.is-right
-            .navbar-item= link_to 'プロフィール変更', edit_user_path(current_user)
             .navbar-item= link_to "#{User.model_name.human}#{t('misc.index')}", users_path
             hr.navbar-divider
+            .navbar-item= link_to '登録情報の変更', edit_user_registration_path
             .navbar-item= link_to 'ログアウト', destroy_user_session_path, method: :delete
     - else
       .navbar-end
@@ -39,7 +41,7 @@ header
           a.navbar-link
             | Other
           .navbar-dropdown.is-boxed
-            a.navbar-item href='/contacts'
+            a.navbar-item href='/contact'
               | Contact
-            a.navbar-item href='/inquiries'
+            a.navbar-item href='/faq'
               | FAQ

@@ -1,0 +1,19 @@
+ja:
+  activerecord:
+    models:
+      post: 投稿
+    attributes:
+      post:
+        id: 投稿ID
+    flash:
+      post:
+        actions:
+          create:
+            success: 投稿の登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: 投稿の更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: 投稿の削除を完了しました。
+            failure: 投稿を削除できませんでした。

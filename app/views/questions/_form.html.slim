@@ -1,0 +1,31 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @question.errors.any?
+      - @question.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @question, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label FaqCategory.model_name.human, class: 'label'
+    .field-body
+      .field
+        p.control.select= f.collection_select :faq_category_id, FaqCategory.all, :id, :category, prompt: true, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :question, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :question, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :answer, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_area :answer, class: 'textarea'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'

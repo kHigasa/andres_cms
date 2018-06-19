@@ -3,13 +3,13 @@ nav.panel
   .panel-block
     = search_form_for(@q, url: users_path, class: 'control') do |f|
       .field.is-horizontal
-        .field-label= f.label :username, User.human_attribute_name(:username), class: 'label'
+        .field-label= f.label :username, class: 'label'
         .field-body
           .field
             p.control= f.text_field :username_cont, class: 'input'
 
       .field.is-horizontal
-        .field-label= f.label :admin, User.human_attribute_name(:admin), class: 'label'
+        .field-label= f.label :admin, class: 'label'
         .field-body
           .field
             p.control.select= f.select :admin_eq, [['である', true], ['でない', false]], include_blank: true, class: 'input'
