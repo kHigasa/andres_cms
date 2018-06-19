@@ -10,10 +10,10 @@ const Home = () => (
         'data-200-center-center': 'transform: translateX(0);'
       }}
     >
-      <img src={smoothImage} alt='smoothImage' className='smoothImage' />
+      <img src={smoothImage} alt='smoothImage' className='smoothImage is-6 is-pulled-left' />
     </Parallax>
     <Parallax
-      className='Page_text'
+      className='Page_text is-6 is-pulled-right'
       data={{
         'data-bottom-top': 'transform: translateX(800px);',
         'data-200-center-center': 'transform: translateX(0);'
@@ -26,127 +26,15 @@ const Home = () => (
         <br />We focus on healthy ingredients found seasonally and locally, warm comfort foods,
         <br />and hearty flavours that travel directly to you – so you can focus on doing
         <br />whatever it is youre doing.
+        <br />that is diverse, ethical, and appealing to just about every taste.
+        <br />We focus on healthy ingredients found seasonally and locally, warm comfort foods,
+        <br />and hearty flavours that travel directly to you – so you can focus on doing
+        <br />whatever it is youre doing.
+        <br />that is diverse, ethical, and appealing to just about every taste.
+        <br />We focus on healthy ingredients found seasonally and locally, warm comfort foods,
+        <br />and hearty flavours that travel directly to you – so you can focus on doing
+        <br />whatever it is youre doing.
       </div>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
-    </Parallax>
-    <Parallax
-      data={{
-        'data-top-top': 'transform: translateX(-100%);',
-        'data-center-center': 'opacity: 1;transform: translateX(0%);',
-        'data-bottom-top': 'opacity: 0;'
-      }}
-    >
-      <span>
-        Start scrolling!!
-        star
-      </span>
     </Parallax>
   </ParallaxProvider>
 );

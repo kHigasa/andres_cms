@@ -1,0 +1,9 @@
+h2.title #{Supporter.model_name.human}#{t('misc.index')}
+- if can? :new, @supporter
+  .control-box.field.is-pulled-left
+    = link_to "#{Supporter.model_name.human}#{t('misc.new')}", new_supporter_path, class: 'button is-primary'
+
+- if @supporters.size.zero?
+  .title.is-5= t('message.info.none_results')
+- else
+  = render 'results'

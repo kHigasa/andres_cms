@@ -3,15 +3,23 @@ html
   head
     title AndresCms
     = csrf_meta_tags
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
+    = favicon_link_tag('favicon.ico')
   body
     .hero-head
       - if user_signed_in?
-        = render 'layouts/header'
-      - else
         = render 'layouts/user_header'
-    .has-text-centered
+      - else
+        = render 'layouts/header'
+    - unless controller.controller_name == 'pages'
+      .column
+        = render_breadcrumbs separator: t('breadcrumbs.separator')
+      .has-text-centered
+        .column.is-4.is-offset-4
+          = render 'layouts/notifications'
+    .has-text-centered style='padding-bottom: 500px;'
       = yield
     .hero-foot
       = render 'layouts/footer'

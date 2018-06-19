@@ -33,11 +33,15 @@
 
 class User < ApplicationRecord
   has_many :social_accounts, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :confirmable, :lockable, :timeoutable, :omniauthable,
-         omniauth_providers: [:twitter], authentication_keys: [:login]
+         # :confirmable,
+         :lockable, :timeoutable, :omniauthable,
+         authentication_keys: [:login]
   attr_accessor :login
+
+  mount_uploader :image, ImageUploader
 
   # Override condition of authentication
   def self.find_first_by_auth_conditions(warden_conditions)
@@ -49,14 +53,6 @@ class User < ApplicationRecord
     end
   end
 
-  def self.from_omniauth(auth)
-    find_or_create_by(provider: auth['provider'], uid: auth['uid']) do |user|
-      user.provider = auth['provider']
-      user.uid = auth['uid']
-      user.username = auth['info']['nickname']
-    end
-  end
-
   def self.new_with_session(params, session)
     if session['devise_user.attributes']
       new(session['devise.user.attributes']) do |user|
@@ -65,5 +61,22 @@ class User < ApplicationRecord
     else
       super
     end
+  end
+
+  # Get user or create user if there isn't user in record
+  def self.find_for_oauth(auth)
+    user = User.find_by(uid: auth.uid, provider: auth.provider)
+    user ||= User.create(
+      uid:      auth.uid,
+      provider: auth.provider,
+      email:    User.dummy_email(auth),
+      password: Devise.friendly_token[0, 20]
+    )
+  end
+
+  private
+
+  def self.dummy_email(auth)
+    "#{auth.uid}-#{auth.provider}@example.com"
   end
 end

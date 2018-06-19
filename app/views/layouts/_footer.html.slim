@@ -1,9 +1,13 @@
-footer
+footer.is-fixed-bottom
   .container
     .content.has-text-centered
       - if user_signed_in?
         strong
-          = link_to current_user.username, root_path
+          | あなたの
+          = User.human_attribute_name :username
+          | は
+          = link_to current_user.username, user_path(current_user)
+          | です。
       - else
         p
           strong GEIL

@@ -8,8 +8,7 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '3f5625629390351418327b71cbaa1cbe1a924853c98f33df9263300d603a6a08a9f0e0d9087c75cb344d79f832227abd6c25b77bc01431017d0fddd009ab2776'
-  config.omniauth :twitter, '6iSRUW79BBhuviBHC3R0IVksA', 'KK7Sv3RL0BzQrKaLs0LKi5wvFEp6HxSaX1itdf1Lbpehfuhk3T'
+  config.secret_key = '0e18bc55aafc519b42c68362c50829ed0f5a57e8502a9b765ab9cdabd394f8a2cec993aa2f815218eddf4261808c7bb3debdb31569f321785653ab68524b94b2'
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   # config.parent_controller = 'DeviseController'
@@ -262,7 +261,8 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  # config.omniauth :github, 'APP_ID', 'APP_SECRET', scope: 'user,public_repo'
+  config.omniauth :facebook, '2084030408510634', 'e02e651d23eee1765ac777cf8f0f9e5f'
+  config.omniauth :twitter, '6iSRUW79BBhuviBHC3R0IVksA', 'KK7Sv3RL0BzQrKaLs0LKi5wvFEp6HxSaX1itdf1Lbpehfuhk3T'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or

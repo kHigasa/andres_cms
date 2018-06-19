@@ -1,0 +1,40 @@
+.section
+  .field.is-pulled-right
+    = page_entries_info @faq_categories
+.section
+  .field.is-pulled-right
+    = paginate @faq_categories
+
+table.table.is-fullwidth.is-striped
+  thead
+    tr
+      th= FaqCategory.human_attribute_name :id
+      th= FaqCategory.human_attribute_name :category
+      th
+
+  tbody
+    - @faq_categories.each do |faq_category|
+      tr
+        td= faq_category.id
+        td= faq_category.category
+        td
+          .dropdown.is-right.is-hoverable
+            .dropdown-trigger
+              button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+                span= t('misc.operation')
+                span.icon.is-small
+                  i.fa.fa-angle-down[aria-hidden='true']
+            #dropdown-menu.dropdown-menu[role='menu']
+              .dropdown-content
+                - if can? :edit, @faq_category
+                  = link_to t('misc.edit'), edit_faq_category_path(faq_category), class: 'dropdown-item'
+                - if can? :destroy, @faq_category
+                  = link_to t('misc.destroy'), faq_category_path(faq_category), class: 'dropdown-item',
+                            method: :delete, data: { confirm: '本当に削除しますか？' }
+
+.section
+  .field.is-pulled-right
+    = page_entries_info @faq_categories
+.section
+  .field.is-pulled-right
+    = paginate @faq_categories

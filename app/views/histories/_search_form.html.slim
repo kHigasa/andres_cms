@@ -1,0 +1,15 @@
+nav.panel
+  .panel-heading= t('misc.search')
+  .panel-block
+    = search_form_for(@q, url: histories_path, class: 'control') do |f|
+      .field.is-horizontal
+        .field-label= f.label :generation_name, History.human_attribute_name(:generation_name), class: 'label'
+        .field-body
+          .field
+            p.control= f.text_field :generation_name_cont, class: 'input'
+
+      .field.is-horizontal
+        .field-label
+        .field-body
+          .field
+            p.control.is-pulled-right= f.submit t('misc.search'), class: 'button is-info'

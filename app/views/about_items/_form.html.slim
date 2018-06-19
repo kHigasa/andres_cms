@@ -1,0 +1,37 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @about_item.errors.any?
+      - @about_item.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @about_item, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :sort_id, class: 'label', require: true
+    .field-body
+      .field
+        p.control= f.number_field :sort_id, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :image, class: 'label'
+    .field-body
+      .field
+        - if @about_item.image.present?
+          b.control= '現在選択されている画像：' + File.basename(@about_item.image.to_s)
+          p.control= image_tag @about_item.image_url(:thumb)
+          b.control= f.label '↓画像を削除する', class: 'label'
+          p.control= f.check_box :remove_image, class: 'checkbox'
+        p.control= f.file_field :image, class: 'input'
+        p.control= f.hidden_field :image_cache
+
+  .field.is-horizontal
+    .field-label= f.label :description, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_area :description, class: 'textarea'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'

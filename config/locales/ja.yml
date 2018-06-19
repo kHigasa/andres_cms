@@ -3,10 +3,10 @@ ja:
   activerecord:
     errors:
       messages:
-        record_invalid: "バリデーションに失敗しました: %{errors}"
+        record_invalid: 'バリデーションに失敗しました: %{errors}'
         restrict_dependent_destroy:
-          has_one: "%{record}が存在しているので削除できません"
-          has_many: "%{record}が存在しているので削除できません"
+          has_one: '%{record}が存在しているので削除できません'
+          has_many: '%{record}が存在しているので削除できません'
   date:
     abbr_day_names:
     - 日
@@ -39,9 +39,9 @@ ja:
     - 金曜日
     - 土曜日
     formats:
-      default: "%Y/%m/%d"
-      long: "%Y年%m月%d日(%a)"
-      short: "%m/%d"
+      default: '%Y/%m/%d'
+      long: '%Y年%m月%d日(%a)'
+      short: '%m/%d'
     month_names:
     -
     - 1月
@@ -73,32 +73,32 @@ ja:
         other: 約%{count}年
       almost_x_years:
         one: 1年弱
-        other: "%{count}年弱"
+        other: '%{count}年弱'
       half_a_minute: 30秒前後
       less_than_x_minutes:
         one: 1分以内
-        other: "%{count}分未満"
+        other: '%{count}分未満'
       less_than_x_seconds:
         one: 1秒以内
-        other: "%{count}秒未満"
+        other: '%{count}秒未満'
       over_x_years:
         one: 1年以上
-        other: "%{count}年以上"
+        other: '%{count}年以上'
       x_days:
         one: 1日
-        other: "%{count}日"
+        other: '%{count}日'
       x_minutes:
         one: 1分
-        other: "%{count}分"
+        other: '%{count}分'
       x_months:
         one: 1ヶ月
-        other: "%{count}ヶ月"
+        other: '%{count}ヶ月'
       x_years:
         one: 1年
-        other: "%{count}年"
+        other: '%{count}年'
       x_seconds:
         one: 1秒
-        other: "%{count}秒"
+        other: '%{count}秒'
     prompts:
       day: 日
       hour: 時
@@ -107,7 +107,7 @@ ja:
       second: 秒
       year: 年
   errors:
-    format: "%{attribute}%{message}"
+    format: '%{attribute}%{message}'
     messages:
       accepted: を受諾してください
       blank: を入力してください
@@ -123,7 +123,7 @@ ja:
       invalid: は不正な値です
       less_than: は%{count}より小さい値にしてください
       less_than_or_equal_to: は%{count}以下の値にしてください
-      model_invalid: "バリデーションに失敗しました: %{errors}"
+      model_invalid: 'バリデーションに失敗しました: %{errors}'
       not_a_number: は数値で入力してください
       not_an_integer: は整数で入力してください
       odd: は奇数にしてください
@@ -136,11 +136,26 @@ ja:
     template:
       body: 次の項目を確認してください
       header:
-        one: "%{model}にエラーが発生しました"
-        other: "%{model}に%{count}個のエラーが発生しました"
+        one: '%{model}にエラーが発生しました'
+        other: '%{model}に%{count}個のエラーが発生しました'
+  views:
+    pagination:
+      first: '&laquo; 最初'
+      last: '最後 &raquo;'
+      previous: '&lsaquo; 前'
+      next: '次 &rsaquo;'
+      truncate: '&hellip;'
   helpers:
     select:
       prompt: 選択してください
+    page_entries_info:
+      one_page:
+        display_entries:
+          zero: '%{entry_name}が見つかりません。'
+          one: 1件中1-1件の%{entry_name}を表示しています。
+          other: 1-%{count}件の%{entry_name}を表示しています。
+      more_pages:
+        display_entries: 合計%{total}件中%{first}-%{last}件の%{entry_name}を表示しています。
     submit:
       create: 登録する
       submit: 保存する
@@ -148,22 +163,22 @@ ja:
   number:
     currency:
       format:
-        delimiter: ","
-        format: "%n%u"
+        delimiter: ','
+        format: '%n%u'
         precision: 0
-        separator: "."
+        separator: '.'
         significant: false
         strip_insignificant_zeros: false
         unit: 円
     format:
-      delimiter: ","
+      delimiter: ','
       precision: 3
-      separator: "."
+      separator: '.'
       significant: false
       strip_insignificant_zeros: false
     human:
       decimal_units:
-        format: "%n %u"
+        format: '%n %u'
         units:
           billion: 十億
           million: 百万
@@ -177,7 +192,7 @@ ja:
         significant: true
         strip_insignificant_zeros: true
       storage_units:
-        format: "%n%u"
+        format: '%n%u'
         units:
           byte: バイト
           gb: GB
@@ -187,7 +202,7 @@ ja:
     percentage:
       format:
         delimiter: ''
-        format: "%n%"
+        format: '%n%'
     precision:
       format:
         delimiter: ''
@@ -199,7 +214,43 @@ ja:
   time:
     am: 午前
     formats:
-      default: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      long: "%Y/%m/%d %H:%M"
-      short: "%m/%d %H:%M"
+      default: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
+      long: '%Y/%m/%d %H:%M'
+      short: '%m/%d %H:%M'
     pm: 午後
+  breadcrumbs:
+    separator: ' > '
+  enumerize:
+    supporter:
+      type:
+        kyousann: 協賛
+        kouenn: 後援
+  misc:
+    index: 一覧
+    show: 詳細
+    new: 新規作成
+    edit: 編集
+    create: 登録
+    update: 更新
+    destroy: 削除
+    activate: 有効にする
+    suspend: 無効にする
+    home: ホーム
+    about: GEILについて
+    search: 検索
+    download: ダウンロード
+    send: 送信する
+    operation: 操作
+    must: 必須
+    next_to: へ進む
+    back_to: へ戻る
+    move_first: 最初へ移動
+    move_previous: 前へ移動
+    move_next: 次へ移動
+    move_last: 最後へ移動
+  flash:
+    successful: '%{name}の%{action}に成功しました。'
+    error: '%{name}の%{action} に失敗しました。'
+    noaction: アクションが指定されていません。
+    model_not_found: モデル%{model}が見つかりません。
+    object_not_found: ID%{id}の%{model}が見つかりません。

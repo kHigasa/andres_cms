@@ -5,6 +5,8 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+# Declare ruby version
+ruby '2.5.1'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.2.0'
 # Use mysql as the database for Active Record
@@ -41,12 +43,19 @@ gem 'ransack'
 gem 'breadcrumbs_on_rails'
 # json serializer
 gem 'active_model_serializers'
-# I18n
-gem 'enum_help'
+# I18n for enum
+gem 'enumerize'
 # erb to slim
 gem 'html2slim'
 # Get CSRF
 gem 'rack-cors', require: 'rack/cors'
+# To introduce asset pipeline
+gem 'sass-rails'
+gem 'uglifier'
+# Integrate react with Rails
+gem 'react-rails'
+# Kill prpcess for memory leak
+gem 'puma_worker_killer'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -69,8 +78,8 @@ group :development do
   gem 'binding_of_caller', '>= 0.8.0'
   # Visualize model
   gem 'annotate'
-  # Use Capistrano for deployment
-  gem 'capistrano-rails', require: false
+  # Check security
+  gem 'brakeman', require: false
   # Detect N+1
   gem 'bullet'
 end
@@ -90,8 +99,6 @@ group :development, :test do
   gem 'pry-byebug'
   # Create factory for test
   gem 'factory_bot_rails'
-  # Integration test
-  gem 'cucumber-rails', require: false
   # Database cleaning everytime
   gem 'database_cleaner'
   # Create fake data
@@ -101,7 +108,6 @@ group :development, :test do
   gem 'rails-flog', require: 'flog'
   # E2E test
   gem 'capybara', '~> 2.4.1'
-  gem 'selenium-webdriver'
   # ER image
   gem 'rails-erd'
 end

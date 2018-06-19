@@ -1,0 +1,21 @@
+- if alert.present?
+  - if alert.is_a?(Array)
+    - alert.each do |message|
+      .notification.is-danger
+        = message
+  - else
+    .notification.is-danger
+      = alert
+
+- if @errors.present?
+  - if @errors.is_a?(Array)
+    - @errors.each do |message|
+      .notification.is-danger
+        = message
+  - else
+    .notification.is-danger
+      = @errors
+
+- if notice.present?
+  .notification.is-info
+    = notice

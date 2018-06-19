@@ -1,0 +1,31 @@
+/ .field
+/   table.table.is-fullwidth.is-striped
+/     tbody
+/       tr
+/         th=User.human_attribute_name :id
+/         td= @user.id
+/       tr
+/         th=User.human_attribute_name :email
+/         td= @user.email
+/       tr
+/         th=User.human_attribute_name :image
+/         td
+/           - if @user.image.present?
+/             = image_tag @user.image_url(:thumb)
+/       tr
+/         th=User.human_attribute_name :username
+/         td= @user.username
+/       tr
+/         th=User.human_attribute_name :introduction
+/         td= @user.introduction
+/       tr
+/         th=User.human_attribute_name :description
+/         td= @user.description
+/       tr
+/         th=User.human_attribute_name :admin
+/         td
+/           - if @user.admin == true
+/             | 管理者である
+/   =link_to "#{t('misc.index')}#{t('misc.back_to')}", users_path, class: 'button is-pulled-left'
+/   - if current_user == @user
+/     =link_to t('misc.edit'), edit_user_path(@user), class: 'button is-primary is-pulled-right'
