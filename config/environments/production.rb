@@ -97,4 +97,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Production depends on precompilation of packs prior to booting for performance.
+  config.assets.compile = false
 end
