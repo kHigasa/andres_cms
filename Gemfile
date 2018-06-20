@@ -50,10 +50,10 @@ gem 'html2slim'
 # Get CSRF
 gem 'rack-cors', require: 'rack/cors'
 # To introduce asset pipeline
-gem 'sass-rails'
-gem 'uglifier'
+# gem 'sass-rails'
+# gem 'uglifier'
 # Integrate react with Rails
-gem 'react-rails'
+# gem 'react-rails'
 # Kill prpcess for memory leak
 gem 'puma_worker_killer'
 
