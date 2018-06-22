@@ -56,6 +56,10 @@ gem 'uglifier'
 gem 'react-rails'
 # Kill prpcess for memory leak
 gem 'puma_worker_killer'
+# Generate sitemap
+gem 'sitemap_generator'
+# Title description every pages
+gem 'meta-tags'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
