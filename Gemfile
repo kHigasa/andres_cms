@@ -50,8 +50,12 @@ gem 'html2slim'
 # Get CSRF
 gem 'rack-cors', require: 'rack/cors'
 # To introduce asset pipeline
+gem 'jquery-rails'
 gem 'sass-rails'
 gem 'uglifier'
+# Bootstrap
+gem 'bootstrap-sass'
+gem 'data-confirm-modal'
 # Integrate react with Rails
 gem 'react-rails'
 # Kill prpcess for memory leak
@@ -60,6 +64,8 @@ gem 'puma_worker_killer'
 gem 'sitemap_generator'
 # Title description every pages
 gem 'meta-tags'
+# Manage constants
+gem 'config'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

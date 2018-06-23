@@ -25,3 +25,8 @@ vendor/bundle
 /resources
 yarn-debug.log*
 .yarn-integrity
+.idea
+
+config/settings.local.yml
+config/settings/*.local.yml
+config/environments/*.local.yml

@@ -12,4 +12,8 @@
 //
 //= require rails-ujs
 //= require react_ujs
+//= require jquery
+//= require jquery_ujs
+//= require bootstrap-sprockets
+//= require data-confirm-modal
 //= require_tree .
