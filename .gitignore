@@ -25,6 +25,7 @@ vendor/bundle
 /resources
 yarn-debug.log*
 .yarn-integrity
+# Rubymine
 .idea
 
 config/settings.local.yml
