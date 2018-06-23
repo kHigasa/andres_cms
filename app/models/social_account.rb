@@ -13,8 +13,15 @@
 class SocialAccount < ApplicationRecord
   belongs_to :user, touch: true
   validates :user, presence: true
-  validates :url, presence: true, uniqueness: true
-  validates :account_type, presence: true
+  validates :url, presence: true, uniqueness: true, format: { with: URI::DEFAULT_PARSER.make_regexp }
+  validates :account_type,
+            presence: true, uniqueness: true
+            # inclusion: {
+            #   in: SocialAccount.account_types.keys
+            # },
+            # uniqueness: {
+            #   message: '%{value} is already used'
+            # }
 
   enum account_type: {
     facebook: 0,
