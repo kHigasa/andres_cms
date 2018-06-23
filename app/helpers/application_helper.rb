@@ -28,4 +28,14 @@ module ApplicationHelper
       }
     }
   end
+
+  def page_title
+    default_title = '学生団体GEIL'
+    title = if @page_title.present?
+              @page_title + ' | ' + default_title
+            else
+              default_title
+            end
+    title
+  end
 end
