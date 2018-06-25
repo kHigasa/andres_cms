@@ -19,7 +19,7 @@ gem 'webpacker'
 gem 'redis', '~> 3.0'
 # Use asynchronous processing
 gem 'sidekiq'
-gem 'sinatra', require: false
+gem 'sinatra', '~> 2.0.2', require: false
 # Use slim to write HTML
 gem 'slim-rails'
 # Pagenation
