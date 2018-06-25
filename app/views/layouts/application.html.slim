@@ -1,8 +1,11 @@
 doctype html
 html
   head
-    title AndresCms
+    title= page_title
     = csrf_meta_tags
+    = display_meta_tags(default_meta_tags)
+    meta property='fb:app_id' content='2084030408510634'
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     = stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'

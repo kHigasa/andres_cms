@@ -1,13 +1,23 @@
 footer.is-fixed-bottom
   .container
     .content.has-text-centered
+      a href=User.first.social_accounts.find_by(account_type: :facebook).url target='_blank'
+        span.icon[style='margin: 20px;']
+          i.fa.fa-facebook[style='width: 40px; font-size: 40px; color: #3b5998;']
+      a href=User.first.social_accounts.find_by(account_type: :twitter).url target='_blank'
+        span.icon[style='margin: 20px;']
+          i.fa.fa-twitter[style='width: 40px; font-size: 40px; color: #2290bf;']
       - if user_signed_in?
-        strong
-          | あなたの
-          = User.human_attribute_name :username
-          | は
-          = link_to current_user.username, user_path(current_user)
-          | です。
+        a href=User.first.social_accounts.find_by(account_type: :github).url target='_blank'
+          span.icon[style='margin: 20px;']
+            i.fa.fa-github[style='font-size: 40px; color: #495056;']
+        p
+          strong
+            | あなたの
+            = User.human_attribute_name :username
+            | は
+            = link_to current_user.username, user_path(current_user)
+            | です。
       - else
         p
           strong GEIL

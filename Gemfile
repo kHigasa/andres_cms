@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'redis', '~> 3.0'
 # Use asynchronous processing
 gem 'sidekiq'
+gem 'sinatra', require: false
 # Use slim to write HTML
 gem 'slim-rails'
 # Pagenation
@@ -50,12 +51,27 @@ gem 'html2slim'
 # Get CSRF
 gem 'rack-cors', require: 'rack/cors'
 # To introduce asset pipeline
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'uglifier'
+# Bootstrap
+gem 'bootstrap-sass'
+gem 'data-confirm-modal'
 # Integrate react with Rails
 gem 'react-rails'
 # Kill prpcess for memory leak
 gem 'puma_worker_killer'
+# Generate sitemap
+gem 'sitemap_generator'
+# Title description every pages
+gem 'meta-tags'
+# Manage constants
+gem 'config'
+# Generate sitemap whenever
+gem 'whenever'
+# To tell crawler
+gem 'roboto'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
