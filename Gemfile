@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'redis', '~> 3.0'
 # Use asynchronous processing
 gem 'sidekiq'
+gem 'sinatra', require: false
 # Use slim to write HTML
 gem 'slim-rails'
 # Pagenation
@@ -51,6 +52,7 @@ gem 'html2slim'
 gem 'rack-cors', require: 'rack/cors'
 # To introduce asset pipeline
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'uglifier'
 # Bootstrap

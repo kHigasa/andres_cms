@@ -41,6 +41,9 @@ module AndresCms
       end
     end
 
+    # Adapter for active_job queue
+    config.active_job.queue_adapter = :sidekiq
+
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.generators do |g|
