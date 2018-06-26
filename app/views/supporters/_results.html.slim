@@ -1,0 +1,35 @@
+.title.has-text-centered 協賛
+- @supporters.kyousann.each do |kyousann_supporter|
+    = image_tag kyousann_supporter.image_url(:thumb)
+    - if current_user.present? && current_user.admin?
+      .dropdown.is-right.is-hoverable.is-pulled-right
+        .dropdown-trigger
+        button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+          span= t('misc.operation')
+          span.icon.is-small
+            i.fa.fa-angle-down[aria-hidden='true']
+        #dropdown-menu.dropdown-menu[role='menu']
+          .dropdown-content
+            - if can? :edit, @supporter
+              = link_to t('misc.edit'), edit_supporter_path(kyousann_supporter), class: 'dropdown-item'
+            - if can? :destroy, @supporter
+              = link_to t('misc.destroy'), supporter_path(kyousann_supporter), class: 'dropdown-item',
+                        method: :delete, data: { confirm: '本当に削除しますか？' }
+
+.title.has-text-centered 後援
+- @supporters.kouenn.each do |kouenn_supporter|
+  = image_tag kouenn_supporter.image_url(:thumb)
+  - if current_user.present? && current_user.admin?
+    .dropdown.is-right.is-hoverable.is-pulled-right
+      .dropdown-trigger
+      button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+        span= t('misc.operation')
+        span.icon.is-small
+          i.fa.fa-angle-down[aria-hidden='true']
+      #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-content
+          - if can? :edit, @supporter
+            = link_to t('misc.edit'), edit_supporter_path(kouenn_supporter), class: 'dropdown-item'
+          - if can? :destroy, @supporter
+            = link_to t('misc.destroy'), supporter_path(kouenn_supporter), class: 'dropdown-item',
+                      method: :delete, data: { confirm: '本当に削除しますか？' }

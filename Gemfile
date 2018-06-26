@@ -19,6 +19,7 @@ gem 'webpacker'
 gem 'redis', '~> 3.0'
 # Use asynchronous processing
 gem 'sidekiq'
+gem 'sinatra', '~> 2.0.2', require: false
 # Use slim to write HTML
 gem 'slim-rails'
 # Pagenation
@@ -43,19 +44,34 @@ gem 'ransack'
 gem 'breadcrumbs_on_rails'
 # json serializer
 gem 'active_model_serializers'
-# I18n
-gem 'enum_help'
+# I18n for enum
+gem 'enumerize'
 # erb to slim
 gem 'html2slim'
 # Get CSRF
 gem 'rack-cors', require: 'rack/cors'
 # To introduce asset pipeline
+gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'sass-rails'
 gem 'uglifier'
+# Bootstrap
+gem 'bootstrap-sass'
+gem 'data-confirm-modal'
 # Integrate react with Rails
 gem 'react-rails'
 # Kill prpcess for memory leak
 gem 'puma_worker_killer'
+# Generate sitemap
+gem 'sitemap_generator'
+# Title description every pages
+gem 'meta-tags'
+# Manage constants
+gem 'config'
+# Generate sitemap whenever
+gem 'whenever'
+# To tell crawler
+gem 'roboto'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
@@ -99,8 +115,6 @@ group :development, :test do
   gem 'pry-byebug'
   # Create factory for test
   gem 'factory_bot_rails'
-  # Integration test
-  gem 'cucumber-rails', require: false
   # Database cleaning everytime
   gem 'database_cleaner'
   # Create fake data
@@ -110,7 +124,6 @@ group :development, :test do
   gem 'rails-flog', require: 'flog'
   # E2E test
   gem 'capybara', '~> 2.4.1'
-  gem 'selenium-webdriver'
   # ER image
   gem 'rails-erd'
 end

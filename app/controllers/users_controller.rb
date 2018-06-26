@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_user, only: %i[show edit update destroy activate suspend]
+  before_action :set_user, only: %i[show update destroy activate suspend]
+  load_and_authorize_resource
   add_breadcrumb "#{User.model_name.human}#{I18n.t('misc.index')}", :users_path
   # GET /users
   def index
@@ -19,12 +20,13 @@ class UsersController < ApplicationController
 
   # GET /users/:id/edit
   def edit
+    redirect_to users_path, alert: I18n.t('activerecord.flash.user.actions.edit.failure') if @user != current_user
   end
 
   # POST /users
   def create
     @user = User.new(user_params)
-    if @user.save
+    if @user.errors.empty? && @user.save
       redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.user.actions.create.failure')
@@ -33,7 +35,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id
   def update
-    if @user.update(user_params)
+    if @user.errors.empty? && @user.update(user_params)
       redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.user.actions.update.failure')
@@ -70,7 +72,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :image, :introduction, :description)
+    params.require(:user).permit(:email, :username, :image, :introduction, :description, :image_cache, :remove_image)
   end
 
   def set_user

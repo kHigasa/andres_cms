@@ -1,0 +1,43 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @history.errors.any?
+      - @history.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @history, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :generation_name, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :generation_name, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :generation_code, class: 'label', require: true
+    .field-body
+      .field
+        p.control= f.text_field :generation_code, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :image, class: 'label'
+    .field-body
+      .field
+        - if @history.image.present?
+          b.control= '現在選択されている画像：' + File.basename(@history.image.to_s)
+          p.control= image_tag @history.image_url(:thumb)
+          b.control= f.label '↓画像を削除する', class: 'label'
+          p.control= f.check_box :remove_image, class: 'checkbox'
+        p.control= f.file_field :image, class: 'input'
+        p.control= f.hidden_field :image_cache
+
+  .field.is-horizontal
+    .field-label= f.label :description, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_area :description, class: 'textarea'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'

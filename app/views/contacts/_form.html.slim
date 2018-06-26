@@ -1,0 +1,31 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @contact.errors.any?
+      - @contact.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @contact, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :name, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :name, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :email, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :email, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :message, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_area :message, class: 'textarea'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit t('misc.send'), class: 'button is-primary'

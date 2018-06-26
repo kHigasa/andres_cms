@@ -1,0 +1,20 @@
+- @faq_categories.each do |faq_category|
+  - faq_category.questions.each do |question|
+    - if current_user.present? && current_user.admin?
+      .dropdown.is-right.is-hoverable.is-pulled-right
+        .dropdown-trigger
+        button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+          span= t('misc.operation')
+          span.icon.is-small
+            i.fa.fa-angle-down[aria-hidden='true']
+        #dropdown-menu.dropdown-menu[role='menu']
+          .dropdown-content
+            - if can? :edit, @question
+              = link_to t('misc.edit'), edit_question_path(question), class: 'dropdown-item'
+            - if can? :destroy, @question
+              = link_to t('misc.destroy'), question_path(question), class: 'dropdown-item',
+                        method: :delete, data: { confirm: '本当に削除しますか？' }
+      .box.has-text-centered.is-full-width
+        small= faq_category.category
+        .title= question.question
+        p= question.answer

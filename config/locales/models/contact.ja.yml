@@ -1,0 +1,16 @@
+ja:
+  activerecord:
+    models:
+      contact: お問い合わせ
+    attributes:
+      contact:
+        id:
+        name: お名前
+        email: メールアドレス
+        message: 内容
+    flash:
+      contact:
+        actions:
+          create:
+            success: お問い合わせの送信を完了しました。
+            failure: 入力を修正してください。

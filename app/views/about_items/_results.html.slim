@@ -1,0 +1,32 @@
+- @about_items.each do |about_item|
+  - if current_user.present? && current_user.admin?
+    .dropdown.is-right.is-hoverable.is-pulled-right
+      .dropdown-trigger
+      button.button[aria-haspopup='true' aria-controls='dropdown-menu']
+        span= t('misc.operation')
+        span.icon.is-small
+          i.fa.fa-angle-down[aria-hidden='true']
+      #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-content
+          - if can? :manage, @about_item
+            = link_to t('misc.edit'), edit_about_item_path(about_item), class: 'dropdown-item'
+            = link_to t('misc.destroy'), about_item_path(about_item), class: 'dropdown-item',
+                      method: :delete, data: { confirm: '本当に削除しますか？' }
+            - unless about_item.sort_id == 1
+              = link_to t('misc.move_first'), move_first_about_item_path(about_item), method: :patch, class: 'dropdown-item'
+              = link_to t('misc.move_previous'), move_previous_about_item_path(about_item), method: :patch, class: 'dropdown-item'
+            - unless about_item.sort_id == AboutItem.order(sort_id: :asc).last.sort_id
+              = link_to t('misc.move_next'), move_next_about_item_path(about_item), method: :patch, class: 'dropdown-item'
+              = link_to t('misc.move_last'), move_last_about_item_path(about_item), method: :patch, class: 'dropdown-item'
+  .columns
+    - if about_item.image.present? && about_item.description.present?
+      .column.is-fullwidth-mobile.is-half-desktop
+        = image_tag about_item.image_url(:sub)
+      .column.is-fullwidth-mobile.is-half-desktop
+        = about_item.description
+    - elsif about_item.image.blank? && about_item.description.blank?
+      = ''
+    - else
+      .column.is-full-width.has-text-centered
+          = image_tag about_item.image_url(:main) if about_item.image.present?
+          = about_item.description

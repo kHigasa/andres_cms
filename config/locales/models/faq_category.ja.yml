@@ -1,0 +1,20 @@
+ja:
+  activerecord:
+    models:
+      faq_category: よくある質問のカテゴリー
+    attributes:
+      faq_category:
+        id: カテゴリーID
+        category: カテゴリー名
+    flash:
+      faq_category:
+        actions:
+          create:
+            success: よくある質問のカテゴリーの登録を完了しました。
+            failure: 入力を修正してください。
+          update:
+            success: よくある質問のカテゴリーの項目の更新を完了しました。
+            failure: 入力を修正してください。
+          destroy:
+            success: よくある質問のカテゴリーの削除を完了しました。
+            failure: よくある質問のカテゴリーを削除できませんでした。
