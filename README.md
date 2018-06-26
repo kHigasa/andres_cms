@@ -5,6 +5,7 @@ This is CMS with Rails5 and React.
 ## Flow
 1. Cut branch from origin andres(dev branch but not manage compiled files)
 1. Make pull request to develop
+1. Finally, modify gitignore and compile assets, merge your branch to develop
 
 ## Attention
 - Comment your code to tell your intention of the implement
