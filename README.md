@@ -3,7 +3,7 @@
 This is CMS with Rails5 and React.
 
 ## Flow
-1. Cut branch from origin andres
+1. Cut branch from origin andres(dev branch but not manage compiled files)
 1. Make pull request to develop
 
 ## Attention
@@ -75,7 +75,7 @@ $ heroku run rails assets:precompile --remote heroku RAILS_ENV=production
 
 Compile webpacker
 
-```zsh:terminal
+```
 $ heroku run rails webpacker:compile --remote heroku RAILS_ENV=production
 ```
 
