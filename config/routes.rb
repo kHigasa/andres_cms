@@ -1,6 +1,15 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
+  namespace :api do
+    get 'posts/index'
+    get 'posts/show'
+    get 'posts/new'
+    get 'posts/edit'
+    get 'posts/create'
+    get 'posts/update'
+    get 'posts/destroy'
+  end
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
@@ -25,6 +34,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api, defaults: { format: :json } do
+    resources :posts
+  end
+
+  resources :posts, only: %i[index show new edit]
+
   resources :about_items, only: %i[index new edit create update destroy] do
     member do
       patch 'move_first'
@@ -34,8 +49,6 @@ Rails.application.routes.draw do
     end
   end
   get 'about', to: 'about_items#index'
-
-  resources :posts
 
   resources :histories, param: :generation_code do
     resources :activities, only: %i[index new edit create update destroy]
