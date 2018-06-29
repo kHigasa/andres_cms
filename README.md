@@ -3,11 +3,11 @@
 This is CMS with Rails5 and React.
 
 ## Flow
-1. Cut branch from origin andres(dev branch but not manage compiled files)
-1. Make pull request to develop
+1. Start a branch from origin andres(dev branch but not manage compiled files).
+1. Make pull request to andres.
 
 ## Attention
-- Comment your code to tell your intention of the implement
+- Comment your code to tell your intention of the implement.
 - When you merge from develop branch to master branch and some conflicts happen, you must give priority to master branch. Vice versa. (And andres too.)
 
 ## Deployment
