@@ -1,6 +1,4 @@
 h2.title #{Post.model_name.human}#{t('misc.index')}
-- if can? :create, @post
-  = render 'search_form'
   .control-box.field.is-pulled-left
     = link_to "#{Post.model_name.human}#{t('misc.new')}", new_post_path, class: 'button is-primary'
 - if @posts.size.zero?

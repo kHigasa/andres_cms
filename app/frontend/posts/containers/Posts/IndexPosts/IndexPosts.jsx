@@ -9,23 +9,19 @@ class IndexPosts extends Component {
     posts: [],
     selectedPostId: null,
     loading: true,
-    error: null
+    error: false
   }
 
   componentDidMount() {
     axios.get('/')
       .then((res) => {
-        const setPosts = [];
-        for (const key in res.data) {
-          setPosts.push({
-            ...res.data[key],
-            id: key
-          });
-        }
-        this.setState({loading: false, posts: setPosts});
+        console.log(res.data);
+        const posts = res.data;
+        this.setState({loading: false, posts});
       })
       .catch((err) => {
-        this.setState({loading: false, error: err});
+        console.log(err)
+        this.setState({loading: false, error: true});
       });
   }
 
@@ -34,16 +30,16 @@ class IndexPosts extends Component {
   }
 
   render() {
-    let posts = <p>{this.state.error}</p>;
-    if (this.state.error.null) {
-      posts = this.state.posts.map((post) => {
+    let posts = <p>Something went wrong.</p>;
+    if (!this.state.error) {
+      posts = this.state.posts.map(post => (
         <Post
           key={post.id}
           title={post.title}
           lead_sentence={post.lead_sentence}
           clicked={() => this.postSelectedHandler(post.id)}
-        />;
-      });
+        />
+      ));
     }
 
     return (

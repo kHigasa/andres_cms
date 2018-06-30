@@ -13,5 +13,5 @@
 #
 
 class PostSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :lead_sentence
 end

@@ -1,16 +1,15 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import IndexPosts from './containers/Posts/IndexPosts/IndexPosts';
-import NewPost from './containers/Posts/NewPost/NewPost';
+// import NewPost from './containers/Posts/NewPost/NewPost';
 
-const app = (
-  <div>
+const app = () => (
+  <Router>
     <Switch>
-      <Route path='/posts/new' component={NewPost} />
       <Route exact path='/posts' component={IndexPosts} />
     </Switch>
-  </div>
+  </Router>
 );
 
 export default app;
