@@ -15,7 +15,6 @@ class IndexPosts extends Component {
   componentDidMount() {
     axios.get('/')
       .then((res) => {
-        console.log(res.data);
         const posts = res.data;
         this.setState({loading: false, posts});
       })
