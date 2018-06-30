@@ -6,4 +6,4 @@ h2.title #{Post.model_name.human}#{t('misc.index')}
 - if @posts.size.zero?
   .title.is-5= t('message.info.none_results')
 - else
-  = render 'results'
+  #posts= javascript_pack_tag 'posts/posts'

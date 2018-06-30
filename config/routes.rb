@@ -1,15 +1,6 @@
 require 'sidekiq/web'
 
 Rails.application.routes.draw do
-  namespace :api do
-    get 'posts/index'
-    get 'posts/show'
-    get 'posts/new'
-    get 'posts/edit'
-    get 'posts/create'
-    get 'posts/update'
-    get 'posts/destroy'
-  end
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
   end
@@ -22,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'users/sign_out' => 'devise/sessions#destroy'
+    get 'users/sign_out', to: 'devise/sessions#destroy'
   end
 
   root 'pages#home'

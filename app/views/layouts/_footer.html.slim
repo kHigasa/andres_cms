@@ -1,14 +1,14 @@
 footer.is-fixed-bottom
   .container
     .content.has-text-centered
-      a[style='text-decoration: none;']  href=User.first.social_accounts.find_by(account_type: :facebook).url target='_blank'
+      a style='text-decoration: none;' href=User.first.social_accounts.find_by(account_type: :facebook).url alt='学生団体GEIL公式Facebook' target='_blank'
         span.icon[style='margin: 20px;']
           i.fa.fa-facebook[style='width: 40px; font-size: 40px; color: #3b5998;']
-      a[style='text-decoration: none;'] href=User.first.social_accounts.find_by(account_type: :twitter).url target='_blank'
+      a style='text-decoration: none;' href=User.first.social_accounts.find_by(account_type: :twitter).url alt='学生団体GEIL公式Twitter' target='_blank'
         span.icon[style='margin: 20px;']
           i.fa.fa-twitter[style='width: 40px; font-size: 40px; color: #2290bf;']
       - if user_signed_in?
-        a[style='text-decoration: none;']  href=User.first.social_accounts.find_by(account_type: :github).url target='_blank'
+        a style='text-decoration: none;'  href=User.first.social_accounts.find_by(account_type: :github).url alt='樋笠のrepository' target='_blank'
           span.icon[style='margin: 20px;']
             i.fa.fa-github[style='font-size: 40px; color: #495056;']
         p
