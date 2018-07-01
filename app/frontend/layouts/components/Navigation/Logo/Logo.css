@@ -1,12 +1,11 @@
-.Logo {
-  background-color: white;
+.navigationLogo {
+  background-color: #fff;
   padding: 8px;
   height: 80%;
   box-sizing: border-box;
   border-radius: 5px;
 }
 
-.Logo img {
-  height: 16px;
-  width: 16px;
+.navigationLogo img {
+  height: 100%;
 }

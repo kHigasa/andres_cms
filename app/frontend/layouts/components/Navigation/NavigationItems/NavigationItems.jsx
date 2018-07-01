@@ -1,12 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 
-import classes from './NavigationItems.css';
 import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = () => (
   <Router>
-    <ul className={classes.NavigationItems}>
+    <ul className='NavigationItems'>
       <NavigationItem link='/' exact>Home</NavigationItem>
       <NavigationItem link='/about' exact>About</NavigationItem>
       <NavigationItem link='/posts' exact>Posts</NavigationItem>

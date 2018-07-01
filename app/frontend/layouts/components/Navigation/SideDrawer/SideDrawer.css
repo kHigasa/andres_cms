@@ -18,15 +18,15 @@
   }
 }
 
-.Open {
+.sideDrawerOpen {
   transform: translateX(0);
 }
 
-.Close {
+.sideDrawerClose {
   transform: translateX(-100%);
 }
 
-.Logo {
+.sideDrawerLogo {
   height: 11%;
   margin-bottom: 32px;
 }
