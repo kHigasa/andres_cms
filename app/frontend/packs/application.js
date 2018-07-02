@@ -10,3 +10,16 @@ import '../layouts/components/Navigation/NavigationItems/NavigationItem/Navigati
 import '../layouts/components/Navigation/SideDrawer/SideDrawer.css';
 import '../layouts/components/Navigation/SideDrawer/DrawerToggle/DrawerToggle.css';
 import '../layouts/components/Navigation/Toolbar/Toolbar.css';
+import '../posts/components/Posts/Post/Post.css';
+import '../posts/components/UI/Backdrop/Backdrop.css';
+import '../posts/components/UI/Button/Button.css';
+import '../posts/components/UI/CustomDatePicker/CustomDatePicker.css';
+import '../posts/components/UI/DropzoneImage/DropzoneImage.css';
+import '../posts/components/UI/ErrorMessage/ErrorMessage.css';
+import '../posts/components/UI/Form/Form.css';
+import '../posts/components/UI/Modal/Modal.css';
+import '../posts/components/UI/Spinner/Spinner.css';
+import '../posts/components/UI/TagField/TagField.css';
+import '../posts/containers/Posts/IndexPosts/IndexPosts.css';
+import '../posts/containers/Posts/NewPost/NewPost.css';
+import '../posts/containers/Posts/ShowPost/ShowPost.css';

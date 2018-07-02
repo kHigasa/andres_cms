@@ -1,7 +1,25 @@
 h2.title #{Post.model_name.human}#{t('misc.index')}
-.control-box.field.is-pulled-left
-  = link_to "#{Post.model_name.human}#{t('misc.new')}", new_post_path, class: 'button is-primary'
+= render 'search_form'
+
+.section
+  .field.is-pulled-right
+    = page_entries_info @posts
+.section
+  .field.is-pulled-right
+    = paginate @posts
+
+- if can? :new, @post
+  .control-box.field.is-pulled-left
+    = link_to "#{Post.model_name.human}#{t('misc.new')}", new_post_path, class: 'button is-primary'
+
 - if @posts.size.zero?
   .title.is-5= t('message.info.none_results')
 - else
   #posts= javascript_pack_tag 'posts/posts'
+
+.section
+  .field.is-pulled-right
+    = page_entries_info @posts
+.section
+  .field.is-pulled-right
+    = paginate @posts

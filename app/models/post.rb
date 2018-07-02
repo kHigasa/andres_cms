@@ -13,15 +13,26 @@
 #
 
 class Post < ApplicationRecord
+  extend Enumerize
   has_many :items, dependent: :destroy
   has_many :tags, dependent: :destroy
 
   validates :title, presence: true
   validates :topic, presence: true
 
-  enum topic: {
-    news: 0,
-    event: 1,
-    column: 2
-  }
+  enumerize :topic, in: { news: 0, event: 1, column: 2 }
+
+  class << self
+    def news
+      where(topic: :news)
+    end
+
+    def event
+      where(topic: :event)
+    end
+
+    def column
+      where(topic: :column)
+    end
+  end
 end

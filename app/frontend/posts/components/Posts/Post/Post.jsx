@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import classes from './Post.css';
-
 const post = props => (
-  <article className={classes.Post}>
-    <h3>{props.title}</h3>
+  <article className='Post'>
+    <h4 className='title'>{props.title}</h4>
     <p>{props.lead_sentence}</p>
   </article>
 );

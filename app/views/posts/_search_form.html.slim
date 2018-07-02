@@ -1,0 +1,21 @@
+nav.panel
+  .panel-heading= t('misc.search')
+  .panel-block
+    = search_form_for(@q, url: posts_path, class: 'control') do |f|
+      .field.is-horizontal
+        .field-label= f.label :title, Post.human_attribute_name(:title), class: 'label'
+        .field-body
+          .field
+            p.control= f.text_field :title_cont, class: 'input'
+
+      .field.is-horizontal
+        .field-label= f.label :topic, class: 'label'
+        .field-body
+          .field
+           p.control.select= f.select :topic, Post.topic.options, prompt: true, class: 'input'
+
+      .field.is-horizontal
+        .field-label
+        .field-body
+          .field
+            p.control.is-pulled-right= f.submit t('misc.search'), class: 'button is-info'
