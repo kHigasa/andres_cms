@@ -20,6 +20,7 @@ import '../posts/components/UI/ErrorMessage/ErrorMessage.css';
 import '../posts/components/UI/Form/Form.css';
 import '../posts/components/UI/Modal/Modal.css';
 import '../posts/components/UI/Spinner/Spinner.css';
+import '../posts/components/UI/Pagination/Pagination.css';
 import '../posts/components/UI/TagField/TagField.css';
 import '../posts/containers/Posts/Admin/IndexPosts/IndexPosts.css';
 import '../posts/containers/Posts/Admin/NewPost/NewPost.css';
