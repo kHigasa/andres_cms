@@ -68,13 +68,14 @@ ActiveRecord::Schema.define(version: 2018_06_19_113859) do
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "sort_rank"
-    t.string "target_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
     t.integer "target_id"
+    t.string "target_type"
     t.index ["post_id"], name: "index_items_on_post_id"
     t.index ["target_id"], name: "index_items_on_target_id"
+    t.index ["target_type"], name: "index_items_on_target_type"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

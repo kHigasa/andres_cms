@@ -13,6 +13,7 @@
 
 class Item < ApplicationRecord
   belongs_to :post, touch: true
+  belongs_to :target, polymorphic: true
 
   validates :sort_rank, presence: true
   validates :target_type, presence: true
@@ -21,6 +22,7 @@ class Item < ApplicationRecord
     text: 'ItemText',
     image: 'ItemImage'
   }
+  self.inheritance_column = :_target_type_disabled
 
   private
 
