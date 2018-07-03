@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
+import { Route } from 'react-router-dom';
 
 import axios from '../../../axios-posts';
+import ShowPost from '../ShowPost/ShowPost';
 import Post from '../../../components/Posts/Post/Post';
-import './IndexPosts.css';
 
 class IndexPosts extends Component {
   state = {
     posts: [],
-    selectedPostId: null,
-    loading: true,
     error: false
   }
 
@@ -16,21 +15,21 @@ class IndexPosts extends Component {
     axios.get('/')
       .then((res) => {
         const posts = res.data;
-        this.setState({loading: false, posts});
+        this.setState({posts});
       })
       .catch((err) => {
         console.log(err)
-        this.setState({loading: false, error: true});
+        this.setState({error: true});
       });
   }
 
-  postSelectHandler = (id) => {
-    this.setState({selectedPostId: id});
+  postSelectedHandler = (id) => {
+    this.props.history.push('/posts/' + id);
   }
 
   render() {
     let posts = <p>Something went wrong.</p>;
-    if (!this.state.error) {
+    if (!this.state.error && this.state.posts) {
       posts = this.state.posts.map(post => (
         <Post
           key={post.id}
@@ -43,7 +42,12 @@ class IndexPosts extends Component {
 
     return (
       <div>
-        {posts}
+        <div>{posts}</div>
+        <Route
+          path={this.props.match.url + '/:id'}
+          exact
+          component={ShowPost}
+        />
       </div>
     );
   }

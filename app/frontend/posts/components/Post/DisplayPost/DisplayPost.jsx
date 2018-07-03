@@ -1,17 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const post = props => (
-  <article className='Post'>
+const displayPost = props => (
+  <article>
     <h4 className='title'>{props.title}</h4>
     <p>{props.lead_sentence}</p>
-    <button onClick={props.clicked}>詳細ページへ</button>
   </article>
 );
 
-post.propTypes = {
+displayPost.propTypes = {
   title: PropTypes.string.isRequired,
   lead_sentence: PropTypes.string.isRequired
 };
 
-export default post;
+export default displayPost;

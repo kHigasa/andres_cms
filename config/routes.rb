@@ -27,6 +27,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :posts
+    namespace :admin do
+      resources :posts
+    end
   end
 
   resources :posts, only: %i[index show new edit]
