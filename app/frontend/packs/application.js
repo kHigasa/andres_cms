@@ -22,7 +22,6 @@ import '../posts/components/UI/Modal/Modal.css';
 import '../posts/components/UI/Spinner/Spinner.css';
 import '../posts/components/UI/Pagination/Pagination.css';
 import '../posts/components/UI/TagField/TagField.css';
-import '../posts/containers/Posts/Admin/IndexPosts/IndexPosts.css';
-import '../posts/containers/Posts/Admin/NewPost/NewPost.css';
 import '../posts/containers/Posts/IndexPosts/IndexPosts.css';
 import '../posts/containers/Posts/ShowPost/ShowPost.css';
+import '../posts/containers/Posts/NewPost/NewPost.css';

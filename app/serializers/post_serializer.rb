@@ -14,5 +14,5 @@
 
 class PostSerializer < ActiveModel::Serializer
   has_many :tags
-  attributes :id, :title, :lead_sentence, :topic, :created_at, :updated_at
+  attributes :id, :title, :lead_sentence, :topic, :created_at, :updated_at, :published_at
 end

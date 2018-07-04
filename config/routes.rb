@@ -27,12 +27,14 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resources :posts
-    namespace :admin do
-      resources :posts
-    end
   end
 
   resources :posts, only: %i[index show new edit]
+  namespace :admin do
+    authenticate :user, lambda { |u| u.admin? } do
+      resources :posts, only: %i[index]
+    end
+  end
 
   resources :about_items, only: %i[index new edit create update destroy] do
     member do
