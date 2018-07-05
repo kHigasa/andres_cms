@@ -8,15 +8,32 @@
 table.table.is-fullwidth.is-striped
   thead
     tr
-      th= Post.human_attribute_name :id
-      th= Post.human_attribute_name :title
-      th
+      th style='width: 10%'
+        = Post.human_attribute_name :topic
+      th style='width: 30%'
+        = Post.human_attribute_name :title
+      th style='width: 40%'
+        = Post.human_attribute_name :lead_sentence
+      th style='width: 10%'
+        span.icon.is-small
+          i.fa.fa-tags
+        = Tag.human_attribute_name :name
+      th style='width: 10%'
 
   tbody
     - @posts.each do |post|
       tr
-        td= post.id
+        td= post.topic
         td= post.title
+        td= post.lead_sentence
+        - if post.tags.length <= 2 && post.tags.present?
+          - post.tags.each do |tag|
+            td= tag.name
+        - else
+          td
+            p= post.tags.first.name
+            p= post.tags.second.name
+            p ...
         td
           .dropdown.is-right.is-hoverable
             .dropdown-trigger
@@ -27,7 +44,7 @@ table.table.is-fullwidth.is-striped
             #dropdown-menu.dropdown-menu[role='menu']
               .dropdown-content
                 - if can? :edit, @post
-                  = link_to t('misc.edit'), edit_post_path(post), class: 'dropdown-item'
+                  = link_to t('misc.show'), edit_post_path(post), class: 'dropdown-item'
                 - if can? :destroy, @post
                   = link_to t('misc.destroy'), post_path(post), class: 'dropdown-item',
                             method: :delete, data: { confirm: '本当に削除しますか？' }
