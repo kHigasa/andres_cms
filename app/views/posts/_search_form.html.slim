@@ -9,6 +9,18 @@ nav.panel
             p.control= f.text_field :title_cont, class: 'input'
 
       .field.is-horizontal
+        .field-label= f.label :topic, class: 'label'
+        .field-body
+          .field
+            p.control.select= f.select :topic_eq, Post.topic.options, include_blank: true, class: 'input'
+
+      .field.is-horizontal
+        .field-label= f.label :tags_name, class: 'label'
+        .field-body
+          .field
+            p.control= f.text_field :tags_name_cont, class: 'input'
+
+      .field.is-horizontal
         .field-label
         .field-body
           .field

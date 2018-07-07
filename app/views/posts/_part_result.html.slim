@@ -1,0 +1,34 @@
+.ShowTopic
+  span.icon.is-small
+    i.fa.fa-bookmark
+  =@post.topic
+.ShowPublishedAt
+  span.icon.is-small
+    i.fa.fa-bell
+  =@post.published_at.try(:to_s, :rfc822)
+.title= @post.title
+p style='font-size: 1.2rem;'
+  =@post.lead_sentence
+
+br
+br
+br
+
+- @items.each do |item|
+  - if item.target_type == 'text'
+    - item_text = ItemText.find_by(id: item.target_id)
+    p= item_text.description
+    br
+  - else
+    - item_image = ItemImage.find_by(id: item.target_id)
+    p= image_tag item_image.image_url(:main)
+    p= item_image.caption
+    br
+
+- @tags.each do |tag|
+  span.icon.is-small
+    i.fa.fa-tags
+  .ShowTag= tag.name
+
+.column style='margin-top: 50px;'
+  = link_to "#{t('misc.index')}#{t('misc.back_to')}", posts_path, class: 'button'

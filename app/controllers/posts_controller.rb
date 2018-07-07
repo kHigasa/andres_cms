@@ -4,13 +4,15 @@ class PostsController < ApplicationController
   add_breadcrumb "#{Post.model_name.human}#{I18n.t('misc.index')}", :posts_path
   # GET /posts
   def index
-    @q = Post.all.order(id: :asc).ransack(params[:q])
+    @q = Post.includes(:tags).order(published_at: :desc).ransack(params[:q])
     @posts = @q.result.page(params[:page])
   end
 
   # GET /posts/:id
   def show
     @post = Post.find(params[:id])
+    @items = @post.items.order(sort_rank: :asc)
+    @tags = @post.tags
   end
 
   # GET /posts/new

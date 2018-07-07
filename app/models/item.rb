@@ -22,7 +22,6 @@ class Item < ApplicationRecord
     text: 'ItemText',
     image: 'ItemImage'
   }
-  self.inheritance_column = :_target_type_disabled
 
   private
 
