@@ -5,50 +5,23 @@
   .field.is-pulled-right
     = paginate @posts
 
-table.table.is-fullwidth.is-striped
-  thead
-    tr
-      th style='width: 10%'
-        = Post.human_attribute_name :topic
-      th style='width: 30%'
-        = Post.human_attribute_name :title
-      th style='width: 40%'
-        = Post.human_attribute_name :lead_sentence
-      th style='width: 10%'
-        span.icon.is-small
-          i.fa.fa-tags
-        = Tag.human_attribute_name :name
-      th style='width: 10%'
-
-  tbody
-    - @posts.each do |post|
-      tr
-        td= post.topic
-        td= post.title
-        td= post.lead_sentence
-        - if post.tags.length <= 2 && post.tags.present?
-          - post.tags.each do |tag|
-            td= tag.name
-        - else
-          td
-            p= post.tags.first.name
-            p= post.tags.second.name
-            p ...
-        td
-          .dropdown.is-right.is-hoverable
-            .dropdown-trigger
-              button.button[aria-haspopup='true' aria-controls='dropdown-menu']
-                span= t('misc.operation')
-                span.icon.is-small
-                  i.fa.fa-angle-down[aria-hidden='true']
-            #dropdown-menu.dropdown-menu[role='menu']
-              .dropdown-content
-                = link_to t('misc.show'), post_path(post), class: 'dropdown-item'
-                - if can? :edit, @post
-                  = link_to t('misc.edit'), edit_post_path(post), class: 'dropdown-item'
-                - if can? :destroy, @post
-                  = link_to t('misc.destroy'), post_path(post), class: 'dropdown-item',
-                            method: :delete, data: { confirm: '本当に削除しますか？' }
+- @posts.where(accepted: true).each do |post|
+  article.Post
+    p style='text-align: left;'
+      = post.topic
+    .title= post.title
+    p style='font-size: 1.2rem;'
+      = post.lead_sentence
+    - if post.tags.present?
+      span.icon.is-small
+        i.fa.fa-tags
+      - post.tags.each do |tag|
+        = tag.name + ' '
+    - else
+      ''
+    p style='text-align: right;'
+      = post.created_at.try(:to_s, :rfc822)
+    button.column.button = link_to "#{t('misc.show')}ページ", post_path(post)
 
 .section
   .field.is-pulled-right

@@ -21,6 +21,9 @@ class Post < ApplicationRecord
 
   enumerize :topic, in: { news: 0, event: 1, column: 2 }
 
+  accepts_nested_attributes_for :tags, allow_destroy: true
+  accepts_nested_attributes_for :items, allow_destroy: true
+
   class << self
     def news
       where(topic: :news)

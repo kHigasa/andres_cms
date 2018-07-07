@@ -1,14 +1,14 @@
 .ShowTopic
   span.icon.is-small
     i.fa.fa-bookmark
-  =@post.topic
+  = @post.topic
 .ShowPublishedAt
   span.icon.is-small
     i.fa.fa-bell
-  =@post.created_at.try(:to_s, :rfc822)
+  = @post.created_at.try(:to_s, :rfc822)
 .title= @post.title
 p style='font-size: 1.2rem;'
-  =@post.lead_sentence
+  = @post.lead_sentence
 
 br
 br

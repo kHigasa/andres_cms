@@ -26,6 +26,11 @@ Rails.application.routes.draw do
   end
 
   resources :posts
+  authenticate :user, lambda { |u| u.admin? } do
+    namespace :admin do
+      resources :posts, only: %i[index]
+    end
+  end
 
   resources :about_items, only: %i[index new edit create update destroy] do
     member do

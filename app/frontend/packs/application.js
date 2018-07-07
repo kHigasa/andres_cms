@@ -4,6 +4,7 @@ import './application.css';
 import './pages/pages.css';
 import './posts/posts.css';
 import './layouts/layouts.css';
+import '../pages/components/Home.css';
 import '../layouts/components/Navigation/Logo/Logo.css';
 import '../layouts/components/Navigation/NavigationItems/NavigationItems.css';
 import '../layouts/components/Navigation/NavigationItems/NavigationItem/NavigationItem.css';
