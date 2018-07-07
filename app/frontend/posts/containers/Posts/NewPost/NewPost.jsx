@@ -11,7 +11,7 @@ class NewPost extends Component {
   state = {
     postForm: {
       title: {
-        elementType: 'input',
+        elementType: 'textarea',
         elementConfig: {
           type: 'text',
           placeholder: 'Title'

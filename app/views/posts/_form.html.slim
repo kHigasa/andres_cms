@@ -1,0 +1,25 @@
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @post.errors.any?
+      - @post.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @post, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :title, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :title, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :lead_sentence, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_area :lead_sentence, class: 'textarea'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'
