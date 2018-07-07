@@ -5,6 +5,8 @@
         .notification.is-danger
           = message
 
+= javascript_pack_tag 'posts/posts'
+
 = form_with(model: @post, local: true, class: 'control') do |f|
   .field.is-horizontal
     .field-label= f.label :topic, class: 'label'
@@ -31,14 +33,6 @@
         p style='color: red;'
           i.fa.fa-exclamation-triangle 「承認する」とこのまま投稿されます。投稿内容を校閲する場合は「承認しない」にしてください。
         p.control.select= f.select :accepted, [['しない', false], ['する', true]], class: 'input'
-
-
-  = f.fields_for :tags do |t|
-    .field.is-horizontal
-      .field-label= f.label :name, class: 'label'
-      .field-body
-        .field
-          p.control= t.text_field :name, class: 'input'
 
   .field.is-horizontal
     .field-label

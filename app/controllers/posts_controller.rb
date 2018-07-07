@@ -11,7 +11,7 @@ class PostsController < ApplicationController
 
   # GET /posts/:id
   def show
-    @items = @post.items.order(sort_rank: :asc)
+    @post_items = @post.post_items.order(sort_rank: :asc)
     @tags = @post.tags
   end
 
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.errors.empty? && @post.save
-      redirect_to posts_path, notice: I18n.t('activerecord.flash.post.actions.create.success')
+      redirect_to admin_posts_path, notice: I18n.t('activerecord.flash.post.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.post.actions.create.failure')
     end
@@ -38,7 +38,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/:id
   def update
     if @post.errors.empty? && @post.update(post_params)
-      redirect_to posts_path, notice: I18n.t('activerecord.flash.post.actions.update.success')
+      redirect_to admin_posts_path, notice: I18n.t('activerecord.flash.post.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.post.actions.update.failure')
     end
@@ -49,14 +49,14 @@ class PostsController < ApplicationController
     if @post.destroy
       redirect_to posts_path, notice: I18n.t('activerecord.flash.post.actions.destroy.success')
     else
-      redirect_to posts_path, alert: I18n.t('activerecord.flash.post.actions.destroy.failure')
+      redirect_to admin_posts_path, alert: I18n.t('activerecord.flash.post.actions.destroy.failure')
     end
   end
 
   private
 
   def post_params
-    params.require(:post).permit(:title, :lead_sentence, :topic, :accepted, tags_attributes: %i[name])
+    params.require(:post).permit(:title, :lead_sentence, :topic, :accepted, tags_attributes: %i[name], post_items_attributes: %i[image remove_image image_cache description sort_rank])
   end
 
   def set_post

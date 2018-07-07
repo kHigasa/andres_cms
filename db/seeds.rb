@@ -8,12 +8,8 @@ load Rails.root.join('db', 'seeds', 'about_item_sd.rb')
 load Rails.root.join('db', 'seeds', 'post_sd.rb')
 # Tag
 load Rails.root.join('db', 'seeds', 'tag_sd.rb')
-# ItemText
-load Rails.root.join('db', 'seeds', 'item_text_sd.rb')
-# ItemImage
-load Rails.root.join('db', 'seeds', 'item_image_sd.rb')
-# Item
-load Rails.root.join('db', 'seeds', 'item_sd.rb')
+# PostItem
+load Rails.root.join('db', 'seeds', 'post_item_sd.rb')
 # History
 load Rails.root.join('db', 'seeds', 'history_sd.rb')
 # Activity

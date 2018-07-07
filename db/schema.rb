@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_05_100555) do
+ActiveRecord::Schema.define(version: 2018_07_07_132031) do
 
   create_table "about_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "sort_id"
@@ -53,29 +53,14 @@ ActiveRecord::Schema.define(version: 2018_07_05_100555) do
     t.index ["generation_code"], name: "index_histories_on_generation_code"
   end
 
-  create_table "item_images", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "post_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "image"
-    t.string "caption"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "item_texts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "sort_rank"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
-    t.integer "target_id"
-    t.string "target_type"
-    t.index ["post_id"], name: "index_items_on_post_id"
-    t.index ["target_id"], name: "index_items_on_target_id"
-    t.index ["target_type"], name: "index_items_on_target_type"
+    t.index ["post_id"], name: "index_post_items_on_post_id"
   end
 
   create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

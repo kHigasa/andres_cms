@@ -14,15 +14,12 @@ br
 br
 br
 
-- @items.each do |item|
-  - if item.target_type == 'text'
-    - item_text = ItemText.find_by(id: item.target_id)
-    p= item_text.description
-    br
+- @post_items.each do |post_item|
+  - if post_item.image.present?
+    p= image_tag post_item_image.image_url(:main)
+    p= post_item.description
   - else
-    - item_image = ItemImage.find_by(id: item.target_id)
-    p= image_tag item_image.image_url(:main)
-    p= item_image.caption
+    p= post_item.description
     br
 
 - @tags.each do |tag|
