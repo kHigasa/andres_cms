@@ -1,7 +1,7 @@
 nav.panel
   .panel-heading= t('misc.search')
   .panel-block
-    = search_form_for(@q, url: admin_posts_path, class: 'control') do |f|
+    = search_form_for(@q, url: posts_path, class: 'control') do |f|
       .field.is-horizontal
         .field-label= f.label :title, class: 'label'
         .field-body

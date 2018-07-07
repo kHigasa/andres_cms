@@ -43,8 +43,9 @@ table.table.is-fullwidth.is-striped
                   i.fa.fa-angle-down[aria-hidden='true']
             #dropdown-menu.dropdown-menu[role='menu']
               .dropdown-content
+                = link_to t('misc.show'), post_path(post), class: 'dropdown-item'
                 - if can? :edit, @post
-                  = link_to t('misc.show'), edit_post_path(post), class: 'dropdown-item'
+                  = link_to t('misc.edit'), edit_post_path(post), class: 'dropdown-item'
                 - if can? :destroy, @post
                   = link_to t('misc.destroy'), post_path(post), class: 'dropdown-item',
                             method: :delete, data: { confirm: '本当に削除しますか？' }

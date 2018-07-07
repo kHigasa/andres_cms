@@ -1,0 +1,31 @@
+.section
+  .field.is-pulled-right
+    = page_entries_info @posts
+.section
+  .field.is-pulled-right
+    = paginate @posts
+
+- @posts.where(accepted: true).each do |post|
+  article.Post
+    p style='text-align: left;'
+      =post.topic
+    .title= post.title
+    p style='font-size: 1.2rem;'
+      =post.lead_sentence
+    - if post.tags.present?
+      span.icon.is-small
+        i.fa.fa-tags
+      - post.tags.each do |tag|
+        =tag.name + ' '
+    - else
+      ''
+    p style='text-align: right;'
+      =post.published_at.try(:to_s, :rfc822)
+    button.column.button = link_to "#{t('misc.show')}ページ", post_path(post)
+
+.section
+  .field.is-pulled-right
+    = page_entries_info @posts
+.section
+  .field.is-pulled-right
+    = paginate @posts
