@@ -82,7 +82,6 @@ ActiveRecord::Schema.define(version: 2018_07_05_100555) do
     t.string "title"
     t.string "lead_sentence"
     t.boolean "accepted"
-    t.datetime "published_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "topic"

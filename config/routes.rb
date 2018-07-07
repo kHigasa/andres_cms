@@ -25,11 +25,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :api, defaults: { format: :json } do
-    resources :posts
-  end
-
-  resources :posts, only: %i[index show new edit]
+  resources :posts
 
   resources :about_items, only: %i[index new edit create update destroy] do
     member do

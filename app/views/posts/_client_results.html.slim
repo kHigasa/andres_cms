@@ -20,7 +20,7 @@
     - else
       ''
     p style='text-align: right;'
-      =post.published_at.try(:to_s, :rfc822)
+      =post.created_at.try(:to_s, :rfc822)
     button.column.button = link_to "#{t('misc.show')}ページ", post_path(post)
 
 .section
