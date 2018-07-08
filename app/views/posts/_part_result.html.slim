@@ -1,31 +1,31 @@
-/ .field
-/   table.table.is-fullwidth.is-striped
-/     tbody
-/       tr
-/         th=User.human_attribute_name :id
-/         td= @user.id
-/       tr
-/         th=User.human_attribute_name :email
-/         td= @user.email
-/       tr
-/         th=User.human_attribute_name :image
-/         td
-/           - if @user.image.present?
-/             = image_tag @user.image_url(:thumb)
-/       tr
-/         th=User.human_attribute_name :username
-/         td= @user.username
-/       tr
-/         th=User.human_attribute_name :introduction
-/         td= @user.introduction
-/       tr
-/         th=User.human_attribute_name :description
-/         td= @user.description
-/       tr
-/         th=User.human_attribute_name :admin
-/         td
-/           - if @user.admin == true
-/             | 管理者である
-/   =link_to "#{t('misc.index')}#{t('misc.back_to')}", users_path, class: 'button is-pulled-left'
-/   - if current_user == @user
-/     =link_to t('misc.edit'), edit_user_path(@user), class: 'button is-primary is-pulled-right'
+.ShowTopic
+  span.icon.is-small
+    i.fa.fa-bookmark
+  = @post.topic
+.ShowPublishedAt
+  span.icon.is-small
+    i.fa.fa-bell
+  = @post.created_at.try(:to_s, :rfc822)
+.title= @post.title
+p style='font-size: 1.2rem;'
+  = @post.lead_sentence
+
+br
+br
+br
+
+- @post_items.each do |post_item|
+  - if post_item.image.present?
+    p= image_tag post_item.image_url(:main)
+    p= post_item.description
+  - else
+    p= post_item.description
+    br
+
+- @tags.each do |tag|
+  span.icon.is-small
+    i.fa.fa-tags
+  .ShowTag= tag.name
+
+.column style='margin-top: 50px;'
+  = link_to "#{t('misc.index')}#{t('misc.back_to')}", posts_path, class: 'button'

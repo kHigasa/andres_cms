@@ -1,26 +1,97 @@
-/ = form_with(model: @user, local: true, class: 'control') do |f|
-/   .field.is-horizontal
-/     .field-label= f.label :image, class: 'label', require: true
-/     .field-body
-/       .field
-/         - if @user.image.present?
-/           b.control= '現在選択されている画像：' + File.basename(@user.image.to_s)
-/         p.control= f.file_field :image, class: 'input'
-/
-/   .field.is-horizontal
-/     .field-label= f.label :introduction, class: 'label', require: true
-/     .field-body
-/       .field
-/         p.control= f.text_field :introduction, class: 'input'
-/
-/   .field.is-horizontal
-/     .field-label= f.label :description, class: 'label', require: true
-/     .field-body
-/       .field
-/         p.control= f.text_field :description, class: 'input'
-/
-/   .field.is-horizontal
-/     .field-label
-/     .field-body
-/       .field
-/         .control.is-pulled-right= f.submit nil, class: 'button is-primary'
+.has-text-centered
+  .column.is-4.is-offset-4
+    - if @post.errors.any?
+      - @post.errors.full_messages.each do |message|
+        .notification.is-danger
+          = message
+
+= form_with(model: @post, local: true, class: 'control') do |f|
+  .field.is-horizontal
+    .field-label= f.label :topic, class: 'label'
+    .field-body
+      .field
+        p.control.select= f.select :topic, Post.topic.options, include_blank: true, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :title, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_field :title, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :lead_sentence, class: 'label'
+    .field-body
+      .field
+        p.control= f.text_area :lead_sentence, class: 'textarea'
+
+  .field.is-horizontal
+    .field-label= f.label :accepted, class: 'label'
+    .field-body
+      .field
+        p style='color: red;'
+          i.fa.fa-exclamation-triangle 「承認する」とこのまま投稿されます。投稿内容を校閲する場合は「承認しない」にしてください。
+        p.control.select= f.select :accepted, [['しない', false], ['する', true]], class: 'input'
+
+  = f.fields_for :tags do |t|
+    .field.is-horizontal
+      .field-label= t.label :name, class: 'label'
+      .field-body
+        .field
+          p.control= t.text_field :name, class: 'input'
+
+    .field.is-horizontal
+      .field-label= t.label :_destroy, t('misc.destroy'), class: 'label'
+      .field-body
+        .field
+          p.control= t.check_box :_destroy, class: 'checkbox'
+    br
+
+  #tagFields= javascript_pack_tag 'tagFields/tagFields'
+
+  - @post.post_items.each do |post_item|
+    - if post_item.image.present?
+      b.control= "並び順#{post_item.sort_rank}の#{PostItem.model_name.human}に対して現在選択されている画像：" + File.basename(post_item.image.to_s)
+      .control= image_tag post_item.image_url(:thumb)
+
+  = f.fields_for :post_items do |pi|
+    .field.is-horizontal
+      .field-label= pi.label :sort_rank, class: 'label', require: true
+      .field-body
+        .field
+          p.control= pi.number_field :sort_rank, class: 'input'
+
+    .field.is-horizontal
+      .field-label= pi.label :image, class: 'label'
+      .field-body
+        .field
+          p.control= pi.file_field :image, class: 'input'
+    .field.is-horizontal
+      .field-label= pi.label '画像を削除する', class: 'label'
+      .field-body
+        .field
+          p.control= pi.check_box :remove_image, class: 'checkbox'
+          p.control= pi.hidden_field :image_cache
+
+    .field.is-horizontal
+      .field-label= pi.label :description, class: 'label'
+      .field-body
+        .field
+          p.control= pi.text_field :description, class: 'input', require: true
+
+    .field.is-horizontal
+      .field-label= pi.label :_destroy, "#{PostItem.model_name.human}を#{t('misc.destroy')}", class: 'label'
+      .field-body
+        .field
+          p.control= pi.check_box :_destroy, class: 'checkbox'
+    br
+    br
+
+  #postItemFields= javascript_pack_tag 'postItemFields/postItemFields'
+
+  .field.is-horizontal
+    .field-label
+    .field-body
+      .field
+        .control.is-pulled-right= f.submit nil, class: 'button is-primary'
+
+= link_to "#{t('misc.index')}#{t('misc.back_to')}", admin_posts_path, class: 'button is-pulled-left'

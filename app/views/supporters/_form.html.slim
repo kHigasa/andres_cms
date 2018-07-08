@@ -25,6 +25,12 @@
         p.control= f.hidden_field :image_cache
 
   .field.is-horizontal
+    .field-label= f.label :url, class: 'label'
+    .field-body
+      .field
+       p.control= f.text_field :url, class: 'input'
+
+  .field.is-horizontal
     .field-label
     .field-body
       .field

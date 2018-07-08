@@ -1,9 +1,30 @@
-import './styles/reset.css';
-import './styles/theme.scss';
+import './stylesheets/reset.css';
+import './stylesheets/theme.scss';
 import './application.css';
-import './pages/page.css';
-// Support component names relative to this directory:
-const componentRequireContext = require.context("components", true);
-const ReactRailsUJS = require("react_ujs");
-
-ReactRailsUJS.useContext(componentRequireContext);
+import './pages/pages.css';
+import './posts/posts.css';
+import './layouts/layouts.css';
+import '../pages/components/Home.css';
+import '../layouts/components/Navigation/Logo/Logo.css';
+import '../layouts/components/Navigation/NavigationItems/NavigationItems.css';
+import '../layouts/components/Navigation/NavigationItems/NavigationItem/NavigationItem.css';
+import '../layouts/components/Navigation/SideDrawer/SideDrawer.css';
+import '../layouts/components/Navigation/SideDrawer/DrawerToggle/DrawerToggle.css';
+import '../layouts/components/Navigation/Toolbar/Toolbar.css';
+import '../posts/components/Posts/Post/Post.css';
+import '../posts/components/Post/DisplayPost/DisplayPost.css';
+import '../posts/components/UI/Backdrop/Backdrop.css';
+import '../posts/components/UI/Button/Button.css';
+import '../posts/components/UI/CustomDatePicker/CustomDatePicker.css';
+import '../posts/components/UI/DropzoneImage/DropzoneImage.css';
+import '../posts/components/UI/ErrorMessage/ErrorMessage.css';
+import '../posts/components/UI/Form/PostItemForm/PostItemForm.css';
+import '../posts/components/UI/Form/PostItemsForm.css';
+import '../posts/components/UI/Modal/Modal.css';
+import '../posts/components/UI/Spinner/Spinner.css';
+import '../posts/components/UI/Pagination/Pagination.css';
+import '../posts/components/UI/TagField/TagField.css';
+import '../posts/containers/Posts/IndexPosts/IndexPosts.css';
+import '../posts/containers/Posts/ShowPost/ShowPost.css';
+import '../posts/containers/Posts/NewPost/NewPost.css';
+import '../posts/containers/Posts/EditPost/EditPost.css';

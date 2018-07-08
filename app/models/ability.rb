@@ -9,6 +9,8 @@ class Ability
       can :manage, :all
     else
       can :index, User
+      can :index, Post
+      can :show, Post
       can :index, AboutItem
       can :index, History
       can :show, History
