@@ -14,7 +14,7 @@ function postItemButton(props) {
   const { classes } = props;
   return (
     <div>
-      <Button variant='fab' color='primary' aria-label='add' className={classes.button} onClick={props.clicked}>
+      <Button variant='fab' color='secondary' aria-label='add' className={classes.button} onClick={props.clicked}>
         <AddIcon />
       </Button>
     </div>

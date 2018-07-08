@@ -14,13 +14,13 @@ class PostItemFields extends Component {
   }
 
   render() {
-    let tagField = null;
+    let postItemField = null;
     if (this.state.clicked) {
-      tagField = <PostItemField />;
+      postItemField = <PostItemField />;
     }
     return (
       <div>
-        {tagField}
+        {postItemField}
         <PostItemButton clicked={e => this.addTagHandler(e)} />
       </div>
     );
