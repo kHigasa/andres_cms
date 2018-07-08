@@ -44,8 +44,14 @@
       .field-body
         .field
           p.control= t.check_box :_destroy, class: 'checkbox'
+    br
 
   #tagFields= javascript_pack_tag 'tagFields/tagFields'
+
+  - @post.post_items.each do |post_item|
+    - if post_item.image.present?
+      b.control= "並び順#{post_item.sort_rank}の#{PostItem.model_name.human}に対して現在選択されている画像：" + File.basename(post_item.image.to_s)
+      .control= image_tag post_item.image_url(:thumb)
 
   = f.fields_for :post_items do |pi|
     .field.is-horizontal
@@ -58,12 +64,12 @@
       .field-label= pi.label :image, class: 'label'
       .field-body
         .field
-          / - if @post.post_items.image.present?
-          /   b.control= '現在選択されている画像：' + File.basename(pi.image.to_s)
-          /   p.control= image_tag pi.image_url(:thumb)
-            / b.control= pi.label '↓画像を削除する', class: 'label'
-            / p.control= pi.check_box :remove_image, class: 'checkbox'
           p.control= pi.file_field :image, class: 'input'
+    .field.is-horizontal
+      .field-label= pi.label '画像を削除する', class: 'label'
+      .field-body
+        .field
+          p.control= pi.check_box :remove_image, class: 'checkbox'
           p.control= pi.hidden_field :image_cache
 
     .field.is-horizontal
@@ -73,10 +79,12 @@
           p.control= pi.text_field :description, class: 'input', require: true
 
     .field.is-horizontal
-      .field-label= pi.label :_destroy, t('misc.destroy'), class: 'label'
+      .field-label= pi.label :_destroy, "#{PostItem.model_name.human}を#{t('misc.destroy')}", class: 'label'
       .field-body
         .field
           p.control= pi.check_box :_destroy, class: 'checkbox'
+    br
+    br
 
   #postItemFields= javascript_pack_tag 'postItemFields/postItemFields'
 

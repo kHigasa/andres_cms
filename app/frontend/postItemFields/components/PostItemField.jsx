@@ -8,6 +8,9 @@ const postItemField = () => (
       </div>
       <div className='field-body'>
         <div className='field'>
+          <p>
+            <i className='fa fa-exclamation-triangle'>投稿内容は1つづつ追加して保存してください。</i>
+          </p>
           <p className='control'>
             <input className='input' type='number' name='post[post_items_attributes][100][sort_rank]' id='post_post_items_attributes_100_sort_rank' />
           </p>

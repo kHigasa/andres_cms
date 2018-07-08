@@ -54,6 +54,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :lead_sentence, :accepted, :topic, tags_attributes: %i[name, :post_id], post_items_attributes: %i[image remove_image image_cache description sort_rank, :post_id])
+    params.require(:post).permit(:title, :lead_sentence, :accepted, :topic, tags_attributes: %i[name], post_items_attributes: %i[image remove_image image_cache description sort_rank])
   end
 end
