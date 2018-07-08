@@ -5,8 +5,6 @@
         .notification.is-danger
           = message
 
-= javascript_pack_tag 'posts/posts'
-
 = form_with(model: @post, local: true, class: 'control') do |f|
   .field.is-horizontal
     .field-label= f.label :topic, class: 'label'

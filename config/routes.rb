@@ -30,6 +30,9 @@ Rails.application.routes.draw do
     namespace :admin do
       resources :posts, only: %i[index]
     end
+    namespace :api, default: { format: :json } do
+      resources :posts
+    end
   end
 
   resources :about_items, only: %i[index new edit create update destroy] do

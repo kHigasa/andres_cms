@@ -1,15 +1,15 @@
 class Api::PostsController < ApplicationController
   before_action :authenticate_user!, only: %i[new edit create update destroy]
-  before_action :set_post, only: %i[show edit update destroy]
   load_and_authorize_resource
   # GET /api/posts
   def index
-    posts = Post.all.page(params[:page])
+    posts = Post.includes(:tags, :post_items).page(params[:page])
     render json: posts, each_serializer: PostSerializer
   end
 
   # GET /api/posts/:id
   def show
+    post = Post.find(params[:id])
     render json: PostSerializer.new(post)
   end
 
@@ -21,6 +21,7 @@ class Api::PostsController < ApplicationController
 
   # GET /api/posts/:id/edit
   def edit
+    post = Post.find(params[:id])
     render json: PostSerializer.new(post)
   end
 
@@ -34,6 +35,7 @@ class Api::PostsController < ApplicationController
 
   # PATCH/PUT /api/posts/:id
   def update
+    post = Post.find(params[:id])
     post.update(post_params)
     raise unless post.update(post_params)
     head :ok
@@ -41,6 +43,7 @@ class Api::PostsController < ApplicationController
 
   # DELETE /api/posts/:id
   def destroy
+    post = Post.find(params[:id])
     if post.destroy
       head :no_content, status: :ok
     else
@@ -51,10 +54,6 @@ class Api::PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :lead_sentence, :accepted, :published_at, :topic)
-  end
-
-  def set_post
-    post = Post.find(params[:id])
+    params.require(:post).permit(:title, :lead_sentence, :accepted, :topic, tags_attributes: %i[name, :post_id], post_items_attributes: %i[image remove_image image_cache description sort_rank, :post_id])
   end
 end

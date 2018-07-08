@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   add_breadcrumb "#{Post.model_name.human}#{I18n.t('misc.index')}", :posts_path
   # GET /posts
   def index
-    @q = Post.includes(:tags).where(accepted: true).order(created_at: :desc).ransack(params[:q])
+    @q = Post.includes(:tags, :post_items).where(accepted: true).order(created_at: :desc).ransack(params[:q])
     @posts = @q.result.page(params[:page])
   end
 
@@ -29,7 +29,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.errors.empty? && @post.save
-      redirect_to admin_posts_path, notice: I18n.t('activerecord.flash.post.actions.create.success')
+      render :edit, notice: I18n.t('activerecord.flash.post.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.post.actions.create.failure')
     end

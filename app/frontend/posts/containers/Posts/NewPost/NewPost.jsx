@@ -3,7 +3,6 @@ import { Redirect } from 'react-router-dom';
 
 import axios from '../../../axios-posts';
 import Form from '../../../components/UI/Form/Form';
-import Button from '../../../components/UI/Button/Button';
 import TagField from '../../../components/UI/TagField/TagField';
 import Spinner from '../../../components/UI/Spinner/Spinner';
 

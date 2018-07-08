@@ -1,0 +1,10 @@
+ja:
+  activerecord:
+    models:
+      post_item: 投稿内容
+    attributes:
+      post_item:
+        id:
+        description: テキスト
+        image: 画像
+        sort_rank: 並び順
