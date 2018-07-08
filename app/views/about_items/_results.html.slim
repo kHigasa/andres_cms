@@ -27,6 +27,6 @@
     - elsif about_item.image.blank? && about_item.description.blank?
       = ''
     - else
-      .column.is-full-width.has-text-centered[style='width: 80%; font-size: 1.6rem;']
+      .column.is-full-width.has-text-centered[style='font-size: 1.6rem;']
           = image_tag about_item.image_url(:main) if about_item.image.present?
           = about_item.description
