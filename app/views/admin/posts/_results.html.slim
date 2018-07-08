@@ -10,7 +10,9 @@ table.table.is-fullwidth.is-striped
     tr
       th style='width: 10%'
         = Post.human_attribute_name :topic
-      th style='width: 30%'
+      th style='width: 10%'
+        = Post.human_attribute_name :updated_at
+      th style='width: 20%'
         = Post.human_attribute_name :title
       th style='width: 30%'
         = Post.human_attribute_name :lead_sentence
@@ -26,6 +28,7 @@ table.table.is-fullwidth.is-striped
     - @posts.each do |post|
       tr
         td= post.topic
+        td= post.updated_at
         td= post.title
         td= post.lead_sentence
         td style='color: red;'
@@ -34,11 +37,9 @@ table.table.is-fullwidth.is-striped
           - post.tags.each do |tag|
             td= tag.name
         - else
-          td
-            p= post.tags.first.name
-            p= post.tags.second.name
-            p= post.tags.third.name
-            p ...
+          td= post.tags.first.name
+          td= post.tags.second.name
+          td 4件以上のタグが存在します
         td
           .dropdown.is-right.is-hoverable
             .dropdown-trigger

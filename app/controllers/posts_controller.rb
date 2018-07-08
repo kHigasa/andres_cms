@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   add_breadcrumb "#{Post.model_name.human}#{I18n.t('misc.index')}", :posts_path
   # GET /posts
   def index
-    @q = Post.includes(:tags, :post_items).where(accepted: true).order(created_at: :desc).ransack(params[:q])
+    @q = Post.includes(:tags).where(accepted: true).order(created_at: :desc).ransack(params[:q])
     @posts = @q.result.page(params[:page])
   end
 
@@ -57,7 +57,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :lead_sentence, :topic, :accepted, tags_attributes: %i[name _destroy], post_items_attributes: %i[image remove_image image_cache description sort_rank _destroy])
+    params.require(:post).permit(:title, :lead_sentence, :topic, :accepted, tags_attributes: %i[id name _destroy], post_items_attributes: %i[id image remove_image image_cache description sort_rank _destroy])
   end
 
   def set_post

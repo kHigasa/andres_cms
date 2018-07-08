@@ -16,7 +16,7 @@ br
 
 - @post_items.each do |post_item|
   - if post_item.image.present?
-    p= image_tag post_item_image.image_url(:main)
+    p= image_tag post_item.image_url(:main)
     p= post_item.description
   - else
     p= post_item.description
