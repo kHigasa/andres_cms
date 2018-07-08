@@ -1,16 +1,15 @@
 import React from 'react';
 
-import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = () => (
   <ul className='NavigationItems'>
-    <NavigationItem toLink='/' exact>Home</NavigationItem>
-    <NavigationItem toLink='/about' exact>About</NavigationItem>
-    <NavigationItem toLink='/posts' exact>Posts</NavigationItem>
-    <NavigationItem toLink='/histories' exact>Histories</NavigationItem>
-    <NavigationItem toLink='/supporters' exact>Supporters</NavigationItem>
-    <NavigationItem toLink='/contact' exact>Contact</NavigationItem>
-    <NavigationItem toLink='/faq' exact>FAQ</NavigationItem>
+    <li className='NavigationItem'><a href='/'>Home</a></li>
+    <li className='NavigationItem'><a href='/about'>About</a></li>
+    <li className='NavigationItem'><a href='/posts'>Posts</a></li>
+    <li className='NavigationItem'><a href='/histories'>Histories</a></li>
+    <li className='NavigationItem'><a href='/supporters'>Supporters</a></li>
+    <li className='NavigationItem'><a href='/contact'>Contact</a></li>
+    <li className='NavigationItem'><a href='/faq'>FAQ</a></li>
   </ul>
 );
 
