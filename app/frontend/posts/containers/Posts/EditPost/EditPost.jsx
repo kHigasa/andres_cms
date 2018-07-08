@@ -8,13 +8,12 @@ import Spinner from '../../../components/UI/Spinner/Spinner';
 
 class EditPost extends Component {
   state = {
-    post: null,
+    post: [],
     error: false,
     submitted: false,
     loading: false,
-    postForm: [{
-      tags: [{
-        post_id: '',
+    postForm: {
+      tags: {
         name: {
           validation: {
             required: true
@@ -23,9 +22,8 @@ class EditPost extends Component {
           touched: false,
           errorMessage: 'Tag'
         }
-      }],
-      postItems: [{
-        post_id: '',
+      },
+      postItems: {
         description: {
           validation: {
             required: true
@@ -50,8 +48,8 @@ class EditPost extends Component {
           touched: false,
           errorMessage: 'Image'
         }
-      }]
-    }]
+      }
+    }
   }
 
   componentDidMount() {
@@ -60,29 +58,19 @@ class EditPost extends Component {
         axios.get('/' + this.props.match.params.id)
           .then((res) => {
             const post = res.data;
-            this.setState({
-              post,
-              postForm: [{
-                tags: [{
-                  post_id: post.id
-                }],
-                post_items: [{
-                  post_id: post.id
-                }]
-              }]
-            });
+            this.setState({ post });
             console.log(post);
           })
           .catch((err) => {
             console.log(err)
-            this.setState({error: true});
+            this.setState({ error: true });
           });
       }
     }
   }
 
   postHandler = (e) => {
-  this.setState({ loading: true });
+    this.setState({ loading: true });
     e.preventDefault();
     const formData = {};
     for (let formElementModel in this.state.postForm) {

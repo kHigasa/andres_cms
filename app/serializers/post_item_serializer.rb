@@ -12,5 +12,5 @@
 #
 
 class PostItemSerializer < ActiveModel::Serializer
-  attributes :id, :description, :image, :sort_rank, :post_id
+  attributes :id, :description, :image, :sort_rank
 end

@@ -32,8 +32,52 @@
           i.fa.fa-exclamation-triangle 「承認する」とこのまま投稿されます。投稿内容を校閲する場合は「承認しない」にしてください。
         p.control.select= f.select :accepted, [['しない', false], ['する', true]], class: 'input'
 
+  = f.fields_for :tags do |t|
+    .field.is-horizontal
+      .field-label= t.label :name, class: 'label'
+      .field-body
+        .field
+          p.control= t.text_field :name, class: 'input'
+      .field-label= t.label :_destroy, t('misc.destroy'), class: 'label'
+      .field-body
+        .field
+          p.control= t.check_box :_destroy, class: 'checkbox'
+
+  #tagFields= javascript_pack_tag 'tagFields/tagFields'
+
+  = f.fields_for :post_items do |pi|
+    .field.is-horizontal
+      .field-label= pi.label :sort_rank, class: 'label', require: true
+      .field-body
+        .field
+          p.control= pi.number_field :sort_rank, class: 'input'
+
+      .field-label= pi.label :image, class: 'label'
+      .field-body
+        .field
+          / - if @post.post_items.image.present?
+          /   b.control= '現在選択されている画像：' + File.basename(pi.image.to_s)
+          /   p.control= image_tag pi.image_url(:thumb)
+            / b.control= pi.label '↓画像を削除する', class: 'label'
+            / p.control= pi.check_box :remove_image, class: 'checkbox'
+          p.control= pi.file_field :image, class: 'input'
+          p.control= pi.hidden_field :image_cache
+
+      .field-label= pi.label :description, class: 'label'
+      .field-body
+        .field
+          p.control= pi.text_field :description, class: 'input', require: true
+      .field-label= pi.label :_destroy, t('misc.destroy'), class: 'label'
+      .field-body
+        .field
+          p.control= pi.check_box :_destroy, class: 'checkbox'
+
+  #postItemFields= javascript_pack_tag 'postItemFields/postItemFields'
+
   .field.is-horizontal
     .field-label
     .field-body
       .field
         .control.is-pulled-right= f.submit nil, class: 'button is-primary'
+
+= link_to "#{t('misc.index')}#{t('misc.back_to')}", admin_posts_path, class: 'button is-pulled-left'

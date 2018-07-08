@@ -19,6 +19,7 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
     @post.tags.build
+    @post.post_items.build
   end
 
   # GET /posts/:id/edit
@@ -38,7 +39,7 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/:id
   def update
     if @post.errors.empty? && @post.update(post_params)
-      redirect_to admin_posts_path, notice: I18n.t('activerecord.flash.post.actions.update.success')
+      render :edit, notice: I18n.t('activerecord.flash.post.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.post.actions.update.failure')
     end
@@ -56,7 +57,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :lead_sentence, :topic, :accepted, tags_attributes: %i[name], post_items_attributes: %i[image remove_image image_cache description sort_rank])
+    params.require(:post).permit(:title, :lead_sentence, :topic, :accepted, tags_attributes: %i[name _destroy], post_items_attributes: %i[image remove_image image_cache description sort_rank _destroy])
   end
 
   def set_post

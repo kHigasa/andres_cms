@@ -5,7 +5,7 @@ class TagField extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      tags: []
+      tags: [{ id: 1, text: "Thailand" }, { id: 2, text: "India" }]
     };
     this.handleDelete = this.handleDelete.bind(this);
     this.handleAddition = this.handleAddition.bind(this);
