@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
-    get 'users/sign_out' => 'devise/sessions#destroy'
+    get 'users/sign_out', to: 'devise/sessions#destroy'
   end
 
   root 'pages#home'
@@ -22,6 +22,16 @@ Rails.application.routes.draw do
     member do
       patch 'activate'
       patch 'suspend'
+    end
+  end
+
+  resources :posts
+  authenticate :user, lambda { |u| u.admin? } do
+    namespace :admin do
+      resources :posts, only: %i[index]
+    end
+    namespace :api, default: { format: :json } do
+      resources :posts
     end
   end
 
@@ -34,8 +44,6 @@ Rails.application.routes.draw do
     end
   end
   get 'about', to: 'about_items#index'
-
-  resources :posts
 
   resources :histories, param: :generation_code do
     resources :activities, only: %i[index new edit create update destroy]

@@ -6,6 +6,10 @@ load Rails.root.join('db', 'seeds', 'social_account_sd.rb')
 load Rails.root.join('db', 'seeds', 'about_item_sd.rb')
 # Post
 load Rails.root.join('db', 'seeds', 'post_sd.rb')
+# Tag
+load Rails.root.join('db', 'seeds', 'tag_sd.rb')
+# PostItem
+load Rails.root.join('db', 'seeds', 'post_item_sd.rb')
 # History
 load Rails.root.join('db', 'seeds', 'history_sd.rb')
 # Activity

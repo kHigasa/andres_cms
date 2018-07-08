@@ -58,8 +58,6 @@ gem 'uglifier'
 # Bootstrap
 gem 'bootstrap-sass'
 gem 'data-confirm-modal'
-# Integrate react with Rails
-gem 'react-rails'
 # Kill prpcess for memory leak
 gem 'puma_worker_killer'
 # Generate sitemap

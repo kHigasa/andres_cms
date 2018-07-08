@@ -1,0 +1,12 @@
+.HomeTile {
+  width: 80%;
+  border-top: 5px solid #eee;
+  border-bottom: 5px solid #eee;
+  padding-bottom: 100px;
+  margin: 100px auto;
+  box-sizing: border-box;
+}
+
+.HomeTitle {
+  margin: 100px;
+}
