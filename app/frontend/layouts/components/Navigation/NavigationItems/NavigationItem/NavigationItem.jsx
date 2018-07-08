@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 const navigationItem = props => (
   <li className='NavigationItem'>
     <NavLink
-      to={props.link}
+      to={props.toLink}
       exact={props.exact}
       activeClassName='active'
     >
@@ -15,7 +15,7 @@ const navigationItem = props => (
 );
 
 navigationItem.propTypes = {
-  link: PropTypes.string.isRequired,
+  toLink: PropTypes.string.isRequired,
   exact: PropTypes.bool.isRequired
 };
 

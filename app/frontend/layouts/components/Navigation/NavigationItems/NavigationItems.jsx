@@ -4,13 +4,13 @@ import NavigationItem from './NavigationItem/NavigationItem';
 
 const navigationItems = () => (
   <ul className='NavigationItems'>
-    <NavigationItem link='/' exact>Home</NavigationItem>
-    <NavigationItem link='/about' exact>About</NavigationItem>
-    <NavigationItem link='/posts' exact>Posts</NavigationItem>
-    <NavigationItem link='/histories' exact>Histories</NavigationItem>
-    <NavigationItem link='/supporters' exact>Supporters</NavigationItem>
-    <NavigationItem link='/contact' exact>Contact</NavigationItem>
-    <NavigationItem link='/faq' exact>FAQ</NavigationItem>
+    <NavigationItem toLink='/' exact>Home</NavigationItem>
+    <NavigationItem toLink='/about' exact>About</NavigationItem>
+    <NavigationItem toLink='/posts' exact>Posts</NavigationItem>
+    <NavigationItem toLink='/histories' exact>Histories</NavigationItem>
+    <NavigationItem toLink='/supporters' exact>Supporters</NavigationItem>
+    <NavigationItem toLink='/contact' exact>Contact</NavigationItem>
+    <NavigationItem toLink='/faq' exact>FAQ</NavigationItem>
   </ul>
 );
 
