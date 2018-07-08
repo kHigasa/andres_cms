@@ -14,7 +14,7 @@
             - if can? :destroy, @question
               = link_to t('misc.destroy'), question_path(question), class: 'dropdown-item',
                         method: :delete, data: { confirm: '本当に削除しますか？' }
-      .box.has-text-centered.is-full-width
-        small= faq_category.category
-        .title= question.question
-        p= question.answer
+    .box.has-text-centered.is-full-width
+      small= faq_category.category
+      .title= question.question
+      p= question.answer
