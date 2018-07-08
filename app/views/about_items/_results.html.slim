@@ -22,11 +22,11 @@
     - if about_item.image.present? && about_item.description.present?
       .column.is-fullwidth-mobile.is-half-desktop
         = image_tag about_item.image_url(:sub)
-      .column.is-fullwidth-mobile.is-half-desktop
+      .column.is-fullwidth-mobile.is-half-desktop[style='font-size: 1.8rem;']
         = about_item.description
     - elsif about_item.image.blank? && about_item.description.blank?
       = ''
     - else
-      .column.is-full-width.has-text-centered
+      .column.is-full-width.has-text-centered[style='font-size: 1.8rem;']
           = image_tag about_item.image_url(:main) if about_item.image.present?
           = about_item.description
