@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const navigationItems = () => (
   <ul className='NavigationItems'>
     <li className='NavigationItem'><a href='/'>Home</a></li>
