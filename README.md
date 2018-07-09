@@ -12,6 +12,12 @@ This is CMS with Rails5 and React.
 
 ## Deployment
 ### Local
+Reinstall frontend packages
+
+```
+$ yarn install
+```
+
 ####Staging
 Precompile assets
 

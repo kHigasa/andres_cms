@@ -6,12 +6,12 @@
 .HomeTile
   .title.HomeTitle 最新の投稿
   - post = Post.last
-    - if post.present?
-      p style='font-size: 1.2rem;'
-        = post.title
-      p style='margin-top: 20px; margin-bottom: 40px;'
-        = post.lead_sentence
-      button.button= link_to '最新の投稿へ', post_path(post)
+  - if post.present?
+    p style='font-size: 1.2rem;'
+      = post.title
+    p style='margin-top: 20px; margin-bottom: 40px;'
+      = post.lead_sentence
+    button.button= link_to '最新の投稿へ', post_path(post)
 .HomeTile
   .title.HomeTitle 沿革
   p[style='margin-bottom: 40px;']学生団体GEIL(ガイル)のこれまでの歩みについての詳細が記録されています。
