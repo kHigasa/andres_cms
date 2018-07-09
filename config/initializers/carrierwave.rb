@@ -8,6 +8,6 @@ CarrierWave.configure do |config|
 
   config.fog_directory = 'andrescms'
   config.cache_storage = :fog
-  config.asset_host = 'https://s3.amazonaws.com/andrescms'
+  config.asset_host = 'https://s3.ap-northeast-1.amazonaws.com/andrescms'
   config.cache_dir = "#{Rails.root}/tmp/uploads"
 end
