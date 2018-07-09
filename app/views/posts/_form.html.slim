@@ -76,7 +76,7 @@
       .field-label= pi.label :description, class: 'label'
       .field-body
         .field
-          p.control= pi.text_field :description, class: 'input', require: true
+          p.control= pi.text_area :description, class: 'textarea', require: true
 
     .field.is-horizontal
       .field-label= pi.label :_destroy, "#{PostItem.model_name.human}を#{t('misc.destroy')}", class: 'label'
