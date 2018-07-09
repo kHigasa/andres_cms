@@ -5,7 +5,7 @@
   button.button= link_to 'GEILについてのページへ', about_items_path
 .HomeTile
   .title.HomeTitle 最新の投稿
-  - post = Post.first
+  - post = Post.last
     - if post.present?
       p style='font-size: 1.2rem;'
         = post.title
