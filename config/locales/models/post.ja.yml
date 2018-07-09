@@ -14,7 +14,7 @@ ja:
         updated_at: 更新日時
       post/tags:
         name: タグ名
-      post/post_item:
+      post/post_items:
         description: テキスト
         image: 画像
         sort_rank: 並び順
