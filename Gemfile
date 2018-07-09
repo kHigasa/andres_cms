@@ -29,6 +29,8 @@ gem 'oj'
 # Upload files
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
+# For image uploader with AWS S3
+gem 'fog'
 # Authentication
 gem 'devise'
 gem 'omniauth'
