@@ -7,7 +7,7 @@
     i.fa.fa-bell
   = @post.created_at.try(:to_s, :rfc822)
 .title= @post.title
-p style='font-size: 1.2rem;'
+p style='font-size: 1.6rem;'
   = @post.lead_sentence
 
 br
@@ -17,9 +17,12 @@ br
 - @post_items.each do |post_item|
   - if post_item.image.present?
     p= image_tag post_item.image_url(:main)
-    p= post_item.description
+    p style='font-size: 1.8rem;'
+      = post_item.description
+    br
   - else
-    p= post_item.description
+    p style='font-size: 1.8rem;'
+      = post_item.description
     br
 
 - @tags.each do |tag|

@@ -10,8 +10,67 @@ This is CMS with Rails5 and React.
 - Comment your code to tell your intention of the implement.
 - When you merge from develop branch to master branch and some conflicts happen, you must give priority to master branch. Vice versa. (And andres too.)
 
+## Reflect latest code in andres
+1. Start a branch from develop.
+
+```
+$ git checkout -b merge/develop
+```
+
+1. Make a empty commit.
+
+```
+$ git commit --allow-empty -m  'Merge develop'
+```
+
+1. Push to an origin repo.
+
+```
+$ git commit --allow-empty -m  'Merge develop'
+```
+
+1. Make a pull request.
+
+1. Remove public/assets public/packs directory.
+
+1. Modify gitignore.
+
 ## Deployment
-### Staging
+### Local
+Reinstall frontend packages
+
+```
+$ yarn install
+```
+
+####Staging
+Precompile assets
+
+```
+$ bundle exec rails assets:precompile RAILS_ENV=staging
+```
+
+Push
+
+```
+$ git push origin develop
+```
+
+#### Production
+Precompile assets
+
+```
+$ bundle exec rails assets:precompile RAILS_ENV=production
+```
+
+Push
+
+```
+$ git push origin master
+```
+
+### Heroku
+#### Staging
 Adjust database schema
 
 ```
@@ -54,7 +113,7 @@ Open web application
 $ heroku open --remote staging
 ```
 
-### Production(heroku)
+#### Production(heroku)
 Adjust database schema
 
 ```

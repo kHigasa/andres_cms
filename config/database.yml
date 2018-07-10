@@ -48,5 +48,9 @@ production:
   password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV['DATABASE_URL'] %>
 
-cucumber:
-  <<: *test
+staging:
+  <<: *default
+  database: andres_cms_staging
+  username: andres_cms
+  password: <%= ENV['DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>

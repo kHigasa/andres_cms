@@ -20,6 +20,8 @@ header style='margin-top: 86px;'
           | Histories
         a.navbar-item href='/supporters'
           | Supporters
+        a.navbar-item href='/faq'
+          | FAQ
 
 
     - if current_user.admin?
@@ -41,5 +43,3 @@ header style='margin-top: 86px;'
           .navbar-dropdown.is-boxed
             a.navbar-item href='/contact'
               | Contact
-            a.navbar-item href='/faq'
-              | FAQ

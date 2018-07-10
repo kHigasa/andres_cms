@@ -39,7 +39,7 @@ const postItemField = () => (
       <div className='field-body'>
         <div className='field'>
           <p className='control'>
-            <input className='input' require='true' type='text' name='post[post_items_attributes][100][description]' id='post_post_items_attributes_100_description' />
+            <textarea className='textarea' require='true' name='post[post_items_attributes][100][description]' id='post_post_items_attributes_100_description' />
           </p>
         </div>
       </div>
