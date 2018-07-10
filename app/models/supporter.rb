@@ -7,6 +7,7 @@
 #  image      :string(255)
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  url        :string(255)
 #
 
 class Supporter < ApplicationRecord
@@ -14,7 +15,8 @@ class Supporter < ApplicationRecord
   validates :type, presence: true
   validates :image, presence: true
   mount_uploader :image, ImageUploader
-  enumerize :type, in: { kyousann: 0, kouenn: 1 }
+  enumerize :type, in: { kyousann: 0, kouenn: 1, josei: 2 }
+  # Not to rename type in ActiveRecord
   self.inheritance_column = :_type_disabled
 
   class << self
@@ -24,6 +26,10 @@ class Supporter < ApplicationRecord
 
     def kouenn
       where(type: :kouenn)
+    end
+
+    def josei
+      where(type: :josei)
     end
   end
 end

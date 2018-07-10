@@ -1,0 +1,33 @@
+nav.panel
+  .panel-heading= t('misc.search')
+  .panel-block
+    = search_form_for(@q, url: admin_posts_path, class: 'control') do |f|
+      .field.is-horizontal
+        .field-label= f.label :title, class: 'label'
+        .field-body
+          .field
+            p.control= f.text_field :title_cont, class: 'input'
+
+      .field.is-horizontal
+        .field-label= f.label :topic, class: 'label'
+        .field-body
+          .field
+            p.control.select= f.select :topic_eq, Post.topic.options, include_blank: true, class: 'input'
+
+      .field.is-horizontal
+        .field-label= f.label 'タグ', class: 'label'
+        .field-body
+          .field
+            p.control= f.text_field :tags_name_cont, class: 'input'
+
+      .field.is-horizontal
+        .field-label= f.label :accepted, class: 'label'
+        .field-body
+          .field
+            p.control.select= f.select :accepted_eq, [['待ち', false], ['済み', true]], include_blank: true, class: 'input'
+
+      .field.is-horizontal
+        .field-label
+        .field-body
+          .field
+            p.control.is-pulled-right= f.submit t('misc.search'), class: 'button is-info'

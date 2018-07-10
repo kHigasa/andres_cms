@@ -6,7 +6,6 @@
 #  title         :string(255)
 #  lead_sentence :string(255)
 #  accepted      :boolean
-#  published_at  :datetime
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
 #  topic         :integer

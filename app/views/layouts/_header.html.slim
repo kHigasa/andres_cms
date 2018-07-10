@@ -1,5 +1,5 @@
-header
-nav.navbar.is-info.is-spaced.is-fixed-top
+header style='margin-top: 86px;'
+  nav.navbar.is-primary.is-spaced.is-fixed-top
     .navbar-brand
       a.navbar-item href='/'
         = image_pack_tag 'packs/images/group.png', alt: 'Group Logo', class: 'groupImage'
@@ -14,13 +14,28 @@ nav.navbar.is-info.is-spaced.is-fixed-top
           | Home
         a.navbar-item href='/about'
           | About
-        a.navbar-item href='/posts'
+        a.navbar-item href='/admin/posts'
           | Posts
         a.navbar-item href='/histories'
           | Histories
         a.navbar-item href='/supporters'
           | Supporters
+        a.navbar-item href='/faq'
+          | FAQ
 
+
+    - if current_user.admin?
+      .navbar-end
+        .navbar-item.has-dropdown.is-hoverable
+          a.navbar-link
+            span.icon.is-small
+              i.fa.fa-user
+          .navbar-dropdown.is-boxed.is-right
+            .navbar-item= link_to "#{User.model_name.human}#{t('misc.index')}", users_path
+            hr.navbar-divider
+            .navbar-item= link_to '登録情報の変更', edit_user_registration_path
+            .navbar-item= link_to 'ログアウト', destroy_user_session_path, method: :delete
+    - else
       .navbar-end
         .navbar-item.has-dropdown.is-hoverable
           a.navbar-link
@@ -28,5 +43,3 @@ nav.navbar.is-info.is-spaced.is-fixed-top
           .navbar-dropdown.is-boxed
             a.navbar-item href='/contact'
               | Contact
-            a.navbar-item href='/faq'
-              | FAQ

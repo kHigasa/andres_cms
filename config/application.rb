@@ -36,7 +36,7 @@ module AndresCms
     # Rack cors
     config.middleware.insert_before 0, Rack::Cors do
       allow do
-        origins 'localhost:5000'
+        origins 'http://localhost:3035/'
         resource '*', headers: :any, methods: %i[get post put patch delete options]
       end
     end

@@ -48,7 +48,7 @@ class SupportersController < ApplicationController
   private
 
   def supporter_params
-    params.require(:supporter).permit(:type, :image, :image_cache, :remove_image)
+    params.require(:supporter).permit(:type, :image, :image_cache, :remove_image, :url)
   end
 
   def set_supporter

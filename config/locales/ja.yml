@@ -221,10 +221,16 @@ ja:
   breadcrumbs:
     separator: ' > '
   enumerize:
+    post:
+      topic:
+        news: お知らせ
+        event: イベント
+        column: コラム
     supporter:
       type:
         kyousann: 協賛
         kouenn: 後援
+        josei: 助成
   misc:
     index: 一覧
     show: 詳細

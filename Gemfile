@@ -29,6 +29,8 @@ gem 'oj'
 # Upload files
 gem 'carrierwave', '~> 1.0'
 gem 'rmagick'
+# For image uploader with AWS S3
+gem 'fog'
 # Authentication
 gem 'devise'
 gem 'omniauth'
@@ -58,8 +60,6 @@ gem 'uglifier'
 # Bootstrap
 gem 'bootstrap-sass'
 gem 'data-confirm-modal'
-# Integrate react with Rails
-gem 'react-rails'
 # Kill prpcess for memory leak
 gem 'puma_worker_killer'
 # Generate sitemap
@@ -72,6 +72,8 @@ gem 'config'
 gem 'whenever'
 # To tell crawler
 gem 'roboto'
+# Monitor server
+gem 'newrelic_rpm'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.

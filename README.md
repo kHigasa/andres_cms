@@ -3,96 +3,155 @@
 This is CMS with Rails5 and React.
 
 ## Flow
-1. Cut branch from origin develop
-1. Make pull request to develop
+1. Start a branch from origin andres(dev branch but not manage compiled files).
+1. Make pull request to andres.
 
 ## Attention
-- Comment your code to tell your intention of the implement
-- When you merge from develop branch to master branch and some conflicts happen, you must give priority to master branch. Vice versa.
+- Comment your code to tell your intention of the implement.
+- When you merge from develop branch to master branch and some conflicts happen, you must give priority to master branch. Vice versa. (And andres too.)
+
+## Reflect latest code in andres
+1. Start a branch from develop.
+
+```
+$ git checkout -b merge/develop
+```
+
+1. Make a empty commit.
+
+```
+$ git commit --allow-empty -m  'Merge develop'
+```
+
+1. Push to an origin repo.
+
+```
+$ git commit --allow-empty -m  'Merge develop'
+```
+
+1. Make a pull request.
+
+1. Remove public/assets public/packs directory.
+
+1. Modify gitignore.
 
 ## Deployment
-### Staging
-Adjust database schema
+### Local
+Reinstall frontend packages.
 
-```zsh:terminal
+```
+$ yarn install
+```
+
+####Staging
+Precompile assets.
+
+```
+$ bundle exec rails assets:precompile RAILS_ENV=staging
+```
+
+Push to an origin repo.
+
+```
+$ git push origin develop
+```
+
+#### Production
+Precompile assets.
+
+```
+$ bundle exec rails assets:precompile RAILS_ENV=production
+```
+
+Push to an origin repo.
+
+```
+$ git push origin master
+```
+
+### Heroku
+#### Staging
+Adjust database schema.
+
+```
 $ heroku run rails db:migrate --remote staging DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Readjust database schema
+Readjust database schema.
 
-```zsh:terminal
+```
 $ heroku run rails db:migrate:reset --remote staging DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Precompile assets
+Precompile assets.
 
-```zsh:terminal
+```
 $ heroku run rails assets:precompile --remote staging RAILS_ENV=production
 ```
 
-Compile webpacker
+Compile webpacker.
 
-```zsh:terminal
+```
 $ heroku run rails webpacker:compile --remote staging RAILS_ENV=production
 ```
 
-Throw data into production environment
+Throw data into production environment.
 
-```zsh:terminal
+```
 $ heroku run rails db:seed:production --remote staging RAILS_ENV=production
 ```
 
-Restart web server
+Restart web server.
 
-```zsh:terminal
+```
 $ heroku restart --remote staging
 ```
 
-Open web application
+Open web application.
 
-```zsh:terminal
+```
 $ heroku open --remote staging
 ```
 
-### Production(heroku)
-Adjust database schema
+#### Production(heroku)
+Adjust database schema.
 
-```zsh:terminal
+```
 $ heroku run rails db:migrate --remote heroku DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Readjust database schema
+Readjust database schema.
 
-```zsh:terminal
+```
 $ heroku run rails db:migrate:reset --remote heroku DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Precompile assets
+Precompile assets.
 
-```zsh:terminal
+```
 $ heroku run rails assets:precompile --remote heroku RAILS_ENV=production
 ```
 
-Compile webpacker
+Compile webpacker.
 
-```zsh:terminal
+```
 $ heroku run rails webpacker:compile --remote heroku RAILS_ENV=production
 ```
 
-Throw data into production environment
+Throw data into production environment.
 
-```zsh:terminal
+```
 $ heroku run rails db:seed:production --remote heroku RAILS_ENV=production
 ```
 
-Restart web server
+Restart web server.
 
-```zsh:terminal
+```
 $ heroku restart --remote heroku
 ```
 
-Open web application
+Open web application.
 
-```zsh:terminal
+```
 $ heroku open --remote heroku
 ```
