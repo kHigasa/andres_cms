@@ -37,33 +37,33 @@ $ git commit --allow-empty -m  'Merge develop'
 
 ## Deployment
 ### Local
-Reinstall frontend packages
+Reinstall frontend packages.
 
 ```
 $ yarn install
 ```
 
 ####Staging
-Precompile assets
+Precompile assets.
 
 ```
 $ bundle exec rails assets:precompile RAILS_ENV=staging
 ```
 
-Push
+Push to an origin repo.
 
 ```
 $ git push origin develop
 ```
 
 #### Production
-Precompile assets
+Precompile assets.
 
 ```
 $ bundle exec rails assets:precompile RAILS_ENV=production
 ```
 
-Push
+Push to an origin repo.
 
 ```
 $ git push origin master
@@ -71,86 +71,86 @@ $ git push origin master
 
 ### Heroku
 #### Staging
-Adjust database schema
+Adjust database schema.
 
 ```
 $ heroku run rails db:migrate --remote staging DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Readjust database schema
+Readjust database schema.
 
 ```
 $ heroku run rails db:migrate:reset --remote staging DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Precompile assets
+Precompile assets.
 
 ```
 $ heroku run rails assets:precompile --remote staging RAILS_ENV=production
 ```
 
-Compile webpacker
+Compile webpacker.
 
 ```
 $ heroku run rails webpacker:compile --remote staging RAILS_ENV=production
 ```
 
-Throw data into production environment
+Throw data into production environment.
 
 ```
 $ heroku run rails db:seed:production --remote staging RAILS_ENV=production
 ```
 
-Restart web server
+Restart web server.
 
 ```
 $ heroku restart --remote staging
 ```
 
-Open web application
+Open web application.
 
 ```
 $ heroku open --remote staging
 ```
 
 #### Production(heroku)
-Adjust database schema
+Adjust database schema.
 
 ```
 $ heroku run rails db:migrate --remote heroku DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Readjust database schema
+Readjust database schema.
 
 ```
 $ heroku run rails db:migrate:reset --remote heroku DISABLE_DATABASE_ENVIRONMENT_CHECK=1
 ```
 
-Precompile assets
+Precompile assets.
 
 ```
 $ heroku run rails assets:precompile --remote heroku RAILS_ENV=production
 ```
 
-Compile webpacker
+Compile webpacker.
 
 ```
 $ heroku run rails webpacker:compile --remote heroku RAILS_ENV=production
 ```
 
-Throw data into production environment
+Throw data into production environment.
 
 ```
 $ heroku run rails db:seed:production --remote heroku RAILS_ENV=production
 ```
 
-Restart web server
+Restart web server.
 
 ```
 $ heroku restart --remote heroku
 ```
 
-Open web application
+Open web application.
 
 ```
 $ heroku open --remote heroku

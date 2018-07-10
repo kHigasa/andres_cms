@@ -72,6 +72,8 @@ gem 'config'
 gem 'whenever'
 # To tell crawler
 gem 'roboto'
+# Monitor server
+gem 'newrelic_rpm'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
