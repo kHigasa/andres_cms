@@ -26,7 +26,7 @@ $ git commit --allow-empty -m  'Merge develop'
 1. Push to an origin repo.
 
 ```
-$ git commit --allow-empty -m  'Merge develop'
+$ git push origin merge/develop
 ```
 
 1. Make a pull request.
@@ -43,7 +43,7 @@ Reinstall frontend packages.
 $ yarn install
 ```
 
-####Staging
+#### Staging
 Precompile assets.
 
 ```
