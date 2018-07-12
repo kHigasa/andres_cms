@@ -15,6 +15,7 @@ class Supporter < ApplicationRecord
   validates :type, presence: true
   validates :image, presence: true
   mount_uploader :image, ImageUploader
+  store_in_background :image
   enumerize :type, in: { kyousann: 0, kouenn: 1, josei: 2 }
   # Not to rename type in ActiveRecord
   self.inheritance_column = :_type_disabled

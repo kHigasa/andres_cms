@@ -13,3 +13,5 @@ if Rails.env.production?
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
 end
+# For text garbling
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/

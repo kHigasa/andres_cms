@@ -15,4 +15,5 @@ class AboutItem < ApplicationRecord
                       numericality: { only_integer: true, greater_than: 0 }
 
   mount_uploader :image, ImageUploader
+  store_in_background :image
 end

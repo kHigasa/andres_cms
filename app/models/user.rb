@@ -41,6 +41,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   mount_uploader :image, ImageUploader
+  store_in_background :image
 
   # Override condition of authentication
   def self.find_first_by_auth_conditions(warden_conditions)

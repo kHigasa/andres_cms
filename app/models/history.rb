@@ -17,4 +17,5 @@ class History < ApplicationRecord
   validates :generation_code, presence: true, uniqueness: true
   validates :generation_name, presence: true
   mount_uploader :image, ImageUploader
+  store_in_background :image
 end
