@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  url        :string(255)
+#  image_tmp  :string(255)
 #
 
 class Supporter < ApplicationRecord
@@ -15,7 +16,7 @@ class Supporter < ApplicationRecord
   validates :type, presence: true
   validates :image, presence: true
   mount_uploader :image, ImageUploader
-  store_in_background :image
+  store_in_background :image if Rails.env.production?
   enumerize :type, in: { kyousann: 0, kouenn: 1, josei: 2 }
   # Not to rename type in ActiveRecord
   self.inheritance_column = :_type_disabled

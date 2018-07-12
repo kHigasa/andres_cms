@@ -9,6 +9,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  generation_code :string(255)
+#  image_tmp       :string(255)
 #
 
 require 'rails_helper'

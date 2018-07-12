@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  url        :string(255)
+#  image_tmp  :string(255)
 #
 
 FactoryBot.define do

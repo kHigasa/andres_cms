@@ -9,6 +9,7 @@
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  generation_code :string(255)
+#  image_tmp       :string(255)
 #
 
 class History < ApplicationRecord
@@ -17,5 +18,5 @@ class History < ApplicationRecord
   validates :generation_code, presence: true, uniqueness: true
   validates :generation_name, presence: true
   mount_uploader :image, ImageUploader
-  store_in_background :image
+  store_in_background :image if Rails.env.production?
 end
