@@ -1,6 +1,6 @@
 - if @supporters.find_by(type: :josei).present?
   .title.has-text-centered 助成
-  - @supporters.josei.each do |josei_supporter|
+  - @supporters.josei.order(sort_rank: :asc).each do |josei_supporter|
     - if josei_supporter.url.present?
       a href="#{josei_supporter.url}" target='_blank'
         = image_tag josei_supporter.image_url(:thumb)
@@ -28,7 +28,7 @@
 
 - if @supporters.find_by(type: :kouenn).present?
   .title.has-text-centered 後援
-  - @supporters.kouenn.each do |kouenn_supporter|
+  - @supporters.kouenn.order(sort_rank: :asc).each do |kouenn_supporter|
     - if kouenn_supporter.url.present?
       a href="#{kouenn_supporter.url}"
         = image_tag kouenn_supporter.image_url(:thumb)
@@ -56,7 +56,7 @@
 
 - if @supporters.find_by(type: :kyousann).present?
   .title.has-text-centered 協賛
-  - @supporters.kyousann.each do |kyousann_supporter|
+  - @supporters.kyousann.order(sort_rank: :asc).each do |kyousann_supporter|
     - if kyousann_supporter.url.present?
       a href="#{kyousann_supporter.url}" target='_blank'
         = image_tag kyousann_supporter.image_url(:thumb)

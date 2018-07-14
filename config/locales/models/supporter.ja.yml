@@ -21,3 +21,15 @@ ja:
           destroy:
             success: サポーターの削除を完了しました。
             failure: サポーターを削除できませんでした。
+          move_first:
+            success: タイプごとの並び順を最初へ移動しました。
+            failure:
+          move_previous:
+            success: タイプごとの並び順を前へ移動しました。
+            failure:
+          move_next:
+            success: タイプごとの並び順を次へ移動しました。
+            failure:
+          move_last:
+            success: タイプごとの並び順を最後へ移動しました。
+            failure:
