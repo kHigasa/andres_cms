@@ -7,19 +7,24 @@
     - else
       = image_tag josei_supporter.image_url(:thumb)
     - if current_user.present? && current_user.admin?
-      .dropdown.is-right.is-hoverable.is-pulled-right
+      .dropdown.is-right.is-hoverable.is-pulled-bottom
         .dropdown-trigger
         button.button[aria-haspopup='true' aria-controls='dropdown-menu']
           span= t('misc.operation')
           span.icon.is-small
             i.fa.fa-angle-down[aria-hidden='true']
-        #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-menu[role='menu']
           .dropdown-content
-            - if can? :edit, @supporter
+            - if can? :manage, @supporter
               = link_to t('misc.edit'), edit_supporter_path(josei_supporter), class: 'dropdown-item'
-            - if can? :destroy, @supporter
               = link_to t('misc.destroy'), supporter_path(josei_supporter), class: 'dropdown-item',
                         method: :delete, data: { confirm: '本当に削除しますか？' }
+              - unless josei_supporter.sort_rank == 1
+                = link_to t('misc.move_first'), move_first_supporter_path(josei_supporter), method: :patch, class: 'dropdown-item'
+                = link_to t('misc.move_previous'), move_previous_supporter_path(josei_supporter), method: :patch, class: 'dropdown-item'
+              - unless josei_supporter.sort_rank == Supporter.where(type: :josei).order(sort_rank: :asc).last.sort_rank
+                = link_to t('misc.move_next'), move_next_supporter_path(josei_supporter), method: :patch, class: 'dropdown-item'
+                = link_to t('misc.move_last'), move_last_supporter_path(josei_supporter), method: :patch, class: 'dropdown-item'
 
 - if @supporters.find_by(type: :kouenn).present?
   .title.has-text-centered 後援
@@ -30,19 +35,24 @@
     - else
       = image_tag kouenn_supporter.image_url(:thumb)
     - if current_user.present? && current_user.admin?
-      .dropdown.is-right.is-hoverable.is-pulled-right
+      .dropdown.is-right.is-hoverable.is-pulled-bottom
         .dropdown-trigger
         button.button[aria-haspopup='true' aria-controls='dropdown-menu']
           span= t('misc.operation')
           span.icon.is-small
             i.fa.fa-angle-down[aria-hidden='true']
-        #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-menu[role='menu']
           .dropdown-content
-            - if can? :edit, @supporter
+            - if can? :manage, @supporter
               = link_to t('misc.edit'), edit_supporter_path(kouenn_supporter), class: 'dropdown-item'
-            - if can? :destroy, @supporter
               = link_to t('misc.destroy'), supporter_path(kouenn_supporter), class: 'dropdown-item',
                         method: :delete, data: { confirm: '本当に削除しますか？' }
+              - unless kouenn_supporter.sort_rank == 1
+                = link_to t('misc.move_first'), move_first_supporter_path(kouenn_supporter), method: :patch, class: 'dropdown-item'
+                = link_to t('misc.move_previous'), move_previous_supporter_path(kouenn_supporter), method: :patch, class: 'dropdown-item'
+              - unless kouenn_supporter.sort_rank == Supporter.where(type: :kouenn).order(sort_rank: :asc).last.sort_rank
+                = link_to t('misc.move_next'), move_next_supporter_path(kouenn_supporter), method: :patch, class: 'dropdown-item'
+                = link_to t('misc.move_last'), move_last_supporter_path(kouenn_supporter), method: :patch, class: 'dropdown-item'
 
 - if @supporters.find_by(type: :kyousann).present?
   .title.has-text-centered 協賛
@@ -53,16 +63,21 @@
     - else
       = image_tag kyousann_supporter.image_url(:thumb)
     - if current_user.present? && current_user.admin?
-      .dropdown.is-right.is-hoverable.is-pulled-right
+      .dropdown.is-right.is-hoverable.is-pulled-bottom
         .dropdown-trigger
         button.button[aria-haspopup='true' aria-controls='dropdown-menu']
           span= t('misc.operation')
           span.icon.is-small
             i.fa.fa-angle-down[aria-hidden='true']
-        #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-menu[role='menu']
           .dropdown-content
-            - if can? :edit, @supporter
+            - if can? :manage, @supporter
               = link_to t('misc.edit'), edit_supporter_path(kyousann_supporter), class: 'dropdown-item'
-            - if can? :destroy, @supporter
               = link_to t('misc.destroy'), supporter_path(kyousann_supporter), class: 'dropdown-item',
                         method: :delete, data: { confirm: '本当に削除しますか？' }
+              - unless kyousann_supporter.sort_rank == 1
+                = link_to t('misc.move_first'), move_first_supporter_path(kyousann_supporter), method: :patch, class: 'dropdown-item'
+                = link_to t('misc.move_previous'), move_previous_supporter_path(kyousann_supporter), method: :patch, class: 'dropdown-item'
+              - unless kyousann_supporter.sort_rank == Supporter.where(type: :kyousann).order(sort_rank: :asc).last.sort_rank
+                = link_to t('misc.move_next'), move_next_supporter_path(kyousann_supporter), method: :patch, class: 'dropdown-item'
+                = link_to t('misc.move_last'), move_last_supporter_path(kyousann_supporter), method: :patch, class: 'dropdown-item'

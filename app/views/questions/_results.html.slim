@@ -7,7 +7,7 @@
           span= t('misc.operation')
           span.icon.is-small
             i.fa.fa-angle-down[aria-hidden='true']
-        #dropdown-menu.dropdown-menu[role='menu']
+        .dropdown-menu[role='menu']
           .dropdown-content
             - if can? :edit, @question
               = link_to t('misc.edit'), edit_question_path(question), class: 'dropdown-item'

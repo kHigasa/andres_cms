@@ -15,6 +15,8 @@
 class Supporter < ApplicationRecord
   extend Enumerize
   validates :type, presence: true
+  validates :sort_rank, presence: true, uniqueness: { scope: :post_id },
+                        numericality: { only_integer: true, greater_than: 0 }
   validates :image, presence: true
   mount_uploader :image, ImageUploader
   store_in_background :image if Rails.env.production?

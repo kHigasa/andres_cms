@@ -6,6 +6,7 @@ ja:
       supporter:
         id:
         type: タイプ
+        sort_rank: タイプごとの並び順
         image: ロゴ
         url: URL
     flash:
