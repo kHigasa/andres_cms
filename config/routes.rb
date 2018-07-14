@@ -70,4 +70,7 @@ Rails.application.routes.draw do
 
   resources :contacts, only: %i[new create]
   get 'contact', to: 'contacts#new'
+
+  get '*not_found', to: 'application#routing_error'
+  post '*not_found', to: 'application#routing_error'
 end
