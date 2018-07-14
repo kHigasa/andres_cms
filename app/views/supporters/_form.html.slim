@@ -7,10 +7,16 @@
 
 = form_with(model: @supporter, local: true, class: 'control') do |f|
   .field.is-horizontal
-    .field-label= f.label :type, class: 'label'
+    .field-label= f.label :type, class: 'label', require: true
     .field-body
       .field
        p.control.select= f.select :type, Supporter.type.options, prompt: true, class: 'input'
+
+  .field.is-horizontal
+    .field-label= f.label :sort_rank, class: 'label', require: true
+    .field-body
+      .field
+        p.control= f.number_field :sort_rank, class: 'input'
 
   .field.is-horizontal
     .field-label= f.label :image, class: 'label'

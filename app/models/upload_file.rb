@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  history_id :integer
+#  file_tmp   :string(255)
 #
 
 class UploadFile < ApplicationRecord
@@ -15,4 +16,5 @@ class UploadFile < ApplicationRecord
   validates :name, presence: true
   validates :file, presence: true
   mount_uploader :file, FileUploader
+  store_in_background :file if Rails.env.production?
 end

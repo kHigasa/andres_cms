@@ -54,7 +54,14 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :supporters, only: %i[index new edit create update destroy]
+  resources :supporters, only: %i[index new edit create update destroy] do
+    member do
+      patch 'move_first'
+      patch 'move_previous'
+      patch 'move_next'
+      patch 'move_last'
+    end
+  end
 
   resources :questions, only: %i[index new edit create update destroy]
   get 'faq', to: 'questions#index'
@@ -63,4 +70,7 @@ Rails.application.routes.draw do
 
   resources :contacts, only: %i[new create]
   get 'contact', to: 'contacts#new'
+
+  get '*not_found', to: 'application#routing_error'
+  post '*not_found', to: 'application#routing_error'
 end
