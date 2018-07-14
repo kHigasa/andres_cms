@@ -11,7 +11,7 @@ AboutItem.destroy_all
             ''
           end
   AboutItem.create(
-    sort_id: i,
+    sort_rank: i,
     image: image,
     description: Faker::Lorem.sentence
   )

@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2018_07_12_133628) do
 
   create_table "about_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "sort_id"
+    t.integer "sort_rank"
     t.string "image"
     t.text "description"
     t.datetime "created_at", null: false
@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 2018_07_12_133628) do
   end
 
   create_table "supporters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "sort_rank"
     t.integer "type"
     t.string "image"
     t.datetime "created_at", null: false

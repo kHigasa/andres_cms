@@ -3,7 +3,7 @@
 # Table name: about_items
 #
 #  id          :bigint(8)        not null, primary key
-#  sort_id     :integer
+#  sort_rank   :integer
 #  image       :string(255)
 #  description :text(65535)
 #  created_at  :datetime         not null

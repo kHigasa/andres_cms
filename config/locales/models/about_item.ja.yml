@@ -5,7 +5,7 @@ ja:
     attributes:
       about_item:
         id:
-        sort_id: 並び順
+        sort_rank: 並び順
         image: 画像
         description: 文章
     flash:
