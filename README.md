@@ -155,3 +155,11 @@ Open web application.
 ```
 $ heroku open --remote heroku
 ```
+
+## Tips
+### When you fail to precompile assets
+1. Remove precompiled assets files from local.
+
+1. Precompile assets.
+
+1. Add, Commit, Push to an origin repo.
