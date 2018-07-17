@@ -8,6 +8,7 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  history_id :integer
+#  file_tmp   :string(255)
 #
 
 FactoryBot.define do

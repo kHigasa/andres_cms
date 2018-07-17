@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  post_id     :integer
+#  image_tmp   :string(255)
 #
 
 class PostItemSerializer < ActiveModel::Serializer

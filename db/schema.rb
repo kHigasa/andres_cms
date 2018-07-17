@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_07_07_132031) do
+ActiveRecord::Schema.define(version: 2018_07_12_133628) do
 
   create_table "about_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "sort_id"
+    t.integer "sort_rank"
     t.string "image"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_tmp"
   end
 
   create_table "activities", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -50,6 +51,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_132031) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "generation_code"
+    t.string "image_tmp"
     t.index ["generation_code"], name: "index_histories_on_generation_code"
   end
 
@@ -60,6 +62,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_132031) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "post_id"
+    t.string "image_tmp"
     t.index ["post_id"], name: "index_post_items_on_post_id"
   end
 
@@ -91,11 +94,13 @@ ActiveRecord::Schema.define(version: 2018_07_07_132031) do
   end
 
   create_table "supporters", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "sort_rank"
     t.integer "type"
     t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "url"
+    t.string "image_tmp"
   end
 
   create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,6 +117,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_132031) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "history_id"
+    t.string "file_tmp"
     t.index ["history_id"], name: "index_upload_files_on_history_id"
   end
 
@@ -135,6 +141,7 @@ ActiveRecord::Schema.define(version: 2018_07_07_132031) do
     t.datetime "locked_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "image_tmp"
     t.string "provider"
     t.string "uid"
     t.boolean "admin", default: false, null: false

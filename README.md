@@ -26,7 +26,7 @@ $ git commit --allow-empty -m  'Merge develop'
 1. Push to an origin repo.
 
 ```
-$ git commit --allow-empty -m  'Merge develop'
+$ git push origin merge/develop
 ```
 
 1. Make a pull request.
@@ -43,7 +43,7 @@ Reinstall frontend packages.
 $ yarn install
 ```
 
-####Staging
+#### Staging
 Precompile assets.
 
 ```
@@ -155,3 +155,11 @@ Open web application.
 ```
 $ heroku open --remote heroku
 ```
+
+## Tips
+### When you fail to precompile assets
+1. Remove precompiled assets files from local.
+
+1. Precompile assets.
+
+1. Add, Commit, Push to an origin repo.

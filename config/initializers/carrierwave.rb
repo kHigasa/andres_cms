@@ -2,8 +2,8 @@ if Rails.env.production?
   CarrierWave.configure do |config|
     config.fog_credentials = {
       provider: 'AWS',
-      aws_access_key_id: 'AKIAI5QGWJYRRGBQ436A',
-      aws_secret_access_key: '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',
+      aws_access_key_id: ENV['ACCESS_KEY_ID'],
+      aws_secret_access_key: ENV['SECRET_ACCESS_KEY'],
       region: 'ap-northeast-1'
     }
 
@@ -13,3 +13,5 @@ if Rails.env.production?
     config.cache_dir = "#{Rails.root}/tmp/uploads"
   end
 end
+# For text garbling
+CarrierWave::SanitizedFile.sanitize_regexp = /[^[:word:]\.\-\+]/

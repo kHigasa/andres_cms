@@ -22,6 +22,7 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  image_tmp              :string(255)
 #  provider               :string(255)
 #  uid                    :string(255)
 #  admin                  :boolean          default(FALSE), not null
@@ -42,6 +43,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   mount_uploader :image, ImageUploader
+  store_in_background :image if Rails.env.production?
 
   # Override condition of authentication
   def self.find_first_by_auth_conditions(warden_conditions)

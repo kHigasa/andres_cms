@@ -6,6 +6,7 @@ class FileUploader < CarrierWave::Uploader::Base
   # Choose what kind of storage to use for this uploader:
   if Rails.env.production?
     storage :fog
+    include ::CarrierWave::Backgrounder::Delay
   else
     storage :file
   end

@@ -9,6 +9,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  post_id     :integer
+#  image_tmp   :string(255)
 #
 
 class PostItem < ApplicationRecord
@@ -17,4 +18,5 @@ class PostItem < ApplicationRecord
   validates :sort_rank, presence: true, uniqueness: { scope: :post_id },
                         numericality: { only_integer: true, greater_than: 0 }
   mount_uploader :image, ImageUploader
+  store_in_background :image if Rails.env.production?
 end
