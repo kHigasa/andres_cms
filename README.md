@@ -86,19 +86,19 @@ $ heroku run rails db:migrate:reset --remote staging DISABLE_DATABASE_ENVIRONMEN
 Precompile assets.
 
 ```
-$ heroku run rails assets:precompile --remote staging RAILS_ENV=production
+$ heroku run rails assets:precompile --remote staging RAILS_ENV=staging
 ```
 
 Compile webpacker.
 
 ```
-$ heroku run rails webpacker:compile --remote staging RAILS_ENV=production
+$ heroku run rails webpacker:compile --remote staging RAILS_ENV=staging
 ```
 
-Throw data into production environment.
+Throw data into staging environment.
 
 ```
-$ heroku run rails db:seed:production --remote staging RAILS_ENV=production
+$ heroku run rails db:seed:production --remote staging RAILS_ENV=stsging
 ```
 
 Restart web server.
