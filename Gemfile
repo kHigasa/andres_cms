@@ -75,7 +75,7 @@ gem 'roboto'
 # Monitor server
 gem 'newrelic_rpm'
 # Async upload
-gem 'carrierwave_backgrounder', github: 'lardawge/carrierwave_backgrounder'
+gem 'carrierwave_backgrounder', github: 'leoduquesnel/carrierwave_backgrounder'
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> anywhere in the code.
