@@ -16,5 +16,5 @@ class UploadFile < ApplicationRecord
   validates :name, presence: true
   validates :file, presence: true
   mount_uploader :file, FileUploader
-  store_in_background :file if Rails.env.production?
+  # store_in_background :file if Rails.env.production?
 end
