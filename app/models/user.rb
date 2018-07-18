@@ -43,7 +43,7 @@ class User < ApplicationRecord
   attr_accessor :login
 
   mount_uploader :image, ImageUploader
-  store_in_background :image if Rails.env.production?
+  # store_in_background :image if Rails.env.production?
 
   # Override condition of authentication
   def self.find_first_by_auth_conditions(warden_conditions)

@@ -19,7 +19,7 @@ class Supporter < ApplicationRecord
                         numericality: { only_integer: true, greater_than: 0 }
   validates :image, presence: true
   mount_uploader :image, ImageUploader
-  store_in_background :image if Rails.env.production?
+  # store_in_background :image if Rails.env.production?
   enumerize :type, in: { kyousann: 0, kouenn: 1, josei: 2 }
   # Not to rename type in ActiveRecord
   self.inheritance_column = :_type_disabled

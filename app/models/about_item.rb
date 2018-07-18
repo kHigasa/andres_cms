@@ -13,8 +13,8 @@
 
 class AboutItem < ApplicationRecord
   validates :sort_rank, presence: true, uniqueness: true,
-                      numericality: { only_integer: true, greater_than: 0 }
+                        numericality: { only_integer: true, greater_than: 0 }
 
   mount_uploader :image, ImageUploader
-  store_in_background :image if Rails.env.production?
+  # store_in_background :image if Rails.env.production?
 end
