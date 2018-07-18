@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.new(user_params)
+    @user = User.new(user_params, :remove_image)
     if @user.errors.empty? && @user.save
       redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.create.success')
     else
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/:id
   def update
-    if @user.errors.empty? && @user.update(user_params)
+    if @user.errors.empty? && @user.update(user_params, :remove_image)
       redirect_to users_path, notice: I18n.t('activerecord.flash.user.actions.update.success')
     else
       render :edit, alert: I18n.t('activerecord.flash.user.actions.update.failure')
@@ -72,7 +72,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :image, :introduction, :description, :image_cache, :remove_image)
+    params.require(:user).permit(:email, :username, :image, :introduction, :description, :image_cache)
   end
 
   def set_user
