@@ -8,7 +8,7 @@ class ContactsController < ApplicationController
   def create
     @contact = Contact.new(contact_params)
     if @contact.errors.empty? && @contact.save
-      ContactMailer.send_email(@contact).deliver_later
+      ContactMailer.send_email(@contact).deliver_now
       redirect_to about_path, notice: I18n.t('activerecord.flash.contact.actions.create.success')
     else
       render :new, alert: I18n.t('activerecord.flash.contact.actions.create.failure')
