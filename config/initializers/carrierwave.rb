@@ -10,7 +10,7 @@ if Rails.env.production?
     config.fog_directory = 'andrescms'
     config.cache_storage = :fog
     config.asset_host = 'https://s3.ap-northeast-1.amazonaws.com/andrescms'
-    config.cache_dir = "#{Rails.root}/tmp/uploads"
+    config.cache_dir = Rails.root.join('tmp', 'uploads')
   end
 end
 # For text garbling
