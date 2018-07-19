@@ -5,6 +5,8 @@ Supporter.destroy_all
   i += 1
   type = if (i % 3).zero?
            :kouenn
+         elsif (i % 7).zero?
+           :josei
          else
            :kyousann
          end
@@ -15,6 +17,7 @@ Supporter.destroy_all
           end
   Supporter.create!(
     type: type,
+    sort_rank: i,
     image: image
   )
 end

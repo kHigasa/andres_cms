@@ -7,10 +7,10 @@
 
 = form_with(model: @about_item, local: true, class: 'control') do |f|
   .field.is-horizontal
-    .field-label= f.label :sort_id, class: 'label', require: true
+    .field-label= f.label :sort_rank, class: 'label', require: true
     .field-body
       .field
-        p.control= f.number_field :sort_id, class: 'input'
+        p.control= f.number_field :sort_rank, class: 'input'
 
   .field.is-horizontal
     .field-label= f.label :image, class: 'label'

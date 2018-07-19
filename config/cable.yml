@@ -4,7 +4,12 @@ development:
 test:
   adapter: async
 
+staging:
+  adapter: sidekiq
+  url: redis://
+  channel_prefix: andres_cms_staging
+
 production:
-  adapter: redis
-  url: redis://localhost:6379/1
+  adapter: sidekiq
+  url: redis://
   channel_prefix: andres_cms_production

@@ -26,7 +26,7 @@ table.table.is-fullwidth.is-striped
                 span= t('misc.operation')
                 span.icon.is-small
                   i.fa.fa-angle-down[aria-hidden='true']
-            #dropdown-menu.dropdown-menu[role='menu']
+            .dropdown-menu[role='menu']
               .dropdown-content
                 - if can? :edit, @upload_file
                   = link_to t('misc.edit'), edit_history_upload_file_path(@history, upload_file), class: 'dropdown-item'

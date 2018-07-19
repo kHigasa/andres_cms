@@ -22,6 +22,7 @@
 #  locked_at              :datetime
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  image_tmp              :string(255)
 #  provider               :string(255)
 #  uid                    :string(255)
 #  admin                  :boolean          default(FALSE), not null
