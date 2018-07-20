@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
     rescue_from Exception,                        with: :_render_500
     rescue_from ActiveRecord::RecordNotFound,     with: :_render_404
     rescue_from ActionController::RoutingError,   with: :_render_404
-    rescue_from OpenURI::HTTPError,               with: :_render_503
   end
 
   def routing_error
@@ -34,16 +33,6 @@ class ApplicationController < ActionController::Base
       render json: { error: '500 error' }, status: :internal_server_error
     else
       render 'errors/500', status: :internal_server_error
-    end
-  end
-
-  def _render_503(error = nil)
-    logger.error "Rendering 503 with exception: #{error.message}" if error
-
-    if request.format.to_sym == :json
-      render json: { error: '503 error' }, status: :service_unavailable
-    else
-      render 'errors/503', status: :service_unavailable
     end
   end
 
