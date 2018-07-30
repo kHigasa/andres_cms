@@ -2,6 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   add_breadcrumb I18n.t('misc.home'), :root_path
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :forward_to_domain_if_heroku_subdomain
 
   # Error handling
   unless Rails.env.development?
@@ -33,6 +34,12 @@ class ApplicationController < ActionController::Base
       render json: { error: '500 error' }, status: :internal_server_error
     else
       render 'errors/500', status: :internal_server_error
+    end
+  end
+
+  def forward_to_domain_if_heroku_subdomain
+    if request.host == 'prd-andres.herokuapp.com'
+      redirect_to 'https://www.waavgeil.jp' , status: 301
     end
   end
 
